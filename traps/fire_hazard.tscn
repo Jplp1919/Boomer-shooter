@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dbr26npmfin"]
+
+[ext_resource type="PackedScene" uid="uid://ctpkbn78rss5" path="res://effects/fire.tscn" id="1_6plqm"]
+[ext_resource type="Script" path="res://traps/fire_hazard.gd" id="1_8aikn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d5m2h"]
+height = 1.66125
+
+[node name="FireHazard" type="Node3D"]
+script = ExtResource("1_8aikn")
+
+[node name="Fire" parent="." instance=ExtResource("1_6plqm")]
+
+[node name="FireArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FireArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736349, 0)
+shape = SubResource("CapsuleShape3D_d5m2h")

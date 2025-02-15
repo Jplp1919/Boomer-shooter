@@ -57,7 +57,6 @@ func switch_to_weapon_slot(slot_ind: int)->bool:
 	return true
 
 func update_animation(velocity: Vector3, grounded: bool):
-	print("playing")
 	if cur_weapon is Weapon and !cur_weapon.is_idle():
 		animation_player.play("RESET")
 	elif !grounded or velocity.length() < 5.0:

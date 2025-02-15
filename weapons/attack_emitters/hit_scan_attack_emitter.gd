@@ -1,10 +1,14 @@
 extends AttackEmitter
 
 @export var only_hit_enviroment = false
+@export var is_sword = false
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
 
+func _ready() -> void:
+	if is_sword:
+		bullet_hit_effect = preload("res://effects/sword_hit_effect.tscn")
 
 func set_bodies_to_exclude (bodies:Array):
 	super(bodies)

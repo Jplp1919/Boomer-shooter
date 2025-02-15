@@ -1,5 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cigye7bt2yjda"]
 
+[ext_resource type="Texture2D" uid="uid://ott16po5nxwf" path="res://effects/assets/slash_vertical.png" id="1_itbq7"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiy1v"]
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -54,12 +56,11 @@ rings = 3
 
 [sub_resource type="QuadMesh" id="QuadMesh_0qi0k"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nlr02"]
-
-[node name="BulletHitEffect" type="Node3D"]
+[node name="SwordHitEffect" type="Node3D"]
 
 [node name="SparkParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_hiy1v")
+emitting = false
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
@@ -67,7 +68,9 @@ process_material = SubResource("ParticleProcessMaterial_asjx0")
 draw_pass_1 = SubResource("QuadMesh_pen38")
 
 [node name="SmokeParticles" type="GPUParticles3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_8g5p1")
+emitting = false
 amount = 16
 lifetime = 1.2
 one_shot = true
@@ -82,7 +85,7 @@ mesh = SubResource("QuadMesh_0qi0k")
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(0.999999, 0.000231119, 0.00133448, 0.00133458, -0.000405271, -0.999999, -0.00023057, 1, -0.000405583, 0, 0, 0)
 size = Vector3(0.1, 0.1, 0.1)
-texture_albedo = SubResource("CompressedTexture2D_nlr02")
+texture_albedo = ExtResource("1_itbq7")
 modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
 distance_fade_enabled = true
 distance_fade_begin = 10.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
-[ext_resource type="PackedScene" uid="uid://ctpkbn78rss5" path="res://effects/fire.tscn" id="3_11odl"]
+[ext_resource type="PackedScene" uid="uid://c5dbr26npmfin" path="res://traps/fire_hazard.tscn" id="3_m0t8l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2ag3"]
 albedo_texture = ExtResource("1_l6ir3")
@@ -41,5 +41,5 @@ environment = SubResource("Environment_4fmar")
 transform = Transform3D(1, 0, 0, 0, 0.116723, 0.993165, 0, -0.993165, 0.116723, 0, 40.5595, 32.0793)
 shadow_enabled = true
 
-[node name="Fire" parent="." instance=ExtResource("3_11odl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4)
+[node name="FireHazard" parent="." instance=ExtResource("3_m0t8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)

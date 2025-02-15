@@ -3,6 +3,8 @@ extends CharacterBody3D
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var character_mover: Node3D = $CharacterMover
 @onready var weapon_manager: Node3D = $Camera3D/WeaponManager
+@onready var health_manager: Node3D = $HealthManager
+
 
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
@@ -24,6 +26,7 @@ const HOTKEYS ={
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	health_manager.died.connect(kill)
 
 func _input(event):
 	if dead:
@@ -63,3 +66,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		character_mover.jump()
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
+
+func kill():
+	dead = true
+	character_mover.set_move_dir(Vector3.ZERO)
+	#death_screen.show_death_screen()
+
+func hurt(damege_data : DamageData):
+	health_manager.hurt(damege_data)

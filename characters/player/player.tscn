@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=19 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
 [ext_resource type="PackedScene" uid="uid://cgec1exw4yug3" path="res://weapons/sword.tscn" id="3_jwqcs"]
 [ext_resource type="PackedScene" uid="uid://bnj6gurbksqw2" path="res://characters/character_mover.tscn" id="3_v7rqy"]
 [ext_resource type="PackedScene" uid="uid://cp0nng4pkm38p" path="res://weapons/pistol.tscn" id="5_3pw2f"]
+[ext_resource type="PackedScene" uid="uid://c5g6e0iilulgi" path="res://characters/health_manager.tscn" id="6_0vft6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
@@ -88,6 +89,33 @@ _data = {
 "attack": SubResource("Animation_rq7td")
 }
 
+[sub_resource type="Animation" id="Animation_iixwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("test_pistol:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.46542, -0.486583, -0.823569)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("test_pistol:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_d47ri"]
 resource_name = "attack"
 length = 0.4
@@ -114,33 +142,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -3.14159, 0), Vector3(-0.743091, -3.14159, -1.38731e-07), Vector3(-1.02076, -3.14159, -2.17912e-07), Vector3(0, -3.14159, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_iixwj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test_pistol:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.46542, -0.486583, -0.823569)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("test_pistol:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1hs4o"]
@@ -251,6 +252,9 @@ libraries = {
 "": SubResource("AnimationLibrary_ea7ta")
 }
 
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter" index="1"]
+is_sword = true
+
 [node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("5_3pw2f")]
 animation_player = NodePath("Graphics/PistolAnimationPlayer")
 damage = 10
@@ -258,7 +262,7 @@ ammo = 200
 attack_rate = 0.1
 
 [node name="test_pistol" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics" index="0"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.46542, -0.486583, -0.823569)
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.46542, -0.486583, -0.823569)
 
 [node name="PistolAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics" index="1"]
 libraries = {
@@ -269,6 +273,9 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_n3ecu")
 }
+
+[node name="HealthManager" parent="." instance=ExtResource("6_0vft6")]
+verbose = true
 
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]
 
