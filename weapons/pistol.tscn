@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp0nng4pkm38p"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_ji2d4"]
+[ext_resource type="PackedScene" uid="uid://d4i3dac64lfmm" path="res://weapons/assets/test_pistol.glb" id="2_35q6t"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="3_t0gkb"]
+
+[node name="Pistol" instance=ExtResource("1_ji2d4")]
+
+[node name="test_pistol" parent="Graphics" index="0" instance=ExtResource("2_35q6t")]
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_t0gkb")]

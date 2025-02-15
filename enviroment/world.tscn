@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4op4ge3fht3t"]
+
+[ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
+[ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
+[ext_resource type="PackedScene" uid="uid://ctpkbn78rss5" path="res://effects/fire.tscn" id="3_11odl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2ag3"]
+albedo_texture = ExtResource("1_l6ir3")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t6rj4"]
+
+[sub_resource type="Sky" id="Sky_sfspi"]
+sky_material = SubResource("ProceduralSkyMaterial_t6rj4")
+
+[sub_resource type="Environment" id="Environment_4fmar"]
+background_mode = 2
+sky = SubResource("Sky_sfspi")
+
+[node name="World" type="Node3D"]
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_n2ag3")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Wall" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6587, 2.06657, -6.2337)
+use_collision = true
+size = Vector3(6.16846, 6.79758, 4.06055)
+
+[node name="Player" parent="." instance=ExtResource("2_uorke")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4fmar")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.116723, 0.993165, 0, -0.993165, 0.116723, 0, 40.5595, 32.0793)
+shadow_enabled = true
+
+[node name="Fire" parent="." instance=ExtResource("3_11odl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4)
