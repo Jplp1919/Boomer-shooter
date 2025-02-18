@@ -20,6 +20,7 @@ func fire():
 	ray_cast_3d.force_raycast_update()
 	if ray_cast_3d.is_colliding():
 		var can_hurt = ray_cast_3d.get_collider().has_method("hurt")
+		print(can_hurt)
 		if can_hurt and only_hit_enviroment:
 			pass
 		elif can_hurt:

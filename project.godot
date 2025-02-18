@@ -81,3 +81,6 @@ slide={
 
 3d_physics/layer_1="Enviroment"
 3d_physics/layer_2="Characters"
+3d_physics/layer_3="Hitboxes"
+3d_physics/layer_4="Gibs"
+3d_physics/layer_5="Pickups"

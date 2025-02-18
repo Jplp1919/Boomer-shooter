@@ -212,6 +212,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 6
+collision_mask = 3
 script = ExtResource("1_nse8j")
 
 [node name="BodyShape" type="CollisionShape3D" parent="."]
