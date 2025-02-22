@@ -4,7 +4,6 @@ extends CharacterBody3D
 @onready var health_manager: Node3D = $HealthManager 
 
 func _ready():
-	print("ready")
 	var hitboxes = find_children("*", "HitBox")
 	for hitbox in hitboxes:
 		hitbox.on_hurt.connect(health_manager.hurt)

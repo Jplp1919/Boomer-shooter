@@ -3,8 +3,8 @@
 [ext_resource type="Shader" uid="uid://bx73kbmtmnrng" path="res://effects/shaders/fire.tres" id="1_4bj4b"]
 [ext_resource type="Texture2D" uid="uid://b5tetv3868ab7" path="res://effects/assets/fire1.png" id="2_dnipc"]
 [ext_resource type="Texture2D" uid="uid://5xv1br3pnvom" path="res://effects/assets/voronoi.png" id="2_s61xs"]
-[ext_resource type="Texture2D" uid="uid://bry4l41k3hh0h" path="res://effects/assets/fire2.png" id="4_88x18"]
-[ext_resource type="Texture2D" uid="uid://d4mjb8xyptx17" path="res://effects/assets/smoke.png" id="5_xjorn"]
+[ext_resource type="Texture2D" uid="uid://cg2j6cblkjj7y" path="res://effects/assets/fire2 pixelated.png" id="4_7d1ow"]
+[ext_resource type="Texture2D" uid="uid://x1626kxtkjer" path="res://effects/assets/smoke pixelated.png" id="5_mtw8g"]
 [ext_resource type="Shader" uid="uid://72fb0i3eqxit" path="res://effects/shaders/simple_particles.tres" id="6_0w7l3"]
 [ext_resource type="Texture2D" uid="uid://batjpsryggttx" path="res://effects/assets/flare2.png" id="7_er2j1"]
 
@@ -29,7 +29,7 @@ shader = ExtResource("1_4bj4b")
 shader_parameter/DissolveTiling = Vector2(1, 1)
 shader_parameter/DissolveSpeed = Vector2(0, 0)
 shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTex = ExtResource("4_88x18")
+shader_parameter/MainTex = ExtResource("4_7d1ow")
 shader_parameter/DisolveTexture = ExtResource("2_s61xs")
 
 [sub_resource type="Curve" id="Curve_f4lc7"]
@@ -60,7 +60,7 @@ shader = ExtResource("1_4bj4b")
 shader_parameter/DissolveTiling = Vector2(1, 1)
 shader_parameter/DissolveSpeed = Vector2(0, 0)
 shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTex = ExtResource("5_xjorn")
+shader_parameter/MainTex = ExtResource("5_mtw8g")
 shader_parameter/DisolveTexture = ExtResource("2_s61xs")
 
 [sub_resource type="Gradient" id="Gradient_caiau"]

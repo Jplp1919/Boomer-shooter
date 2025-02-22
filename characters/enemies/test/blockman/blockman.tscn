@@ -1,31 +1,42 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7we1esb1ntri"]
 
 [ext_resource type="PackedScene" uid="uid://na35hdwlh1ib" path="res://characters/enemies/enemy.tscn" id="1_b502g"]
-[ext_resource type="PackedScene" uid="uid://n2763pkiw5x6" path="res://characters/enemies/test/blockman/blockman001.glb" id="2_o0lwj"]
-[ext_resource type="Script" path="res://characters/hit_box.gd" id="3_oo8q8"]
+[ext_resource type="PackedScene" uid="uid://dkmkfscoljnxu" path="res://characters/enemies/test/blockman/blockman001.glb" id="2_o0lwj"]
+[ext_resource type="PackedScene" uid="uid://d435dfdhj4h6" path="res://characters/hit_box.tscn" id="3_gj6bx"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vjip7"]
-radius = 0.796545
-height = 5.03573
+[sub_resource type="SphereShape3D" id="SphereShape3D_7fcph"]
+radius = 2.22408
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_np4rp"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hv807"]
+radius = 1.41491
+height = 8.68344
 
 [node name="Blockman" instance=ExtResource("1_b502g")]
 
 [node name="blockman001" parent="Graphics" index="0" instance=ExtResource("2_o0lwj")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.25901, 0)
+transform = Transform3D(0.205423, 0, 0, 0, 0.205423, 0, 0, 0, 0.205423, 0, 0, 0)
 
-[node name="Body" type="Area3D" parent="Graphics/blockman001" index="10"]
-script = ExtResource("3_oo8q8")
+[node name="head" type="Node3D" parent="Graphics/blockman001" index="10"]
+transform = Transform3D(0.199496, 0, 0, 0, 0.199496, 0, 0, 0, 0.199496, 0, 0.00990373, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Graphics/blockman001/Body" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.39261, 0)
-shape = SubResource("CapsuleShape3D_vjip7")
-
-[node name="Head" type="Area3D" parent="Graphics/blockman001" index="11"]
-script = ExtResource("3_oo8q8")
+[node name="HitBox" parent="Graphics/blockman001/head" index="0" instance=ExtResource("3_gj6bx")]
 weak_spot = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Graphics/blockman001/Head" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57653, 0)
-shape = SubResource("SphereShape3D_np4rp")
+[node name="CollisionShape3D" parent="Graphics/blockman001/head/HitBox" index="0"]
+transform = Transform3D(0.918771, 0, 0, 0, 0.918771, 0, 0, 0, 0.918771, -0.0268887, 34.265, 0.298732)
+shape = SubResource("SphereShape3D_7fcph")
+
+[node name="body" type="Node3D" parent="Graphics/blockman001" index="11"]
+transform = Transform3D(0.199496, 0, 0, 0, 0.199496, 0, 0, 0, 0.199496, 0, 0.00990373, 0)
+
+[node name="HitBox" parent="Graphics/blockman001/body" index="0" instance=ExtResource("3_gj6bx")]
+
+[node name="CollisionShape3D" parent="Graphics/blockman001/body/HitBox" index="0"]
+transform = Transform3D(3.65689, 0, 0, 0, 3.65689, 0, 0, 0, 3.65689, -0.0367745, 16.4649, -0.532401)
+shape = SubResource("CapsuleShape3D_hv807")
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.740131, 0)
+
+[editable path="Graphics/blockman001/head/HitBox"]
+[editable path="Graphics/blockman001/body/HitBox"]

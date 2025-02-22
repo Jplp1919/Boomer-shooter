@@ -2,6 +2,7 @@ class_name Weapon
 
 extends Node3D
 
+
 @export var  animation_player : AnimationPlayer
 @onready var attack_emmiter: AttackEmitter = $AttackEmitter
 @onready var fire_point: Node3D = %FirePoint
@@ -51,7 +52,6 @@ func attack(input_just_pressed:bool, input_held:bool):
 	animation_player.stop()
 	animation_player.play("attack")
 	fired.emit()
-	ammo_updated.emit(ammo, max_ammo)
 	if has_node("Graphics/MuzzleFlash"):
 		$Graphics/MuzzleFlash.flash()
 

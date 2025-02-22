@@ -4,3 +4,6 @@
 
 [node name="HealthManager" type="Node3D"]
 script = ExtResource("1_sk6do")
+
+[node name="BloodRayCast" type="RayCast3D" parent="."]
+enabled = false

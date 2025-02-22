@@ -46,4 +46,4 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)
 
 [node name="Blockman" parent="." instance=ExtResource("4_m06hg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45592, -0.0346615, -3.54287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.454102, 0.22529, -2.16843)

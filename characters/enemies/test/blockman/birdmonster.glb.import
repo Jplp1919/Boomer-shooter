@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkmkfscoljnxu"
-path="res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"
+uid="uid://bfy3v0slti517"
+path="res://.godot/imported/birdmonster.glb-0addb90d77abdf8fa6c26097280ce132.scn"
 
 [deps]
 
-source_file="res://characters/enemies/test/blockman/blockman001.glb"
-dest_files=["res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"]
+source_file="res://characters/enemies/test/blockman/birdmonster.glb"
+dest_files=["res://.godot/imported/birdmonster.glb-0addb90d77abdf8fa6c26097280ce132.scn"]
 
 [params]
 

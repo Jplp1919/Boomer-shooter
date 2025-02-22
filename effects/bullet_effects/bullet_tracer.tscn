@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfjq7j3gcufdc"]
+
+[ext_resource type="Script" path="res://effects/bullet_effects/bullet_tracer.gd" id="1_p2etc"]
+
+[sub_resource type="Gradient" id="Gradient_byakl"]
+offsets = PackedFloat32Array(0.0425532, 0.202128, 0.797872, 1)
+colors = PackedColorArray(0.552941, 0.4, 0, 0, 0.554622, 0.400689, 3.85046e-07, 1, 0.9459, 0.693166, 0, 1, 0.945098, 0.694118, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qqbwt"]
+gradient = SubResource("Gradient_byakl")
+height = 256
+fill_from = Vector2(0.556338, 1)
+fill_to = Vector2(0.521127, 0.0176056)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbpac"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("GradientTexture2D_qqbwt")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_qqbwt")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_cm3ga"]
+material = SubResource("StandardMaterial3D_mbpac")
+size = 0.013
+sections = 2
+section_length = 0.5
+section_segments = 1
+
+[node name="BulletTracer" type="Node3D"]
+script = ExtResource("1_p2etc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.504733)
+mesh = SubResource("RibbonTrailMesh_cm3ga")

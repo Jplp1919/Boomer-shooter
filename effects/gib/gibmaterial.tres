@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://nlf86kuewh6r"]
+
+[ext_resource type="Texture2D" uid="uid://c10m6y2lmft8a" path="res://effects/gib/gib002 - pixelated.png" id="1_ro3c1"]
+
+[resource]
+albedo_texture = ExtResource("1_ro3c1")

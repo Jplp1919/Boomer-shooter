@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://54evpbkyjyi5"]
+[gd_scene load_steps=8 format=3 uid="uid://c41yr50pl1xth"]
 
-[ext_resource type="Texture2D" uid="uid://d0hnpnrrpubr6" path="res://effects/assets/circle.png" id="1_oyo0s"]
+[ext_resource type="Texture2D" uid="uid://d0hnpnrrpubr6" path="res://effects/assets/circle.png" id="1_r4cvi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiy1v"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_color = Color(1, 1, 0.219608, 1)
+albedo_color = Color(0.534006, 0, 0.0515852, 1)
+albedo_texture = ExtResource("1_r4cvi")
 texture_filter = 2
 billboard_mode = 3
 billboard_keep_scale = true
@@ -19,7 +20,7 @@ particles_anim_loop = false
 spread = 180.0
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
-scale_min = 0.03
+scale_min = 0.01
 scale_max = 0.03
 
 [sub_resource type="QuadMesh" id="QuadMesh_pen38"]
@@ -27,37 +28,31 @@ scale_max = 0.03
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g5p1"]
 transparency = 1
 vertex_color_use_as_albedo = true
-
-[sub_resource type="Gradient" id="Gradient_rb54n"]
-offsets = PackedFloat32Array(0.146341, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gjvic"]
-gradient = SubResource("Gradient_rb54n")
+albedo_color = Color(0.534006, 0, 0.0515852, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ayf0d"]
 particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.1
 angle_min = 1.07288e-05
 angle_max = 720.0
 angular_velocity_min = 0.999984
 angular_velocity_max = 4.99998
-gravity = Vector3(0, 1, 0)
+gravity = Vector3(0, 0.15, 0)
 scale_min = 0.2
 scale_max = 0.8
-color = Color(0.584314, 0.584314, 0.584314, 0.243137)
-color_ramp = SubResource("GradientTexture1D_gjvic")
+color = Color(0.533333, 0, 0.0901961, 0.266667)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ya0g8"]
 radius = 0.185
 height = 0.4
 rings = 3
 
-[sub_resource type="QuadMesh" id="QuadMesh_0qi0k"]
-
-[node name="BulletHitEffect" type="Node3D"]
+[node name="BloodHitEffect" type="Node3D"]
 
 [node name="SparkParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_hiy1v")
+amount = 16
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
@@ -66,24 +61,12 @@ draw_pass_1 = SubResource("QuadMesh_pen38")
 
 [node name="SmokeParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_8g5p1")
-amount = 16
-lifetime = 1.2
+amount = 4
+lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ayf0d")
 draw_pass_1 = SubResource("SphereMesh_ya0g8")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("QuadMesh_0qi0k")
-
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(0.999999, 0.000231119, 0.00133448, 0.00133458, -0.000405271, -0.999999, -0.00023057, 1, -0.000405583, 0, 0, 0)
-size = Vector3(0.1, 0.1, 0.1)
-texture_albedo = ExtResource("1_oyo0s")
-modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
-distance_fade_enabled = true
-distance_fade_begin = 10.0
 
 [connection signal="tree_entered" from="." to="SparkParticles" method="restart"]
 [connection signal="tree_entered" from="." to="SmokeParticles" method="restart"]

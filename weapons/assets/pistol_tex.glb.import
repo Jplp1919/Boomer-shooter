@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkmkfscoljnxu"
-path="res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"
+uid="uid://rkywr00gkscc"
+path="res://.godot/imported/pistol_tex.glb-193f54842f1a9e6ea857c9a7e5b434fe.scn"
 
 [deps]
 
-source_file="res://characters/enemies/test/blockman/blockman001.glb"
-dest_files=["res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"]
+source_file="res://weapons/assets/pistol_tex.glb"
+dest_files=["res://.godot/imported/pistol_tex.glb-193f54842f1a9e6ea857c9a7e5b434fe.scn"]
 
 [params]
 

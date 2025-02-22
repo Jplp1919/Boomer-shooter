@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkmkfscoljnxu"
-path="res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"
+uid="uid://d1lhysv3upd7m"
+path="res://.godot/imported/gib2.glb-56f3ea859164463d2fc0c56362e0bde5.scn"
 
 [deps]
 
-source_file="res://characters/enemies/test/blockman/blockman001.glb"
-dest_files=["res://.godot/imported/blockman001.glb-75583a1e65f7ff7405631ec587f5f4f4.scn"]
+source_file="res://effects/gib/gib2.glb"
+dest_files=["res://.godot/imported/gib2.glb-56f3ea859164463d2fc0c56362e0bde5.scn"]
 
 [params]
 
@@ -31,6 +31,13 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://effects/gib/gibmaterial.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
