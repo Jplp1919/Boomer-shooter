@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://koo1axvapm5c"]
 
 [ext_resource type="Script" path="res://effects/gib/gib.gd" id="1_oygif"]
-[ext_resource type="PackedScene" uid="uid://bv5odn7lb78j4" path="res://effects/gib/gib1.glb" id="2_q2r3c"]
-[ext_resource type="PackedScene" uid="uid://d1lhysv3upd7m" path="res://effects/gib/gib2.glb" id="3_ihoy0"]
+[ext_resource type="PackedScene" uid="uid://pnvnjv82jq2r" path="res://effects/gib/gib01test.glb" id="2_1u5mn"]
+[ext_resource type="PackedScene" uid="uid://capnqjnkd8syw" path="res://effects/gib/gib02test.glb" id="3_k75r2"]
 [ext_resource type="Texture2D" uid="uid://d0hnpnrrpubr6" path="res://effects/assets/circle.png" id="4_2cp7g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3c8r"]
@@ -37,14 +37,14 @@ script = ExtResource("1_oygif")
 
 [node name="Graphics" type="Node3D" parent="."]
 
-[node name="gib1" parent="Graphics" instance=ExtResource("2_q2r3c")]
-transform = Transform3D(0.230215, 0, 0, 0, 0.230215, 0, 0, 0, 0.230215, -0.0347273, -0.0228659, 0)
+[node name="gib1" parent="Graphics" instance=ExtResource("2_1u5mn")]
+transform = Transform3D(0.155629, 0, 0, 0, 0.169491, 0, 0, 0, 0.155629, -0.0305175, 0.0637246, -0.0416833)
 
-[node name="gib2" parent="Graphics" instance=ExtResource("3_ihoy0")]
-transform = Transform3D(0.294657, 0, 0, 0, 0.294657, 0, 0, 0, 0.294657, 0, 0, 0)
+[node name="gib2" parent="Graphics" instance=ExtResource("3_k75r2")]
+transform = Transform3D(0.0668539, 0, 0, 0, 0.0668539, 0, 0, 0, 0.0668539, 0, 0, 0)
 
-[node name="gib3" parent="Graphics" instance=ExtResource("2_q2r3c")]
-transform = Transform3D(0.070709, 0, 0, 0, 0.070709, 0, 0, 0, 0.070709, -0.0347273, -0.0228659, 0)
+[node name="gib3" parent="Graphics" instance=ExtResource("2_1u5mn")]
+transform = Transform3D(0.0513462, 0, 0, 0, 0.0559198, 0, 0, 0, 0.0513462, -0.0305175, 0.0278914, -0.0299208)
 
 [node name="BloodParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_a3c8r")

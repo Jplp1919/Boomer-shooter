@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://54evpbkyjyi5"]
 
-[ext_resource type="Texture2D" uid="uid://d0hnpnrrpubr6" path="res://effects/assets/circle.png" id="1_oyo0s"]
+[ext_resource type="Texture2D" uid="uid://dooy01408mhxg" path="res://effects/assets/bullethole - pixalated.png" id="1_uqo5e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiy1v"]
 transparency = 2
@@ -80,7 +80,7 @@ mesh = SubResource("QuadMesh_0qi0k")
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(0.999999, 0.000231119, 0.00133448, 0.00133458, -0.000405271, -0.999999, -0.00023057, 1, -0.000405583, 0, 0, 0)
 size = Vector3(0.1, 0.1, 0.1)
-texture_albedo = ExtResource("1_oyo0s")
+texture_albedo = ExtResource("1_uqo5e")
 modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
 distance_fade_enabled = true
 distance_fade_begin = 10.0

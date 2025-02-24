@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=24 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bnj6gurbksqw2" path="res://characters/character_mover.tscn" id="3_v7rqy"]
 [ext_resource type="PackedScene" uid="uid://cp0nng4pkm38p" path="res://weapons/pistol.tscn" id="5_3pw2f"]
 [ext_resource type="PackedScene" uid="uid://c5g6e0iilulgi" path="res://characters/health_manager.tscn" id="6_0vft6"]
+[ext_resource type="PackedScene" uid="uid://c7wju7b48vy3u" path="res://weapons/shotgun.tscn" id="6_lmcyr"]
+[ext_resource type="PackedScene" uid="uid://cnuoitoswwkx2" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="7_0cob6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
@@ -150,6 +152,67 @@ _data = {
 "attack": SubResource("Animation_d47ri")
 }
 
+[sub_resource type="Animation" id="Animation_djdef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shotgun_tex:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.31863, -0.262259, -0.60767)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shotgun_tex:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t32if"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shotgun_tex:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.31863, -0.262259, -0.60767), Vector3(0.31863, -0.323951, -0.256076), Vector3(0.31863, -0.156647, -0.69548), Vector3(0.31863, -0.156647, -0.69548), Vector3(0.31863, -0.519028, -0.69548), Vector3(0.31863, -0.189692, -0.69548), Vector3(0.31863, -0.262259, -0.60767)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shotgun_tex:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(1.67748e-08, -1.5708, 0.393868), Vector3(-5.57557e-08, -1.5708, -1.63975), Vector3(-5.57557e-08, -1.5708, -1.63975), Vector3(-5.57557e-08, -1.5708, -1.63975), Vector3(-5.57557e-08, -1.5708, -1.63975), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gocpb"]
+_data = {
+"RESET": SubResource("Animation_djdef"),
+"attack": SubResource("Animation_t32if")
+}
+
 [sub_resource type="Animation" id="Animation_1r3u6"]
 length = 0.001
 tracks/0/type = "value"
@@ -258,7 +321,8 @@ libraries = {
 weapon_manager = NodePath("../../../..")
 is_sword = true
 
-[node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("5_3pw2f")]
+[node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("5_3pw2f")]
+muzzle_flash = NodePath("Graphics/pistol_tex/PistolMuzzle/PistolMuzzleFlash")
 animation_player = NodePath("Graphics/PistolAnimationPlayer")
 damage = 10
 ammo = 200
@@ -268,7 +332,9 @@ attack_rate = 0.1
 transform = Transform3D(-7.23998e-07, 0, -0.2, 0, 0.2, 0, 0.2, 0, -7.23998e-07, 0.320082, -0.235952, -0.51044)
 
 [node name="PistolMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics/pistol_tex" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02068, 0.464573, 3.33786e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23435, 0.464573, 3.93391e-06)
+
+[node name="PistolMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics/pistol_tex/PistolMuzzle" instance=ExtResource("7_0cob6")]
 
 [node name="PistolAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics" index="1"]
 libraries = {
@@ -278,6 +344,28 @@ libraries = {
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
 weapon_manager = NodePath("../../../..")
 cur_weapon_muzzle = NodePath("../../Graphics/pistol_tex/PistolMuzzle")
+
+[node name="Shotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("6_lmcyr")]
+visible = false
+muzzle_flash = NodePath("Graphics/shotgun_tex/ShotgunMuzzle/ShotgunMuzzleFlash")
+animation_player = NodePath("Graphics/ShotgunAnimationPlayer")
+
+[node name="shotgun_tex" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" index="0"]
+transform = Transform3D(-2.70351e-06, 0, -0.746829, 0, 0.746829, 0, 0.746829, 0, -2.70351e-06, 0.31863, -0.262259, -0.60767)
+
+[node name="ShotgunMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun_tex" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0843, 0.129856, -0.00254998)
+
+[node name="ShotgunMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun_tex/ShotgunMuzzle" instance=ExtResource("7_0cob6")]
+
+[node name="ShotgunAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_gocpb")
+}
+
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
+weapon_manager = NodePath("../../../../../..")
+cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun_tex/ShotgunMuzzle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {
@@ -292,3 +380,4 @@ verbose = true
 [editable path="Camera3D/WeaponManager/Weapons/Sword"]
 [editable path="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter/HitScanAttackEmitter"]
 [editable path="Camera3D/WeaponManager/Weapons/Pistol"]
+[editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
