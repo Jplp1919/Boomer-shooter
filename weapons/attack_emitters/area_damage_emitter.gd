@@ -1,3 +1,4 @@
+class_name AreaDamageEmitter
 extends AttackEmitter
 
 @onready var los_ray_cast: RayCast3D = $LOSRayCast

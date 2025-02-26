@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=38 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c5g6e0iilulgi" path="res://characters/health_manager.tscn" id="6_0vft6"]
 [ext_resource type="PackedScene" uid="uid://c7wju7b48vy3u" path="res://weapons/shotgun.tscn" id="6_lmcyr"]
 [ext_resource type="PackedScene" uid="uid://cnuoitoswwkx2" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="7_0cob6"]
+[ext_resource type="PackedScene" uid="uid://ci6eixagqndwk" path="res://effects/muzzle_flash/muzzle_flash_2.tscn" id="8_70oa8"]
+[ext_resource type="PackedScene" uid="uid://b55l2m8ydv6p6" path="res://weapons/rocket_launcher.tscn" id="8_fysok"]
+[ext_resource type="PackedScene" uid="uid://bkfh1lxfxws0g" path="res://weapons/rifle.tscn" id="10_2yjix"]
+[ext_resource type="PackedScene" uid="uid://dqw61qjs7ym84" path="res://effects/muzzle_flash/muzzle_flash_3.tscn" id="11_0mfek"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
@@ -213,6 +217,177 @@ _data = {
 "attack": SubResource("Animation_t32if")
 }
 
+[sub_resource type="Animation" id="Animation_mii6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qo4gk"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.354946, 0, -5.96046e-08), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ages"]
+_data = {
+"RESET": SubResource("Animation_mii6l"),
+"attack": SubResource("Animation_qo4gk")
+}
+
+[sub_resource type="Animation" id="Animation_nfdil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RiflePixel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RiflePixel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.303558, -0.201522, -0.682531)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RiflePixel:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, -0.707107, 0.707107)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RifleMuzzle/BulletTrace:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_547ca"]
+resource_name = "attack"
+length = 0.6
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RiflePixel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708), Vector3(0.619662, 0, -1.5708), Vector3(0, 0, -1.5708), Vector3(1.07369, 6.45664e-15, -1.5708), Vector3(0.746565, 3.14159, 1.5708), Vector3(-0.332782, -3.14159, 1.5708), Vector3(-1.08746, -3.07083e-07, -1.5708), Vector3(0, 0, -1.5708), Vector3(0, 0, -1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RiflePixel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.303558, -0.201522, -0.682531), Vector3(0.303558, -0.201522, -0.193531), Vector3(0.303558, -0.201522, -0.682531), Vector3(0.303558, -0.328034, -1.00736), Vector3(0.303558, -0.433086, -1.00736), Vector3(0.303558, -0.288117, -0.899242), Vector3(0.303558, -0.288117, -0.899242), Vector3(0.303558, -0.259252, -0.827005), Vector3(0.303558, -0.201522, -0.682531)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RiflePixel:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, -0.707107, 0.707107), Quaternion(0.215595, 0.215595, -0.673438, 0.673438), Quaternion(-2.8283e-08, -2.8283e-08, -0.707107, 0.707107), Quaternion(0.361634, 0.361634, -0.607635, 0.607635), Quaternion(0.658412, 0.658412, -0.257863, 0.257864), Quaternion(0.69734, 0.697341, 0.117114, -0.117114), Quaternion(-0.36581, -0.36581, -0.605131, 0.605131), Quaternion(0, 0, -0.707107, 0.707107), Quaternion(0, 0, -0.707107, 0.707107)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RifleMuzzle/BulletTrace:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.024388),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8y0bj"]
+_data = {
+"RESET": SubResource("Animation_nfdil"),
+"attack": SubResource("Animation_547ca")
+}
+
+[sub_resource type="Gradient" id="Gradient_u7le3"]
+offsets = PackedFloat32Array(0.0425532, 0.202128, 0.797872, 1)
+colors = PackedColorArray(0.552941, 0.4, 0, 0, 0.554622, 0.400689, 3.85046e-07, 1, 0.9459, 0.693166, 0, 1, 0.945098, 0.694118, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_loi73"]
+gradient = SubResource("Gradient_u7le3")
+height = 256
+fill_from = Vector2(0.556338, 1)
+fill_to = Vector2(0.521127, 0.0176056)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4dt5"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("GradientTexture2D_loi73")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_loi73")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_o0rqr"]
+material = SubResource("StandardMaterial3D_s4dt5")
+size = 0.013
+sections = 2
+section_length = 0.5
+section_segments = 1
+
 [sub_resource type="Animation" id="Animation_1r3u6"]
 length = 0.001
 tracks/0/type = "value"
@@ -322,6 +497,7 @@ weapon_manager = NodePath("../../../..")
 is_sword = true
 
 [node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("5_3pw2f")]
+visible = false
 muzzle_flash = NodePath("Graphics/pistol_tex/PistolMuzzle/PistolMuzzleFlash")
 animation_player = NodePath("Graphics/PistolAnimationPlayer")
 damage = 10
@@ -347,7 +523,7 @@ cur_weapon_muzzle = NodePath("../../Graphics/pistol_tex/PistolMuzzle")
 
 [node name="Shotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("6_lmcyr")]
 visible = false
-muzzle_flash = NodePath("Graphics/shotgun_tex/ShotgunMuzzle/ShotgunMuzzleFlash")
+muzzle_flash = NodePath("Graphics/shotgun_tex/ShotgunMuzzle/ShogunMuzzleFlash")
 animation_player = NodePath("Graphics/ShotgunAnimationPlayer")
 
 [node name="shotgun_tex" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" index="0"]
@@ -356,7 +532,7 @@ transform = Transform3D(-2.70351e-06, 0, -0.746829, 0, 0.746829, 0, 0.746829, 0,
 [node name="ShotgunMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun_tex" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0843, 0.129856, -0.00254998)
 
-[node name="ShotgunMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun_tex/ShotgunMuzzle" instance=ExtResource("7_0cob6")]
+[node name="ShogunMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun_tex/ShotgunMuzzle" instance=ExtResource("8_70oa8")]
 
 [node name="ShotgunAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" index="1"]
 libraries = {
@@ -366,6 +542,52 @@ libraries = {
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
 weapon_manager = NodePath("../../../../../..")
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun_tex/ShotgunMuzzle")
+
+[node name="RocketLauncher" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("8_fysok")]
+transform = Transform3D(-2.41906e-08, 0, -0.553416, 0, 0.553416, 0, 0.553416, 0, -2.41906e-08, 0.33712, -0.424548, -0.447995)
+visible = false
+animation_player = NodePath("Graphics/RocketLauncherAnimationPlayer")
+ammo = 15
+max_ammo = 25
+attack_rate = 0.3
+
+[node name="Root Scene" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="0"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, 0)
+
+[node name="RocketLauncherAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_2ages")
+}
+
+[node name="Rifle" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("10_2yjix")]
+muzzle_flash = NodePath("Graphics/RifleMuzzle/RifleMuzzleFlash")
+animation_player = NodePath("Graphics/RifleAnimationPlayer")
+attack_rate = 0.3
+
+[node name="RiflePixel" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="0"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.303558, -0.201522, -0.682531)
+rotation_edit_mode = 1
+
+[node name="RifleAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_8y0bj")
+}
+
+[node name="RifleMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305457, -0.20307, -1.83955)
+
+[node name="BulletTrace" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RifleMuzzle"]
+transform = Transform3D(8.38404, 2.03812e-21, 6.83094e-29, 0, -1.50305e-07, 2.63654, 4.96941e-21, -3.43858, -1.15247e-07, 0, 0, -1.79908)
+visible = false
+mesh = SubResource("RibbonTrailMesh_o0rqr")
+skeleton = NodePath("../..")
+
+[node name="RifleMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RifleMuzzle" instance=ExtResource("11_0mfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0247484)
+
+[node name="ProjectileEmitter" parent="Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
+visible = false
+muzzle = NodePath("../../Graphics/RifleMuzzle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {
@@ -381,3 +603,5 @@ verbose = true
 [editable path="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter/HitScanAttackEmitter"]
 [editable path="Camera3D/WeaponManager/Weapons/Pistol"]
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
+[editable path="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+[editable path="Camera3D/WeaponManager/Weapons/Rifle"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hly31eoi42rv"]
+
+[ext_resource type="PackedScene" uid="uid://chexwkenuwyev" path="res://weapons/projectiles/projectile.tscn" id="1_c6uvb"]
+[ext_resource type="PackedScene" uid="uid://drppx2anccywb" path="res://weapons/projectiles/assets/bullet.glb" id="2_3jklr"]
+[ext_resource type="Script" path="res://weapons/projectiles/bullet.gd" id="2_mfd0a"]
+
+[node name="Bullet" instance=ExtResource("1_c6uvb")]
+script = ExtResource("2_mfd0a")
+gravity = 6.0
+speed = 100
+
+[node name="Graphics" parent="." index="0"]
+transform = Transform3D(1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="bullet" parent="Graphics" index="0" instance=ExtResource("2_3jklr")]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 3.91901e-05, -7.44373e-09, 0.54136)
+visible = false

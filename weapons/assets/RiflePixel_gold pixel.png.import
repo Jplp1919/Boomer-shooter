@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d27s5kbcbk06u"
-path.s3tc="res://.godot/imported/birdmonster_birdmonster.png-c55c5d5586bafe7f4b408618d3a1a5ae.s3tc.ctex"
+uid="uid://b3fyr7h45d6u8"
+path.s3tc="res://.godot/imported/RiflePixel_gold pixel.png-ecb8789497571698c7c92eab5e360666.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "247d4dc56a72eb7e21b96908bbe481da"
+"md5": "ac2605a8c167ea660fb90f31160d8d2a"
 }
 
 [deps]
 
-source_file="res://characters/enemies/test/blockman/birdmonster_birdmonster.png"
-dest_files=["res://.godot/imported/birdmonster_birdmonster.png-c55c5d5586bafe7f4b408618d3a1a5ae.s3tc.ctex"]
+source_file="res://weapons/assets/RiflePixel_gold pixel.png"
+dest_files=["res://.godot/imported/RiflePixel_gold pixel.png-ecb8789497571698c7c92eab5e360666.s3tc.ctex"]
 
 [params]
 

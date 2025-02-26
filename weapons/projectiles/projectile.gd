@@ -47,7 +47,6 @@ func check_collision():
 	var hit_normal = collision_ray_cast.get_collision_normal()
 	var hit_collider = collision_ray_cast.get_collider()
 	collision_ray_cast.enabled = false
-	
 	if is_colliding:
 		on_hit(hit_collider, hit_pos, hit_normal)
 

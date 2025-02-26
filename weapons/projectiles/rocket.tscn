@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://i8e58jtbuiie"]
+
+[ext_resource type="PackedScene" uid="uid://chexwkenuwyev" path="res://weapons/projectiles/projectile.tscn" id="1_xkkxw"]
+[ext_resource type="Script" path="res://weapons/projectiles/rocket.gd" id="2_chukb"]
+[ext_resource type="PackedScene" uid="uid://b67dy4lncbug2" path="res://weapons/projectiles/assets/rocket.glb" id="2_snddk"]
+[ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="4_1og4h"]
+
+[sub_resource type="Animation" id="Animation_eun8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_al4i6"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5xce"]
+_data = {
+"RESET": SubResource("Animation_eun8q"),
+"spin": SubResource("Animation_al4i6")
+}
+
+[node name="Rocket" instance=ExtResource("1_xkkxw")]
+script = ExtResource("2_chukb")
+
+[node name="rocket" parent="Graphics" index="0" instance=ExtResource("2_snddk")]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0.883085)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_f5xce")
+}
+autoplay = "spin"
+
+[node name="AreaDamageEmitter" parent="." index="2" instance=ExtResource("4_1og4h")]
+attack_radius = 2.0

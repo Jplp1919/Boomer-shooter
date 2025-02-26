@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfy3v0slti517"
-path="res://.godot/imported/birdmonster.glb-0addb90d77abdf8fa6c26097280ce132.scn"
+uid="uid://b67dy4lncbug2"
+path="res://.godot/imported/rocket.glb-2f494f3efce305647c293ddff6c576bc.scn"
 
 [deps]
 
-source_file="res://characters/enemies/test/blockman/birdmonster.glb"
-dest_files=["res://.godot/imported/birdmonster.glb-0addb90d77abdf8fa6c26097280ce132.scn"]
+source_file="res://weapons/projectiles/assets/rocket.glb"
+dest_files=["res://.godot/imported/rocket.glb-2f494f3efce305647c293ddff6c576bc.scn"]
 
 [params]
 

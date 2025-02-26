@@ -8,3 +8,6 @@ script = ExtResource("1_h2te2")
 [node name="Graphics" type="Node3D" parent="."]
 
 [node name="CollisionRayCast" type="RayCast3D" parent="."]
+enabled = false
+collision_mask = 5
+collide_with_areas = true

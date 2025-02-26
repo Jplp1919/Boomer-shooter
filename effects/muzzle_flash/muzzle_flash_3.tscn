@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqw61qjs7ym84"]
+
+[ext_resource type="Texture2D" uid="uid://536fpgutaxir" path="res://effects/muzzle_flash/assets/muzzletest04 - pixelated.png" id="1_h4l3k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vvns"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra3aj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0470588)
+albedo_texture = ExtResource("1_h4l3k")
+emission_enabled = true
+emission = Color(0.638887, 0.455387, 0.0126905, 1)
+emission_energy_multiplier = 7.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4kpu1"]
+material = SubResource("StandardMaterial3D_ra3aj")
+size = Vector2(0.5, 0.5)
+
+[node name="MuzzleFlash4" type="GPUParticles3D"]
+emitting = false
+amount = 1
+lifetime = 0.01
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_5vvns")
+draw_pass_1 = SubResource("QuadMesh_4kpu1")
