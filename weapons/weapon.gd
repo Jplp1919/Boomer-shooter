@@ -13,10 +13,14 @@ extends Node3D
 @export var max_ammo = 6
 @export var silent_weapon = false
 
+@export var ejection_port: Marker3D
+@export var casing_scene: PackedScene
+
 @export var attack_rate = 0.8
 var last_attack_time = -9999.9
 
 @export var animation_controlled_attack = false
+
 
 signal fired
 signal out_of_ammo
@@ -51,6 +55,7 @@ func attack(input_just_pressed:bool, input_held:bool):
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
+	
 	fired.emit()
 	if muzzle_flash != null:
 		#$Graphics/MuzzleFlash.flash()
@@ -69,3 +74,9 @@ func set_active (a:bool):
 
 func is_idle ()->bool:
 	return !animation_player.is_playing()
+	
+
+func eject_casing():
+	var casing = casing_scene.instantiate()
+	get_parent().add_child(casing)
+	casing.global_transform.origin = ejection_port.global_transform.origin

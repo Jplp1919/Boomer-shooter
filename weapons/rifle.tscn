@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_oxx1u"]
 [ext_resource type="PackedScene" uid="uid://cov546pd43rnk" path="res://weapons/assets/RiflePixel.glb" id="2_wp738"]
-[ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="3_ht7pj"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="3_gl2w5"]
 
 [node name="Rifle" instance=ExtResource("1_oxx1u")]
 ammo = 12
@@ -11,5 +11,4 @@ max_ammo = 24
 [node name="RiflePixel" parent="Graphics" index="0" instance=ExtResource("2_wp738")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.254928, 0)
 
-[node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_ht7pj")]
-projectile_type = 1
+[node name="HitScanAttackEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_gl2w5")]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnfmsysa3w0kp"
-path="res://.godot/imported/test_shotgun.glb-e980e66d54d51d98e9a04d1a2b9402a8.scn"
+uid="uid://devw71nib7ffi"
+path="res://.godot/imported/9.19 Parabellum casing.glb-297d8a4b4158c39f3de63bf19e8e108c.scn"
 
 [deps]
 
-source_file="res://weapons/assets/test_shotgun.glb"
-dest_files=["res://.godot/imported/test_shotgun.glb-e980e66d54d51d98e9a04d1a2b9402a8.scn"]
+source_file="res://effects/casings/assets/9.19 Parabellum casing.glb"
+dest_files=["res://.godot/imported/9.19 Parabellum casing.glb-297d8a4b4158c39f3de63bf19e8e108c.scn"]
 
 [params]
 
