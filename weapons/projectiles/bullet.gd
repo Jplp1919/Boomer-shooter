@@ -3,6 +3,10 @@ extends Projectile
 @export var gravity = 2.0
 var velocity : Vector3 = Vector3.ZERO
 var hit_effect = preload("res://effects/bullet_hit_effect.tscn")
+var target_position : Vector3
+var muzzle : Node3D
+var start_pos : Vector3
+
 
 func process_movement(delta):
 	last_pos = global_position

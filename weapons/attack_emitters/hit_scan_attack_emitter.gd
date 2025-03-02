@@ -1,9 +1,8 @@
 extends AttackEmitter
-@export var weapon_manager: Node3D
 @export var cur_weapon_muzzle : Node3D
 @export var only_hit_enviroment = false
 @export var is_sword = false
-
+@export var weapon_manager: Node3D
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
 

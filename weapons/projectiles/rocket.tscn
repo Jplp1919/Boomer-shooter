@@ -44,6 +44,7 @@ _data = {
 
 [node name="Rocket" instance=ExtResource("1_xkkxw")]
 script = ExtResource("2_chukb")
+speed = 40
 
 [node name="rocket" parent="Graphics" index="0" instance=ExtResource("2_snddk")]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0.883085)

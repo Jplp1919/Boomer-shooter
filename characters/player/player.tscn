@@ -17,7 +17,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71ugd"]
-size = Vector3(1, 0.672791, 0.568558)
+size = Vector3(1, 0.672791, 1.32527)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_22nj0"]
 
@@ -426,8 +426,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_i3tmd")
 
 [node name="WeaponShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80528, -1.08098)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15416, -1.15502)
 shape = SubResource("BoxShape3D_71ugd")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -440,6 +441,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="FirePoint" type="Node3D" parent="Camera3D"]
 unique_name_in_owner = true
+
+[node name="AimRayCast" type="RayCast3D" parent="Camera3D/FirePoint"]
+enabled = false
+target_position = Vector3(0, 0, -10000)
+collision_mask = 5
+collide_with_areas = true
 
 [node name="WeaponManager" type="Node3D" parent="Camera3D"]
 script = ExtResource("2_toaof")
@@ -460,10 +467,11 @@ libraries = {
 }
 
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter" index="1" node_paths=PackedStringArray("weapon_manager")]
-weapon_manager = NodePath("../../../..")
 is_sword = true
+weapon_manager = NodePath("../../../..")
 
 [node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("5_3pw2f")]
+visible = false
 muzzle_flash = NodePath("Graphics/pixelpistol/PistolMuzzle/PistolMuzzleFlash")
 animation_player = NodePath("Graphics/PistolAnimationPlayer")
 automatic = false
@@ -492,9 +500,9 @@ libraries = {
 "": SubResource("AnimationLibrary_1hs4o")
 }
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
-weapon_manager = NodePath("../../../..")
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
 cur_weapon_muzzle = NodePath("../../Graphics/pixelpistol/PistolMuzzle")
+weapon_manager = NodePath("../../../..")
 
 [node name="Shotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("6_lmcyr")]
 visible = false
@@ -514,9 +522,9 @@ libraries = {
 "": SubResource("AnimationLibrary_gocpb")
 }
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
-weapon_manager = NodePath("../../../../../..")
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun_tex/ShotgunMuzzle")
+weapon_manager = NodePath("../../../../../..")
 
 [node name="RocketLauncher" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("8_fysok")]
 transform = Transform3D(-2.41906e-08, 0, -0.553416, 0, 0.553416, 0, 0.553416, 0, -2.41906e-08, 0.33712, -0.424548, -0.447995)
@@ -534,8 +542,15 @@ libraries = {
 "": SubResource("AnimationLibrary_2ages")
 }
 
+[node name="RocketMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.797626, 0.392184, -5.96046e-08)
+
+[node name="ProjectileEmitter" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
+muzzle = NodePath("../../Graphics/RocketMuzzle")
+aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
+
 [node name="Rifle" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("10_2yjix")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01048)
 muzzle_flash = NodePath("Graphics/RifleMuzzle/RifleMuzzleFlash")
 animation_player = NodePath("Graphics/RifleAnimationPlayer")
 attack_rate = 0.5
@@ -555,9 +570,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305457, -0.20307, -1.83955)
 [node name="RifleMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RifleMuzzle" instance=ExtResource("11_0mfek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0247484)
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("weapon_manager", "cur_weapon_muzzle")]
-weapon_manager = NodePath("../../../..")
-cur_weapon_muzzle = NodePath("../../Graphics/RifleMuzzle")
+[node name="ProjectileEmitter" parent="Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
+muzzle = NodePath("../../Graphics/RifleMuzzle")
+aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {
@@ -575,3 +590,4 @@ verbose = true
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/RocketLauncher"]
 [editable path="Camera3D/WeaponManager/Weapons/Rifle"]
+[editable path="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RiflePixel"]
