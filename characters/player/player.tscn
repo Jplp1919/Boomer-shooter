@@ -16,8 +16,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_71ugd"]
-size = Vector3(1, 0.672791, 1.32527)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1c4cx"]
+size = Vector3(1, 1, 1.08154)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_22nj0"]
 
@@ -426,9 +426,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_i3tmd")
 
 [node name="WeaponShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15416, -1.15502)
-shape = SubResource("BoxShape3D_71ugd")
-disabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68771, -1.32249)
+shape = SubResource("BoxShape3D_1c4cx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -550,7 +549,6 @@ muzzle = NodePath("../../Graphics/RocketMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="Rifle" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("10_2yjix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01048)
 muzzle_flash = NodePath("Graphics/RifleMuzzle/RifleMuzzleFlash")
 animation_player = NodePath("Graphics/RifleAnimationPlayer")
 attack_rate = 0.5
@@ -590,4 +588,3 @@ verbose = true
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/RocketLauncher"]
 [editable path="Camera3D/WeaponManager/Weapons/Rifle"]
-[editable path="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RiflePixel"]

@@ -14,7 +14,7 @@ func set_bodies_to_exclude (bodies:Array):
 	super(bodies)
 	for body in bodies:
 		ray_cast_3d.add_exception(body)
-
+ 
 func fire():
 	ray_cast_3d.enabled = true
 	ray_cast_3d.force_raycast_update()

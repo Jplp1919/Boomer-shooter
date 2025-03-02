@@ -14,6 +14,11 @@ enum PROJECTILE_TYPE{
 @export var muzzle: Node3D
 @export var aim_cast : RayCast3D
 
+func set_bodies_to_exclude (bodies:Array):
+	super(bodies)
+	for body in bodies:
+		aim_cast.add_exception(body)
+
 func fire():
 	var proj_inst: Projectile = PROJECTILES[projectile_type].instantiate()
 	proj_inst.global_transform = muzzle.global_transform
