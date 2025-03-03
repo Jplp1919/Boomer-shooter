@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=11 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
@@ -8,6 +8,11 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2ag3"]
 albedo_texture = ExtResource("1_l6ir3")
 uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ayr2a"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e7el6"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t6rj4"]
 
@@ -32,6 +37,17 @@ size = Vector3(100, 1, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6587, 2.06657, -6.2337)
 use_collision = true
 size = Vector3(6.16846, 6.79758, 4.06055)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0434, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12723, 0)
+mesh = SubResource("BoxMesh_ayr2a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12723, 0)
+shape = SubResource("ConvexPolygonShape3D_e7el6")
 
 [node name="Player" parent="." instance=ExtResource("2_uorke")]
 

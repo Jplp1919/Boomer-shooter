@@ -44,6 +44,8 @@ _data = {
 
 [node name="Rocket" instance=ExtResource("1_xkkxw")]
 script = ExtResource("2_chukb")
+explosion_force = 15.0
+max_explosion_dist = 3.5
 speed = 40
 
 [node name="rocket" parent="Graphics" index="0" instance=ExtResource("2_snddk")]

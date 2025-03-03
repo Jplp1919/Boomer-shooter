@@ -19,6 +19,7 @@ func set_bodies_to_exclude (bodies:Array):
 	for body in bodies:
 		aim_cast.add_exception(body)
 
+
 func fire():
 	var proj_inst: Projectile = PROJECTILES[projectile_type].instantiate()
 	proj_inst.global_transform = muzzle.global_transform
@@ -28,9 +29,6 @@ func fire():
 	get_tree().get_root().add_child(proj_inst)
 	if aim_cast.is_colliding():
 		proj_inst.look_at(aim_cast.get_collision_point(), Vector3.UP)
-		print("colliding")
-	else: 
-		print("no colliding")
 	aim_cast.enabled = false
 	proj_inst.add_to_group("instanced")
 	proj_inst.set_bodies_to_exclude(bodies_to_exclude)
