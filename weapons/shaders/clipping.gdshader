@@ -18,7 +18,7 @@ uniform vec3 uv1_offset = vec3(0.0f);
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
-	
+
 	/* begin shader magic*/
 	float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
 	// modify projection matrix
@@ -39,7 +39,7 @@ void fragment() {
 	ROUGHNESS = roughness_tex * roughness;
 	SPECULAR = specular;
 	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
-	
+
 	NORMAL_MAP_DEPTH = normal_scale;
 	//vec3 emission_tex = texture(texture_emission,base_uv).rgb;
 	//EMISSION = (emission.rgb+emission_tex)*emission_energy;

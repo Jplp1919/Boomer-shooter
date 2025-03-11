@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://f68rvi160c4p"]
 
-[ext_resource type="Script" path="res://weapons/attack_emitters/hit_scan_attack_emitter.gd" id="1_vnrfe"]
+[ext_resource type="Script" uid="uid://8a8uc1amwsh1" path="res://weapons/attack_emitters/hit_scan_attack_emitter.gd" id="1_vnrfe"]
 
 [node name="HitScanAttackEmitter" type="Node3D"]
 script = ExtResource("1_vnrfe")

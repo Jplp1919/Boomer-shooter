@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://i8e58jtbuiie"]
 
 [ext_resource type="PackedScene" uid="uid://chexwkenuwyev" path="res://weapons/projectiles/projectile.tscn" id="1_xkkxw"]
-[ext_resource type="Script" path="res://weapons/projectiles/rocket.gd" id="2_chukb"]
+[ext_resource type="Script" uid="uid://n8yhcid4jdrv" path="res://weapons/projectiles/rocket.gd" id="2_chukb"]
 [ext_resource type="PackedScene" uid="uid://b67dy4lncbug2" path="res://weapons/projectiles/assets/rocket.glb" id="2_snddk"]
 [ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="4_1og4h"]
 
@@ -38,14 +38,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f5xce"]
 _data = {
-"RESET": SubResource("Animation_eun8q"),
-"spin": SubResource("Animation_al4i6")
+&"RESET": SubResource("Animation_eun8q"),
+&"spin": SubResource("Animation_al4i6")
 }
 
 [node name="Rocket" instance=ExtResource("1_xkkxw")]
 script = ExtResource("2_chukb")
-explosion_force = 15.0
-max_explosion_dist = 3.5
 speed = 40
 
 [node name="rocket" parent="Graphics" index="0" instance=ExtResource("2_snddk")]
@@ -53,7 +51,7 @@ transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_f5xce")
+&"": SubResource("AnimationLibrary_f5xce")
 }
 autoplay = "spin"
 

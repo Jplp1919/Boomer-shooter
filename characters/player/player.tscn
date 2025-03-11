@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://dkukwdl83728d"]
 
-[ext_resource type="Script" path="res://characters/player/player.gd" id="1_nse8j"]
-[ext_resource type="Script" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
+[ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
+[ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
 [ext_resource type="PackedScene" uid="uid://cgec1exw4yug3" path="res://weapons/sword.tscn" id="3_jwqcs"]
 [ext_resource type="PackedScene" uid="uid://bnj6gurbksqw2" path="res://characters/character_mover.tscn" id="3_v7rqy"]
 [ext_resource type="PackedScene" uid="uid://cp0nng4pkm38p" path="res://weapons/pistol.tscn" id="5_3pw2f"]
@@ -92,8 +92,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ea7ta"]
 _data = {
-"RESET": SubResource("Animation_vk2ks"),
-"attack": SubResource("Animation_rq7td")
+&"RESET": SubResource("Animation_vk2ks"),
+&"attack": SubResource("Animation_rq7td")
 }
 
 [sub_resource type="Animation" id="Animation_iixwj"]
@@ -167,8 +167,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1hs4o"]
 _data = {
-"RESET": SubResource("Animation_iixwj"),
-"attack": SubResource("Animation_d47ri")
+&"RESET": SubResource("Animation_iixwj"),
+&"attack": SubResource("Animation_d47ri")
 }
 
 [sub_resource type="Animation" id="Animation_djdef"]
@@ -228,8 +228,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gocpb"]
 _data = {
-"RESET": SubResource("Animation_djdef"),
-"attack": SubResource("Animation_t32if")
+&"RESET": SubResource("Animation_djdef"),
+&"attack": SubResource("Animation_t32if")
 }
 
 [sub_resource type="Animation" id="Animation_mii6l"]
@@ -265,8 +265,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ages"]
 _data = {
-"RESET": SubResource("Animation_mii6l"),
-"attack": SubResource("Animation_qo4gk")
+&"RESET": SubResource("Animation_mii6l"),
+&"attack": SubResource("Animation_qo4gk")
 }
 
 [sub_resource type="Animation" id="Animation_nfdil"]
@@ -351,8 +351,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8y0bj"]
 _data = {
-"RESET": SubResource("Animation_nfdil"),
-"attack": SubResource("Animation_547ca")
+&"RESET": SubResource("Animation_nfdil"),
+&"attack": SubResource("Animation_547ca")
 }
 
 [sub_resource type="Animation" id="Animation_1r3u6"]
@@ -412,8 +412,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n3ecu"]
 _data = {
-"RESET": SubResource("Animation_1r3u6"),
-"moving": SubResource("Animation_smgks")
+&"RESET": SubResource("Animation_1r3u6"),
+&"moving": SubResource("Animation_smgks")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
@@ -462,7 +462,7 @@ transform = Transform3D(0.481247, 0, 0, 0, 0.481247, 0, 0, 0, 0.481247, 0.432624
 
 [node name="SwordAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Sword/Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_ea7ta")
+&"": SubResource("AnimationLibrary_ea7ta")
 }
 
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter" index="1" node_paths=PackedStringArray("weapon_manager")]
@@ -496,7 +496,7 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.636915
 
 [node name="PistolAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Pistol/Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_1hs4o")
+&"": SubResource("AnimationLibrary_1hs4o")
 }
 
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
@@ -518,7 +518,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0843, 0.129856, -0.0025499
 
 [node name="ShotgunAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_gocpb")
+&"": SubResource("AnimationLibrary_gocpb")
 }
 
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
@@ -537,7 +537,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="RocketLauncherAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_2ages")
+&"": SubResource("AnimationLibrary_2ages")
 }
 
 [node name="RocketMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="2"]
@@ -560,7 +560,7 @@ rotation_edit_mode = 1
 
 [node name="RifleAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_8y0bj")
+&"": SubResource("AnimationLibrary_8y0bj")
 }
 
 [node name="RifleMuzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="2"]
@@ -575,7 +575,7 @@ aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {
-"": SubResource("AnimationLibrary_n3ecu")
+&"": SubResource("AnimationLibrary_n3ecu")
 }
 
 [node name="HealthManager" parent="." instance=ExtResource("6_0vft6")]

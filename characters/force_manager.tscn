@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctbnul6k032bo"]
+
+[ext_resource type="Script" uid="uid://bd7bww5djlkpg" path="res://characters/force_manager.gd" id="1_7c2uy"]
+
+[node name="ForceManager" type="Node3D"]
+script = ExtResource("1_7c2uy")

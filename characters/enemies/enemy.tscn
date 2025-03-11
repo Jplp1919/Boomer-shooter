@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://na35hdwlh1ib"]
 
-[ext_resource type="Script" path="res://characters/enemies/enemy.gd" id="1_4schq"]
+[ext_resource type="Script" uid="uid://bne7atmoapfas" path="res://characters/enemies/enemy.gd" id="1_4schq"]
 [ext_resource type="PackedScene" uid="uid://c5g6e0iilulgi" path="res://characters/health_manager.tscn" id="1_p304t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bed0p"]

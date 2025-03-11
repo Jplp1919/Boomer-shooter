@@ -11,11 +11,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xdv1e"]
 render_priority = 0
 shader = ExtResource("1_4bj4b")
+shader_parameter/MainTex = ExtResource("2_dnipc")
 shader_parameter/DissolveTiling = Vector2(0.25, 0.2)
 shader_parameter/DissolveSpeed = Vector2(0, 0.5)
-shader_parameter/DissolveAmount = 0.318
-shader_parameter/MainTex = ExtResource("2_dnipc")
 shader_parameter/DisolveTexture = ExtResource("2_s61xs")
+shader_parameter/DissolveAmount = 0.318
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e7y5g"]
 gravity = Vector3(0, 0, 0)
@@ -26,11 +26,11 @@ color = Color(4, 1.25, 0.6, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ee3vk"]
 render_priority = 0
 shader = ExtResource("1_4bj4b")
+shader_parameter/MainTex = ExtResource("4_7d1ow")
 shader_parameter/DissolveTiling = Vector2(1, 1)
 shader_parameter/DissolveSpeed = Vector2(0, 0)
-shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTex = ExtResource("4_7d1ow")
 shader_parameter/DisolveTexture = ExtResource("2_s61xs")
+shader_parameter/DissolveAmount = 0.0
 
 [sub_resource type="Curve" id="Curve_f4lc7"]
 _data = [Vector2(0.0148515, 0), 0.0, 0.0, 0, 0, Vector2(0.262376, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -57,11 +57,11 @@ color = Color(4, 1.25, 0.6, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rwngy"]
 render_priority = 0
 shader = ExtResource("1_4bj4b")
+shader_parameter/MainTex = ExtResource("5_mtw8g")
 shader_parameter/DissolveTiling = Vector2(1, 1)
 shader_parameter/DissolveSpeed = Vector2(0, 0)
-shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTex = ExtResource("5_mtw8g")
 shader_parameter/DisolveTexture = ExtResource("2_s61xs")
+shader_parameter/DissolveAmount = 0.0
 
 [sub_resource type="Gradient" id="Gradient_caiau"]
 offsets = PackedFloat32Array(0.0487805, 0.390244, 0.731707)

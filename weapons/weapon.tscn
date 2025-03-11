@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8tjjk15s80k5"]
 
-[ext_resource type="Script" path="res://weapons/weapon.gd" id="1_2c7fc"]
+[ext_resource type="Script" uid="uid://baca3jheb4ohl" path="res://weapons/weapon.gd" id="1_2c7fc"]
 [ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="2_cf0mh"]
 
 [node name="Weapon" type="Node3D"]

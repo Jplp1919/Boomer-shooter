@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6n3v0tooc53g"]
 
-[ext_resource type="Script" path="res://weapons/attack_emitters/burst_emitter.gd" id="1_twb5f"]
+[ext_resource type="Script" uid="uid://bhjt58rmtdw3e" path="res://weapons/attack_emitters/burst_emitter.gd" id="1_twb5f"]
 
 [node name="BurstEmitter" type="Node3D"]
 script = ExtResource("1_twb5f")

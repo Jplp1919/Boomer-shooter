@@ -31,6 +31,7 @@ func _ready():
 var damage_taken_this_frame = 0
 var last_frame_damaged = -1
 
+
 func hurt(damage_data : DamageData):
 	if bleeds:
 		spawn_blood_effects(damage_data)
@@ -117,3 +118,14 @@ func spawn_blood_effects(damage_data : DamageData):
 		blood_decal.rotate_object_local(Vector3.FORWARD, randf_range(0.0, TAU))
 		blood_decal.scale *= randf_range(-blood_splatter_variance, blood_splatter_variance)
 	blood_ray_cast.enabled = false
+
+
+func kill():
+	if cur_health <= 0:
+		return
+		
+	cur_health = 0
+	died.emit()
+	health_changed.emit(cur_health, max_health)
+	if verbose:
+		print("Killed instantly, health: %s %s" % [cur_health, max_health])

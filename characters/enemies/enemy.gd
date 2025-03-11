@@ -13,3 +13,6 @@ func _ready():
 
 func hurt(damege_data : DamageData):
 	health_manager.hurt(damege_data)
+
+func kill():
+	health_manager.kill()

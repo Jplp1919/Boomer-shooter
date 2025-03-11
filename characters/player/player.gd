@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
 
+var mouse_captured = true
 var dead = false
 
 const HOTKEYS ={
@@ -66,6 +67,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		character_mover.jump()
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
+	
+	if Input.is_action_just_pressed("mouse_toggle"):
+		if mouse_captured:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			mouse_captured = false
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			mouse_captured = true
 
 func kill():
 	dead = true

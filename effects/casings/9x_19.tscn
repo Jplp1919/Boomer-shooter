@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://de5fwgv6co58x"]
 
-[ext_resource type="Script" path="res://effects/casings/9x_19.gd" id="1_at8qf"]
+[ext_resource type="Script" uid="uid://bei7v2jp7jw0u" path="res://effects/casings/9x_19.gd" id="1_at8qf"]
 [ext_resource type="PackedScene" uid="uid://devw71nib7ffi" path="res://effects/casings/assets/9.19 Parabellum casing.glb" id="2_dm6b1"]
 
 [node name="9x19" type="Node3D"]

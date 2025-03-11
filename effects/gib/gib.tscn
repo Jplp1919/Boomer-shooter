@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://koo1axvapm5c"]
 
-[ext_resource type="Script" path="res://effects/gib/gib.gd" id="1_oygif"]
+[ext_resource type="Script" uid="uid://bd67tdpvriu5q" path="res://effects/gib/gib.gd" id="1_oygif"]
 [ext_resource type="PackedScene" uid="uid://pnvnjv82jq2r" path="res://effects/gib/gib01test.glb" id="2_1u5mn"]
 [ext_resource type="PackedScene" uid="uid://capnqjnkd8syw" path="res://effects/gib/gib02test.glb" id="3_k75r2"]
 [ext_resource type="Texture2D" uid="uid://d0hnpnrrpubr6" path="res://effects/assets/circle.png" id="4_2cp7g"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chexwkenuwyev" path="res://weapons/projectiles/projectile.tscn" id="1_c6uvb"]
 [ext_resource type="PackedScene" uid="uid://drppx2anccywb" path="res://weapons/projectiles/assets/bullet.glb" id="2_3jklr"]
-[ext_resource type="Script" path="res://weapons/projectiles/bullet.gd" id="2_mfd0a"]
+[ext_resource type="Script" uid="uid://ctslx48lpl6du" path="res://weapons/projectiles/bullet.gd" id="2_mfd0a"]
 
 [sub_resource type="Gradient" id="Gradient_3ga6s"]
 offsets = PackedFloat32Array(0.0425532, 0.202128, 0.797872, 1)
