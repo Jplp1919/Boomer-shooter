@@ -2,7 +2,7 @@ extends Projectile
 
 @onready var area_damage_emitter: Node3D = $AreaDamageEmitter
 
-@onready var force_manager: Node3D = $ForceManager
+#@onready var force_manager: Node3D = $ForceManager
 
 
 #@export var gravity = 2.0

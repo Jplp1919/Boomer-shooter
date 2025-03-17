@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsy8r0dkge4bb"]
+
+[ext_resource type="Script" uid="uid://4hwgwelmp8bj" path="res://effects/casings/shell.gd" id="1_1k1yu"]
+[ext_resource type="PackedScene" uid="uid://iuvw6458158j" path="res://effects/casings/assets/spent shell.glb" id="2_1k1yu"]
+
+[node name="Shell" type="Node3D"]
+script = ExtResource("1_1k1yu")
+eject_speed = 1.0
+spin_speed = 120.0
+
+[node name="spent shell" parent="." instance=ExtResource("2_1k1yu")]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0.0320618)

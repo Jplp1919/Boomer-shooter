@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7wju7b48vy3u"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_jwvhi"]
-[ext_resource type="PackedScene" uid="uid://comjqb8vht6fy" path="res://weapons/assets/shotgun_tex.glb" id="2_xrdcd"]
+[ext_resource type="PackedScene" uid="uid://b5uqwppeqqmfx" path="res://weapons/assets/shotgun.glb" id="2_fyfo2"]
 [ext_resource type="PackedScene" uid="uid://6n3v0tooc53g" path="res://weapons/attack_emitters/burst_emitter.tscn" id="3_qs3fh"]
 [ext_resource type="PackedScene" uid="uid://b11pk28fpruau" path="res://weapons/attack_emitters/spray_emitter.tscn" id="4_0r2ir"]
 [ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="5_yfd1d"]
@@ -11,11 +11,13 @@ ammo = 30
 max_ammo = 30
 attack_rate = 0.5
 
-[node name="shotgun_tex" parent="Graphics" index="0" instance=ExtResource("2_xrdcd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="shotgun" parent="Graphics" index="0" instance=ExtResource("2_fyfo2")]
+transform = Transform3D(-2.40413e-08, 0, -0.55, 0, 0.55, 0, 0.55, 0, -2.40413e-08, 0, 0, 0)
 
 [node name="BurstEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_qs3fh")]
 
 [node name="SprayEmitter" parent="AttackEmitter/BurstEmitter" index="0" instance=ExtResource("4_0r2ir")]
 
 [node name="HitScanAttackEmitter" parent="AttackEmitter/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("5_yfd1d")]
+
+[editable path="Graphics/shotgun"]

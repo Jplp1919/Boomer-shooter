@@ -109,8 +109,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.956679, 0.0103601)
 visible = false
 
 [node name="HealthManager" parent="." index="2"]
-max_health = 1000
-gib_when_damage_taken = 10000
+gib_when_damage_taken = 50
+min_gib_spawn_amnt = 5
+max_gib_spawn_amnt = 10
 
 [editable path="Graphics/knight lowpoly test"]
 [editable path="Graphics/knight lowpoly test/Armature/Skeleton3D/Body/HitBox"]

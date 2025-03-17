@@ -41,6 +41,7 @@ func fire():
 			else:
 				hit_effect_inst.look_at(look_at_pos)
 			hit_effect_inst.add_to_group("instanced")
-	weapon_manager.create_bullet_trail(hit_position, cur_weapon_muzzle)
+	if weapon_manager != null:
+		weapon_manager.create_bullet_trail(hit_position, cur_weapon_muzzle)
 	ray_cast_3d.enabled = false
 	super()

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wj8s07x6vb3s"
-path.s3tc="res://.godot/imported/shotgun_tex_0.png-8e356924de512945eb02a50294b61581.s3tc.ctex"
+uid="uid://bkbo4gpmfg4lh"
+path.s3tc="res://.godot/imported/shotgun_black metal pixel 2.png-7a7daf7745c3b5e3a3fb7ed5995e76f8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "184534fcf67b2f7aa4075d87ac7311fd"
+"md5": "9d0711b73d6b51569bc0de63b8fdde25"
 }
 
 [deps]
 
-source_file="res://weapons/assets/shotgun_tex_0.png"
-dest_files=["res://.godot/imported/shotgun_tex_0.png-8e356924de512945eb02a50294b61581.s3tc.ctex"]
+source_file="res://weapons/assets/shotgun_black metal pixel 2.png"
+dest_files=["res://.godot/imported/shotgun_black metal pixel 2.png-7a7daf7745c3b5e3a3fb7ed5995e76f8.s3tc.ctex"]
 
 [params]
 

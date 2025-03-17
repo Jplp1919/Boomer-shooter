@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj1gga51jn7mk"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_05iul"]
+[ext_resource type="PackedScene" uid="uid://cubg07yckphre" path="res://weapons/assets/super shotgun.glb" id="2_ap4fa"]
+[ext_resource type="PackedScene" uid="uid://6n3v0tooc53g" path="res://weapons/attack_emitters/burst_emitter.tscn" id="2_fyn7b"]
+[ext_resource type="Script" uid="uid://wmjhs04nt005" path="res://weapons/super_shotgun.gd" id="2_hn03c"]
+[ext_resource type="PackedScene" uid="uid://b11pk28fpruau" path="res://weapons/attack_emitters/spray_emitter.tscn" id="3_ap4fa"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="4_hn03c"]
+
+[node name="SuperShotgun" instance=ExtResource("1_05iul")]
+script = ExtResource("2_hn03c")
+
+[node name="super shotgun" parent="Graphics" index="0" instance=ExtResource("2_ap4fa")]
+
+[node name="BurstEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_fyn7b")]
+
+[node name="SprayEmitter" parent="AttackEmitter/BurstEmitter" index="0" instance=ExtResource("3_ap4fa")]
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("4_hn03c")]
