@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=48 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://bkfh1lxfxws0g" path="res://weapons/rifle.tscn" id="10_2yjix"]
 [ext_resource type="PackedScene" uid="uid://dqw61qjs7ym84" path="res://effects/muzzle_flash/muzzle_flash_3.tscn" id="11_0mfek"]
 [ext_resource type="PackedScene" uid="uid://dj1gga51jn7mk" path="res://weapons/super_shotgun.tscn" id="11_8l73k"]
+[ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://machinegun.tscn" id="11_aqrcq"]
+[ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
+[ext_resource type="PackedScene" uid="uid://lusqs1fg3nth" path="res://effects/casings/7.92x57.tscn" id="12_kyfeq"]
+[ext_resource type="PackedScene" uid="uid://sfoae3nnjawn" path="res://effects/muzzle_flash/muzzle_flash_5.tscn" id="14_fpo3a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
@@ -271,6 +275,57 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_icpky"),
 &"attack": SubResource("Animation_gqopd")
+}
+
+[sub_resource type="Animation" id="Animation_fpo3a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mg08:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d2agh"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mg08:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.235802), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eject_casing"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fpo3a"]
+_data = {
+&"RESET": SubResource("Animation_fpo3a"),
+&"attack": SubResource("Animation_d2agh")
 }
 
 [sub_resource type="Animation" id="Animation_aqrcq"]
@@ -635,14 +690,51 @@ libraries = {
 &"": SubResource("AnimationLibrary_icpky")
 }
 
+[node name="BurstEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter" index="0"]
+burst_count = 5
+
 [node name="SprayEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter" index="0"]
-spray_arc = 4.0
+spray_arc = 2.0
 
 [node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun/Muzzle")
 weapon_manager = NodePath("../../../../../..")
 
-[node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("11_8l73k")]
+[node name="Machinegun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
+muzzle_flash = NodePath("Graphics/mg08/Muzzle/MachinegunMuzzleFlash")
+animation_player = NodePath("Graphics/MachinegunAnimationPlayer")
+automatic = true
+damage = 10
+ammo = 150
+max_ammo = 300
+ejection_port = NodePath("Graphics/mg08/Muzzle/MGEjectionPort")
+casing_scene = ExtResource("12_kyfeq")
+attack_rate = 0.1
+
+[node name="Graphics" parent="Camera3D/WeaponManager/Weapons/Machinegun" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389684, -0.417173, -0.572763)
+
+[node name="Muzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Machinegun/Graphics/mg08" index="1"]
+transform = Transform3D(-6.24449e-08, 0, -1.42857, 0, 1.42857, 0, 1.42857, 0, -6.24449e-08, 1.19399, 0.289146, 0)
+
+[node name="MachinegunMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Machinegun/Graphics/mg08/Muzzle" instance=ExtResource("12_d2agh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00945389)
+
+[node name="MGEjectionPort" type="Marker3D" parent="Camera3D/WeaponManager/Weapons/Machinegun/Graphics/mg08/Muzzle"]
+transform = Transform3D(1, 0, -1.35525e-20, 0, 1, 0, 1.35525e-20, 0, 1, 0.0169297, 0.0308373, 0.916074)
+
+[node name="MachinegunAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/Machinegun/Graphics" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_fpo3a")
+}
+
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Machinegun/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
+cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
+weapon_manager = NodePath("../../../..")
+
+[node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
+visible = false
+muzzle_flash = NodePath("Graphics/Muzzle/SuperShotgunMuzzleFlash")
 animation_player = NodePath("Graphics/SuperShotgunAnimationPlayer")
 damage = 15
 ammo = 30
@@ -654,6 +746,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115828, -0.226264, -0.29713
 
 [node name="Muzzle" type="Node3D" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0224253, 0.060809, -0.869624)
+
+[node name="SuperShotgunMuzzleFlash" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics/Muzzle" instance=ExtResource("14_fpo3a")]
 
 [node name="SuperShotgunAnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics" index="2"]
 libraries = {
@@ -748,6 +842,7 @@ verbose = true
 [editable path="Camera3D/WeaponManager/Weapons/Pistol"]
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun"]
+[editable path="Camera3D/WeaponManager/Weapons/Machinegun"]
 [editable path="Camera3D/WeaponManager/Weapons/SuperShotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/RocketLauncher"]
 [editable path="Camera3D/WeaponManager/Weapons/Rifle"]

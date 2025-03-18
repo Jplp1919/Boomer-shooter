@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnuoitoswwkx2"]
+[gd_scene load_steps=5 format=3 uid="uid://cbpdhj7oqa832"]
 
-[ext_resource type="Texture2D" uid="uid://dqrig47iom6rk" path="res://effects/muzzle_flash/assets/muzzletest05 pix.png" id="1_q2dij"]
+[ext_resource type="Texture2D" uid="uid://8f73htsrj58s" path="res://effects/muzzle_flash/assets/kenney-white-smoke-texture-cc0.png" id="1_mjcbf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vvns"]
 angle_min = 1.07288e-05
@@ -10,7 +10,7 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra3aj"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.0470588)
-albedo_texture = ExtResource("1_q2dij")
+albedo_texture = ExtResource("1_mjcbf")
 emission_enabled = true
 emission = Color(0.980663, 0.709711, 0.0810475, 1)
 emission_energy_multiplier = 4.0
@@ -23,7 +23,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_ra3aj")
 size = Vector2(0.3, 0.3)
 
-[node name="MuzzleFlash4" type="GPUParticles3D"]
+[node name="MuzzleFlash" type="GPUParticles3D"]
 emitting = false
 amount = 1
 lifetime = 0.01

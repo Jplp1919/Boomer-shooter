@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lusqs1fg3nth"]
+
+[ext_resource type="Script" uid="uid://bmft2bacqsa6k" path="res://effects/casings/7.92x_57.gd" id="1_3mv2e"]
+[ext_resource type="PackedScene" uid="uid://c7m3skvdgljq2" path="res://effects/casings/assets/7.92×57mm casing.glb" id="2_3mv2e"]
+
+[node name="7_92×57" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_3mv2e")
+
+[node name="7_92×57mm casing" parent="." instance=ExtResource("2_3mv2e")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

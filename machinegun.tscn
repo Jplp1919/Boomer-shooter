@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://db4rv27vtgh4"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_tqjge"]
+[ext_resource type="PackedScene" uid="uid://ti321ojkjx5u" path="res://weapons/assets/mg08.glb" id="2_ctj8m"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="3_ctj8m"]
+
+[node name="Machinegun" instance=ExtResource("1_tqjge")]
+
+[node name="mg08" parent="Graphics" index="0" instance=ExtResource("2_ctj8m")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0)
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_ctj8m")]
