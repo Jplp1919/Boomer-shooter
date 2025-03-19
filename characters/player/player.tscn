@@ -634,6 +634,7 @@ ammo = 200
 ejection_port = NodePath("Graphics/pixelpistol/PistolMuzzle/PistolEjectionPort")
 casing_scene = ExtResource("6_ts7dc")
 attack_rate = 0.1
+ammo_type = 0
 
 [node name="Graphics" parent="Camera3D/WeaponManager/Weapons/Pistol" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307673, -0.260088, -0.418004)
@@ -654,9 +655,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_1hs4o")
 }
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../Graphics/pixelpistol/PistolMuzzle")
-weapon_manager = NodePath("../../../..")
 
 [node name="Shotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("6_lmcyr")]
 visible = false
@@ -666,6 +666,7 @@ damage = 15
 ejection_port = NodePath("Graphics/shotgun/Muzzle/ShotgunEjectionPort")
 casing_scene = ExtResource("9_58jvb")
 attack_rate = 0.7
+ammo_type = 1
 
 [node name="Graphics" parent="Camera3D/WeaponManager/Weapons/Shotgun" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166702, -0.145728, -0.435571)
@@ -696,9 +697,8 @@ burst_count = 5
 [node name="SprayEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter" index="0"]
 spray_arc = 2.0
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun/Muzzle")
-weapon_manager = NodePath("../../../../../..")
 
 [node name="Machinegun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
 muzzle_flash = NodePath("Graphics/mg08/Muzzle/MachinegunMuzzleFlash")
@@ -710,6 +710,7 @@ max_ammo = 300
 ejection_port = NodePath("Graphics/mg08/Muzzle/MGEjectionPort")
 casing_scene = ExtResource("12_kyfeq")
 attack_rate = 0.1
+ammo_type = 2
 
 [node name="Graphics" parent="Camera3D/WeaponManager/Weapons/Machinegun" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389684, -0.417173, -0.572763)
@@ -728,9 +729,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_fpo3a")
 }
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Machinegun/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Machinegun/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
-weapon_manager = NodePath("../../../..")
 
 [node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
 visible = false
@@ -740,6 +740,7 @@ damage = 15
 ammo = 30
 max_ammo = 30
 attack_rate = 1.0
+ammo_type = 1
 
 [node name="Graphics" parent="Camera3D/WeaponManager/Weapons/SuperShotgun" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115828, -0.226264, -0.297139)
@@ -760,9 +761,8 @@ burst_count = 16
 [node name="SprayEmitter" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter/BurstEmitter" index="0"]
 spray_arc = 7.0
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle", "weapon_manager")]
+[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/Muzzle")
-weapon_manager = NodePath("../../../../../..")
 
 [node name="RocketLauncher" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("8_fysok")]
 transform = Transform3D(0.553416, 0, 0, 0, 0.553416, 0, 0, 0, 0.553416, 0.33712, -0.424548, -0.447995)
@@ -771,6 +771,7 @@ animation_player = NodePath("Graphics/RocketLauncherAnimationPlayer")
 ammo = 15
 max_ammo = 25
 attack_rate = 0.3
+ammo_type = 3
 
 [node name="Root Scene" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" index="0"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -793,6 +794,7 @@ visible = false
 muzzle_flash = NodePath("Graphics/RifleMuzzle/RifleMuzzleFlash")
 animation_player = NodePath("Graphics/RifleAnimationPlayer")
 attack_rate = 0.5
+ammo_type = 4
 
 [node name="RiflePixel" parent="Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="0"]
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.303558, -0.201522, -0.682531)

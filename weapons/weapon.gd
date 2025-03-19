@@ -22,9 +22,22 @@ var last_attack_time = -9999.9
 @export var animation_controlled_attack = false
 
 
+#ammo pool code
+enum AmmoType {
+	NONE = -1, # For weapons that don't use ammo
+	_9X19, #Pistol
+	_8GA, #TrenchBroom, Super Shotgun
+	_792X57, #Machinegun
+	ROCKET, #Rocket Launcher for debugging projectiles and explosions only
+	_45_70 #Cowboy repeater
+}
+@export var ammo_type: AmmoType = AmmoType.NONE
+
+#ammo pool code
 signal fired
 signal out_of_ammo
 signal ammo_updated(ammo_amnt: int, max_ammo: int)
+
 
 func _ready() :
 	attack_emmiter.set_damage(damage)
@@ -32,24 +45,26 @@ func _ready() :
 func set_bodies_to_exclude (bodies:Array):
 	attack_emmiter.set_bodies_to_exclude(bodies)
 
-func attack(input_just_pressed:bool, input_held:bool):
+func attack(input_just_pressed: bool, input_held: bool):
 	if !automatic and !input_just_pressed:
 		return
 	if automatic and !input_held:
 		return
 	
-	if ammo == 0:
+	if AmmoManager.get_ammo(ammo_type) == 0:
 		if input_just_pressed:
 			out_of_ammo.emit()
-			if has_node("OufOfAmmoSound"):
-				$"OufOfAmmoSound".play()
+			if has_node("OutOfAmmoSound"):
+				$"OutOfAmmoSound".play()
 		return
+	
 	var cur_time = Time.get_ticks_msec() / 1000.0
 	if cur_time - last_attack_time < attack_rate:
 		return
 	
-	if ammo > 0:
-		ammo -= 1
+	if ammo_type != AmmoType.NONE:
+		AmmoManager.use_ammo(ammo_type, 1)
+	
 	if !animation_controlled_attack:
 		actually_attack()
 	last_attack_time = cur_time
@@ -58,7 +73,6 @@ func attack(input_just_pressed:bool, input_held:bool):
 	
 	fired.emit()
 	if muzzle_flash != null:
-		#$Graphics/MuzzleFlash.flash()
 		muzzle_flash.emitting = true
 
 func actually_attack():
@@ -70,7 +84,7 @@ func set_active (a:bool):
 	if !a:
 		animation_player.play("RESET")
 	else:
-		ammo_updated.emit(ammo, max_ammo)
+		ammo_updated.emit(AmmoManager.get_ammo(ammo_type), AmmoManager.get_max_ammo(ammo_type))
 
 func is_idle ()->bool:
 	return !animation_player.is_playing()

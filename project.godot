@@ -15,6 +15,10 @@ run/main_scene="res://enviroment/world.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AmmoManager="*res://weapons/singletons/ammo_manager.gd"
+
 [dotnet]
 
 project/assembly_name="project-boomer"

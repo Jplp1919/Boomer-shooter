@@ -37,3 +37,7 @@ func has_los(collider: Node3D) -> bool:
 	var in_los = !los_ray_cast.is_colliding()
 	los_ray_cast.enabled = false
 	return in_los
+
+
+func _on_hit_scan_attack_emitter_bullet_fired(hit_position: Vector3, muzzle_position: Vector3) -> void:
+	pass # Replace with function body.

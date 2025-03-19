@@ -51,6 +51,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		get_tree().call_group("instanced", "queue_free")
 		get_tree().reload_current_scene()
+		AmmoManager.reset_ammo()
 		
 	if Input.is_action_just_pressed("fullscreen"):
 		var fs = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN

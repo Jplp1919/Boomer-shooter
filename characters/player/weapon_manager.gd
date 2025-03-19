@@ -66,15 +66,3 @@ func update_animation(velocity: Vector3, grounded: bool):
 		animation_player.play("RESET", 0.3)
 	else:
 		animation_player.play("moving", 0.3)
-
-func create_bullet_trail(target_pos : Vector3, muzzle : Node3D = null):
-	if muzzle == null:
-		return
-	var bullet_dir = (target_pos - muzzle.global_position).normalized()
-	var start_pos = muzzle.global_position + bullet_dir*0.25
-	if (target_pos - start_pos).length() > 3.0:
-		var bullet_tracer = preload("res://effects/bullet_effects/bullet_tracer.tscn").instantiate()
-		player.add_sibling(bullet_tracer)
-		bullet_tracer.global_position = start_pos
-		bullet_tracer.target_pos = target_pos
-		bullet_tracer.look_at(target_pos)

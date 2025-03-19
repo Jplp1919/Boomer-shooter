@@ -2,9 +2,10 @@ extends AttackEmitter
 @export var cur_weapon_muzzle : Node3D
 @export var only_hit_enviroment = false
 @export var is_sword = false
-@export var weapon_manager: Node3D
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
+
+@onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready() -> void:
 	if is_sword:
@@ -41,7 +42,19 @@ func fire():
 			else:
 				hit_effect_inst.look_at(look_at_pos)
 			hit_effect_inst.add_to_group("instanced")
-	if weapon_manager != null:
-		weapon_manager.create_bullet_trail(hit_position, cur_weapon_muzzle)
+	if cur_weapon_muzzle:
+		create_bullet_trail(hit_position, cur_weapon_muzzle)
 	ray_cast_3d.enabled = false
 	super()
+
+func create_bullet_trail(target_pos : Vector3, muzzle : Node3D = null):
+	if muzzle == null:
+		return
+	var bullet_dir = (target_pos - muzzle.global_position).normalized()
+	var start_pos = muzzle.global_position + bullet_dir*0.25
+	if (target_pos - start_pos).length() > 3.0:
+		var bullet_tracer = preload("res://effects/bullet_effects/bullet_tracer.tscn").instantiate()
+		player.add_sibling(bullet_tracer)
+		bullet_tracer.global_position = start_pos
+		bullet_tracer.target_pos = target_pos
+		bullet_tracer.look_at(target_pos)
