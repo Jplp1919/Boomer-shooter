@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://djuyvis16pdbl"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_7laka"]
+[ext_resource type="PackedScene" uid="uid://cwt48kegb7c2e" path="res://pickups/assets/7.92×57mm ammo pickup.glb" id="2_ctdh7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7laka"]
+radius = 0.244354
+
+[node name="792x57Pickup" instance=ExtResource("1_7laka")]
+pickup_type = 2
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_7laka")
+
+[node name="7_92×57mm ammo pickup" parent="Graphics" index="0" instance=ExtResource("2_ctdh7")]
+transform = Transform3D(2.97957, 0, 0, 0, 2.97957, 0, 0, 0, 2.97957, 0, -0.0649381, 0)

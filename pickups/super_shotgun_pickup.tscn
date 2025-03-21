@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btjv2jx1em3q3"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_e4wxp"]
+[ext_resource type="PackedScene" uid="uid://cubg07yckphre" path="res://weapons/assets/super shotgun.glb" id="2_8kh6d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fxts4"]
+height = 1.60967
+
+[node name="SuperShotgunPickup" instance=ExtResource("1_e4wxp")]
+pickup_type = 1
+weapon_type = 3
+pickup_amnt = 2
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, -0.0628814)
+shape = SubResource("CapsuleShape3D_fxts4")
+
+[node name="super shotgun" parent="Graphics" index="0" instance=ExtResource("2_8kh6d")]

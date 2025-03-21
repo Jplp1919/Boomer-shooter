@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=50 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
 [ext_resource type="PackedScene" uid="uid://lusqs1fg3nth" path="res://effects/casings/7.92x57.tscn" id="12_kyfeq"]
 [ext_resource type="PackedScene" uid="uid://sfoae3nnjawn" path="res://effects/muzzle_flash/muzzle_flash_5.tscn" id="14_fpo3a"]
+[ext_resource type="Script" uid="uid://dtnvbhx3qi3tj" path="res://characters/player/pickup_manager.gd" id="21_5mkjs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
@@ -572,6 +573,8 @@ _data = {
 &"moving": SubResource("Animation_smgks")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5mkjs"]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 6
 collision_mask = 3
@@ -604,6 +607,7 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="WeaponManager" type="Node3D" parent="Camera3D"]
+unique_name_in_owner = true
 script = ExtResource("2_toaof")
 
 [node name="Weapons" type="Node3D" parent="Camera3D/WeaponManager"]
@@ -835,7 +839,18 @@ grow_vertical = 2
 texture = ExtResource("8_icpky")
 
 [node name="HealthManager" parent="." instance=ExtResource("6_0vft6")]
+unique_name_in_owner = true
 verbose = true
+
+[node name="PickupManager" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("21_5mkjs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupManager"]
+transform = Transform3D(1.17545, 0, 0, 0, 1.17545, 0, 0, 0, 1.17545, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5mkjs")
 
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]
 

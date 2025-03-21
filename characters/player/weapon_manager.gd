@@ -15,15 +15,24 @@ func _ready():
 			weapon.set_bodies_to_exclude([get_parent().get_parent()])
 	disable_all_weapons()
 	for _i in range(weapons.size()):
-		weapons_unlocked.append(true) #unlocks all weapons, for test purposes
-		#weapons_unlocked.append(false) #locks all weapons by default
-		#weapons_unlocked[0] = true #sword unlocks by default
+		#weapons_unlocked.append(true) #unlocks all weapons, for test purposes
+		weapons_unlocked.append(false) #locks all weapons by default
+		weapons_unlocked[0] = true #sword unlocks by default
 	switch_to_weapon_slot(0)
 
 
 func attack(input_just_pressed:bool, input_held:bool):
 	if cur_weapon is Weapon:
 		cur_weapon.attack(input_just_pressed, input_held)
+
+func enable_weapon(weapon: Weapon):
+	if weapon == null:
+		return
+	var weapon_ind = weapon.get_index()
+	var weapon_unlocked = weapons_unlocked[weapon_ind]
+	weapons_unlocked[weapon_ind] = true
+	if !weapon_unlocked:
+		switch_to_weapon_slot(weapon_ind)
 
 func disable_all_weapons():
 	for weapon in weapons:
@@ -66,3 +75,19 @@ func update_animation(velocity: Vector3, grounded: bool):
 		animation_player.play("RESET", 0.3)
 	else:
 		animation_player.play("moving", 0.3)
+
+func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
+	match weapon_type:
+		Pickup.WEAPONS.PISTOL:
+			return $Weapons/Pistol
+		Pickup.WEAPONS.TRENCH_BROOM:
+			return $Weapons/Shotgun
+		Pickup.WEAPONS.MACHINE_GUN:
+			return $Weapons/Machinegun
+		Pickup.WEAPONS.SUPER_SHOTGUN:
+			return $Weapons/SuperShotgun
+		Pickup.WEAPONS.ROCKET_LAUNCHER:
+			return $Weapons/RocketLauncher
+		Pickup.WEAPONS.REPEATING_RIFLE:
+			return $Weapons/Rifle
+	return null

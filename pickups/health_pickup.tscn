@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://br8v3v1hqylj8"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_e688c"]
+[ext_resource type="PackedScene" uid="uid://bkoa3jw458qe2" path="res://pickups/assets/medkit.glb" id="2_w0ydi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w0ydi"]
+radius = 0.414212
+
+[node name="HealthPickup" instance=ExtResource("1_e688c")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05531, 0)
+shape = SubResource("SphereShape3D_w0ydi")
+
+[node name="medkit" parent="Graphics" index="0" instance=ExtResource("2_w0ydi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.198116, 0)

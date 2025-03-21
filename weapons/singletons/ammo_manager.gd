@@ -39,7 +39,7 @@ func add_ammo(ammo_type: Weapon.AmmoType, amount: int):
 
 func reset_ammo():
 	ammo_pools[Weapon.AmmoType._9X19] = 50
-	ammo_pools[Weapon.AmmoType._8GA] = 10
-	ammo_pools[Weapon.AmmoType._792X57] = 100
+	ammo_pools[Weapon.AmmoType._8GA] = 0
+	ammo_pools[Weapon.AmmoType._792X57] = 0
 	ammo_pools[Weapon.AmmoType.ROCKET] = 5
 	ammo_pools[Weapon.AmmoType._45_70] = 10

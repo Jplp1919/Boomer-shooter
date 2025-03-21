@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ifwildh6c8ws"
-path="res://.godot/imported/knight lowpoly test.glb-77ea0fa844c849bf5a57ded548895b10.scn"
+uid="uid://dc11sxsbio14o"
+path="res://.godot/imported/shell.glb-9c18c84248db18d19f4af5604ea61906.scn"
 
 [deps]
 
-source_file="res://characters/enemies/knight/knight lowpoly test.glb"
-dest_files=["res://.godot/imported/knight lowpoly test.glb-77ea0fa844c849bf5a57ded548895b10.scn"]
+source_file="res://pickups/assets/shell.glb"
+dest_files=["res://.godot/imported/shell.glb-9c18c84248db18d19f4af5604ea61906.scn"]
 
 [params]
 
