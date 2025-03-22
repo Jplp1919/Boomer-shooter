@@ -846,6 +846,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/WeaponManager/NearbyEnemiesAlertAreaLarge"]
 shape = SubResource("SphereShape3D_yybc7")
 
+[node name="LOSRayCast3D" type="RayCast3D" parent="Camera3D/WeaponManager"]
+enabled = false
+
 [node name="Crosshairs" type="TextureRect" parent="Camera3D"]
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=18 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cv6her2hccid0" path="res://pickups/trench_broom_pickup.tscn" id="9_wa8is"]
 [ext_resource type="PackedScene" uid="uid://btjv2jx1em3q3" path="res://pickups/super_shotgun_pickup.tscn" id="10_3ihqw"]
 [ext_resource type="PackedScene" uid="uid://eb66hrpgursm" path="res://pickups/shell_pickup.tscn" id="11_8mhlp"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3ihqw"]
+vertices = PackedVector3Array(-9, 0.41778, -1, -7.5, 0.41778, -1, 0, 0.41778, -4, 0, 0.41778, -8.75, 2.25, 0.41778, -49.5, -49.5, 0.41778, -49.5, -49.5, 0.41778, 0, -9.25, 0.41778, 0, 2.25, 0.41778, -9, 5, 0.41778, -9, 5, 0.41778, -49.5, 7, 0.41778, -9, 7.25, 0.41778, -7.25, 49.5, 0.41778, -7.5, 49.5, 0.41778, -49.5, 1, 5.91778, -8, 1, 5.91778, -4.5, 6.25, 5.91778, -4.5, 6.25, 5.91778, -8, 1.25, 0.41778, -7.75, 1.25, 0.41778, -4.75, 6, 0.41778, -4.75, 6, 0.41778, -7.75, 7.25, 0.41778, -5.25, 49.5, 0.41778, -5, 7, 0.41778, -3.5, 5, 0.41778, 49.5, 49.5, 0.41778, 49.5, 5, 0.41778, -3.5, -7, 0.41778, -0.75, 0.25, 0.41778, -3.5, -7, 0.41778, 1, -8.25, 0.41778, 1.25, -8.25, 0.41778, 49.5, -9.25, 0.41778, 1, -49.5, 0.41778, 49.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(0, 7, 6), PackedInt32Array(3, 4, 8), PackedInt32Array(4, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(11, 9, 10), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 14), PackedInt32Array(18, 17, 15), PackedInt32Array(15, 17, 16), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(12, 13, 23), PackedInt32Array(23, 13, 24), PackedInt32Array(23, 24, 25), PackedInt32Array(25, 24, 27), PackedInt32Array(25, 27, 26), PackedInt32Array(26, 28, 25), PackedInt32Array(29, 1, 2), PackedInt32Array(2, 30, 29), PackedInt32Array(29, 30, 31), PackedInt32Array(33, 32, 31), PackedInt32Array(30, 28, 31), PackedInt32Array(31, 28, 26), PackedInt32Array(31, 26, 33), PackedInt32Array(6, 7, 34), PackedInt32Array(34, 32, 6), PackedInt32Array(6, 32, 33), PackedInt32Array(6, 33, 35)]
+geometry_source_geometry_mode = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2ag3"]
 albedo_texture = ExtResource("1_l6ir3")
@@ -31,7 +36,10 @@ sky = SubResource("Sky_sfspi")
 
 [node name="World" type="Node3D"]
 
-[node name="Enviroment" type="Node3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_3ihqw")
+
+[node name="Enviroment" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
 
 [node name="Floor" type="CSGBox3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -68,7 +76,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)
 
 [node name="Knight" parent="." instance=ExtResource("4_oh1bs")]
-transform = Transform3D(-0.994586, 0, 0.103921, 0, 1, 0, -0.103921, 0, -0.994586, -1.58229, 0.0206168, -4.61359)
+transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -1.58229, 0.151597, -9.62228)
 
 [node name="HealthPickup" parent="." instance=ExtResource("6_lwd0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)

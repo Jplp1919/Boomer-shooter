@@ -1,37 +1,52 @@
-[gd_scene load_steps=11 format=3 uid="uid://b345l0hyircga"]
+[gd_scene load_steps=12 format=3 uid="uid://b345l0hyircga"]
 
 [ext_resource type="PackedScene" uid="uid://na35hdwlh1ib" path="res://characters/enemies/enemy.tscn" id="1_6vk3i"]
-[ext_resource type="PackedScene" uid="uid://b5qwvv3ap0e4d" path="res://characters/enemies/knight/knight lowpoly.glb" id="2_8ke5n"]
+[ext_resource type="PackedScene" uid="uid://biwm1gp5qn2qw" path="res://characters/enemies/knight/knight lowpoly.glb" id="2_8ke5n"]
+[ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="2_gl02s"]
 [ext_resource type="PackedScene" uid="uid://d435dfdhj4h6" path="res://characters/hit_box.tscn" id="3_nqwqq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gl02s"]
 radius = 0.203277
 height = 0.859762
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nqwqq"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_2omia"]
 radius = 0.145782
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gl02s"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_q2l64"]
 radius = 0.100346
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nqwqq"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_beb84"]
 radius = 0.107109
 height = 0.417897
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2omia"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_73t0l"]
 radius = 0.0787108
 height = 0.36596
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q2l64"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xl0u"]
 radius = 0.0775452
 height = 0.548735
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_beb84"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yv4cp"]
 radius = 0.104996
 height = 0.557665
 
 [node name="Knight" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_6vk3i")]
 animation_player = NodePath("Graphics/knight lowpoly/AnimationPlayer")
+damage = 10
+
+[node name="AICharacterMover" parent="." index="0"]
+max_speed = 6.0
+move_accel = 2.0
+
+[node name="HealthManager" parent="." index="1"]
+max_health = 300
+gib_when_damage_taken = 120
+min_gib_spawn_amnt = 5
+max_gib_spawn_amnt = 10
+
+[node name="AreaDamageEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_gl02s")]
+attack_radius = 1.5
 
 [node name="knight lowpoly" parent="Graphics" index="0" instance=ExtResource("2_8ke5n")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -39,7 +54,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="Skeleton3D" parent="Graphics/knight lowpoly/Armature" index="0"]
 bones/0/position = Vector3(8.13762e-11, 1.05737, -5.3551e-09)
 bones/0/rotation = Quaternion(0.0311662, 1.19151e-07, 3.71531e-09, 0.999514)
-bones/1/rotation = Quaternion(-0.114375, -2.36854e-07, 3.42515e-15, 0.993438)
+bones/1/rotation = Quaternion(-0.114375, -2.36854e-07, 2.49648e-15, 0.993438)
 bones/2/position = Vector3(-0.191355, 0.635129, -0.0396473)
 bones/2/rotation = Quaternion(0.00459385, 0.0808202, 0.973222, 0.215142)
 bones/3/rotation = Quaternion(-0.0683008, 0.00017491, 0.00942907, 0.99762)
@@ -73,24 +88,24 @@ meshes_to_destroy = [NodePath("../../Head")]
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/Body/HitBoxHead" index="0"]
 transform = Transform3D(1, 3.67652e-08, 2.72024e-10, -3.66768e-08, 0.997025, 0.0770845, 2.56256e-09, -0.0770845, 0.997025, 1.45599e-08, 0.884299, -0.016591)
-shape = SubResource("SphereShape3D_nqwqq")
+shape = SubResource("SphereShape3D_2omia")
 
 [node name="HitBoxShoulderR" parent="Graphics/knight lowpoly/Armature/Skeleton3D/Body" index="2" instance=ExtResource("3_nqwqq")]
 weak_spot = true
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/Body/HitBoxShoulderR" index="0"]
 transform = Transform3D(1, 3.67653e-08, 2.71797e-10, -3.66769e-08, 0.997025, 0.0770845, 2.56267e-09, -0.0770845, 0.997025, 0.178907, 0.607781, -0.0249377)
-shape = SubResource("SphereShape3D_gl02s")
+shape = SubResource("SphereShape3D_q2l64")
 
 [node name="HitBoxShoulderL" parent="Graphics/knight lowpoly/Armature/Skeleton3D/Body" index="3" instance=ExtResource("3_nqwqq")]
 weak_spot = true
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/Body/HitBoxShoulderL" index="0"]
 transform = Transform3D(1, 3.67653e-08, 2.71683e-10, -3.66769e-08, 0.997025, 0.0770846, 2.56273e-09, -0.0770846, 0.997025, -0.195434, 0.607781, -0.0249379)
-shape = SubResource("SphereShape3D_gl02s")
+shape = SubResource("SphereShape3D_q2l64")
 
 [node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.907387, -0.418019, 0.0437175, 0.420299, -0.902551, 0.093548, 0.000352455, 0.103258, 0.994655, -0.191355, 1.69374, -3.48082e-07)
+transform = Transform3D(-0.907387, -0.418019, 0.0437175, 0.420299, -0.902551, 0.093548, 0.000352453, 0.103258, 0.994655, -0.191355, 1.69374, -3.48082e-07)
 bone_name = "upperarm.l"
 bone_idx = 2
 
@@ -99,10 +114,10 @@ meshes_to_destroy = [NodePath("../../Upper  Left Arm"), NodePath("../../Lower Le
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/UpperArmL/HitBox" index="0"]
 transform = Transform3D(1, 1.48659e-07, -6.69388e-10, -1.78134e-07, 1, 0, 3.95521e-08, -1.49012e-08, 1, 0.00476497, 0.131153, 0.0135669)
-shape = SubResource("CapsuleShape3D_nqwqq")
+shape = SubResource("CapsuleShape3D_beb84")
 
 [node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.907386, 0.418019, -0.0437183, -0.420299, -0.902551, 0.0935475, -0.000353318, 0.103258, 0.994654, 0.191355, 1.69374, -3.36906e-07)
+transform = Transform3D(-0.907386, 0.418019, -0.0437183, -0.420299, -0.902551, 0.0935475, -0.000353314, 0.103258, 0.994654, 0.191355, 1.69374, -3.36906e-07)
 bone_name = "upperarm.r"
 bone_idx = 8
 
@@ -111,10 +126,10 @@ meshes_to_destroy = [NodePath("../../Upper Right Arm"), NodePath("../../Lower Ri
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/UpperArmR/HitBox" index="0"]
 transform = Transform3D(1, 1.48659e-07, -6.69388e-10, -1.78134e-07, 1, 0, 3.95521e-08, -1.49012e-08, 1, 0.00476497, 0.131153, 0.0135669)
-shape = SubResource("CapsuleShape3D_nqwqq")
+shape = SubResource("CapsuleShape3D_beb84")
 
 [node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="10"]
-transform = Transform3D(-0.915151, -0.40291, -0.0128059, 0.403113, -0.914635, -0.030719, 0.000664291, -0.0332747, 0.999446, -0.347387, 1.35685, 0.0385424)
+transform = Transform3D(-0.915151, -0.40291, -0.0128059, 0.403113, -0.914635, -0.030719, 0.000664289, -0.0332747, 0.999446, -0.347387, 1.35685, 0.0385424)
 bone_name = "lowerarm.l"
 bone_idx = 3
 
@@ -123,10 +138,10 @@ meshes_to_destroy = [NodePath("../../Lower Left Arm")]
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/LowerArmL/HitBox" index="0"]
 transform = Transform3D(1, -5.80003e-08, -3.55067e-09, 1.79716e-09, 1, 7.45058e-09, -1.33878e-09, 0, 1, -0.00205982, 0.14669, 0.00488515)
-shape = SubResource("CapsuleShape3D_2omia")
+shape = SubResource("CapsuleShape3D_73t0l")
 
 [node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="11"]
-transform = Transform3D(-0.91515, 0.40291, 0.0128051, -0.403113, -0.914635, -0.0307193, -0.000665055, -0.0332746, 0.999446, 0.347387, 1.35685, 0.0385424)
+transform = Transform3D(-0.91515, 0.40291, 0.0128052, -0.403113, -0.914635, -0.0307193, -0.000665051, -0.0332746, 0.999446, 0.347387, 1.35685, 0.0385424)
 bone_name = "lowerarm.r"
 bone_idx = 9
 
@@ -135,10 +150,10 @@ meshes_to_destroy = [NodePath("../../Lower Right Arm"), NodePath("../../Sword")]
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/LowerArmR/HitBox" index="0"]
 transform = Transform3D(1, -5.80003e-08, -3.55067e-09, 1.79716e-09, 1, 7.45058e-09, -1.33878e-09, 0, 1, -0.00205982, 0.14669, 0.00488515)
-shape = SubResource("CapsuleShape3D_2omia")
+shape = SubResource("CapsuleShape3D_73t0l")
 
 [node name="UpperLegL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="12"]
-transform = Transform3D(-0.999876, 0.0155319, -0.00248769, -0.0157298, -0.987216, 0.158611, 7.64895e-06, 0.158631, 0.987339, -0.100127, 1.04476, -1.48197e-07)
+transform = Transform3D(-0.999876, 0.0155319, -0.00248769, -0.0157298, -0.987216, 0.158611, 7.64907e-06, 0.158631, 0.987339, -0.100127, 1.04476, -1.48197e-07)
 bone_name = "upperleg.l"
 bone_idx = 5
 
@@ -146,10 +161,10 @@ bone_idx = 5
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/UpperLegL/HitBox" index="0"]
 transform = Transform3D(1, -3.32841e-09, 1.74896e-09, 4.38604e-10, 1, 2.98023e-08, 5.92991e-10, 5.96046e-08, 1, -0.000241026, 0.227382, -0.0365322)
-shape = SubResource("CapsuleShape3D_q2l64")
+shape = SubResource("CapsuleShape3D_4xl0u")
 
 [node name="UpperLegR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.999876, -0.0155319, 0.00248774, 0.0157298, -0.987216, 0.158612, -7.59354e-06, 0.158631, 0.98734, 0.100127, 1.04476, -1.54891e-07)
+transform = Transform3D(-0.999876, -0.0155319, 0.00248774, 0.0157298, -0.987216, 0.158612, -7.59331e-06, 0.158631, 0.98734, 0.100127, 1.04476, -1.54891e-07)
 bone_name = "upperleg.r"
 bone_idx = 11
 
@@ -157,7 +172,7 @@ bone_idx = 11
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/UpperLegR/HitBox" index="0"]
 transform = Transform3D(1, -3.32841e-09, 1.74896e-09, 4.38604e-10, 1, 2.98023e-08, 5.92991e-10, 5.96046e-08, 1, -0.000241026, 0.227382, -0.0365322)
-shape = SubResource("CapsuleShape3D_q2l64")
+shape = SubResource("CapsuleShape3D_4xl0u")
 
 [node name="LowerLegL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="14"]
 transform = Transform3D(-0.999566, 0.0294532, -0.000134781, -0.0294462, -0.999408, -0.0177766, -0.000658286, -0.0177653, 0.999843, -0.0927105, 0.573342, 0.0757498)
@@ -168,7 +183,7 @@ bone_idx = 6
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/LowerLegL/HitBox" index="0"]
 transform = Transform3D(1, -2.93403e-09, 0, -3.08864e-09, 1, 0, -5.82077e-11, 0, 1, 0.00769643, 0.261218, 0.00464637)
-shape = SubResource("CapsuleShape3D_beb84")
+shape = SubResource("CapsuleShape3D_yv4cp")
 
 [node name="LowerLegR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="15"]
 transform = Transform3D(-0.999566, -0.0294532, 0.000134488, 0.0294462, -0.999408, -0.0177765, 0.000657994, -0.0177655, 0.999844, 0.0927105, 0.573342, 0.0757498)
@@ -179,17 +194,10 @@ bone_idx = 12
 
 [node name="CollisionShape3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D/LowerLegR/HitBox" index="0"]
 transform = Transform3D(1, -2.93403e-09, 0, -3.08864e-09, 1, 0, -5.82077e-11, 0, 1, 0.00769643, 0.261218, 0.00464637)
-shape = SubResource("CapsuleShape3D_beb84")
+shape = SubResource("CapsuleShape3D_yv4cp")
 
-[node name="CollisionShape3D" parent="." index="1"]
+[node name="CollisionShape3D" parent="." index="5"]
 transform = Transform3D(0.976327, 0, 0, 0, 0.976327, 0, 0, 0, 0.976327, 0, 0.956679, 0.0103601)
-visible = false
-
-[node name="HealthManager" parent="." index="2"]
-max_health = 300
-gib_when_damage_taken = 120
-min_gib_spawn_amnt = 5
-max_gib_spawn_amnt = 10
 
 [editable path="Graphics/knight lowpoly"]
 [editable path="Graphics/knight lowpoly/Armature/Skeleton3D/Body/HitBox"]
