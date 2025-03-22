@@ -123,8 +123,6 @@ func spawn_blood_effects(damage_data : DamageData):
 func kill():
 	if cur_health <= 0:
 		return
-		
-	cur_health = 0
 	died.emit()
 	health_changed.emit(cur_health, max_health)
 	if verbose:

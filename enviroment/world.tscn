@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=17 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
 [ext_resource type="PackedScene" uid="uid://c5dbr26npmfin" path="res://traps/fire_hazard.tscn" id="3_m0t8l"]
-[ext_resource type="PackedScene" uid="uid://c7we1esb1ntri" path="res://characters/enemies/test/blockman/blockman.tscn" id="4_m06hg"]
 [ext_resource type="PackedScene" uid="uid://b345l0hyircga" path="res://characters/enemies/knight/knight.tscn" id="4_oh1bs"]
 [ext_resource type="PackedScene" uid="uid://br8v3v1hqylj8" path="res://pickups/health_pickup.tscn" id="6_lwd0r"]
 [ext_resource type="PackedScene" uid="uid://b8ft78fjd6hs6" path="res://pickups/machinegun_pickup.tscn" id="7_jq3pp"]
@@ -67,9 +66,6 @@ shadow_enabled = true
 
 [node name="FireHazard" parent="." instance=ExtResource("3_m0t8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)
-
-[node name="Blockman" parent="." instance=ExtResource("4_m06hg")]
-transform = Transform3D(0.594444, 0, 0.804137, 0, 1, 0, -0.804137, 0, 0.594444, -15.169, 0.22529, -5.09082)
 
 [node name="Knight" parent="." instance=ExtResource("4_oh1bs")]
 transform = Transform3D(-0.994586, 0, 0.103921, 0, 1, 0, -0.103921, 0, -0.994586, -1.58229, 0.0206168, -4.61359)

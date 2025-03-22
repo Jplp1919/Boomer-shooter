@@ -20,8 +20,8 @@ particles_anim_loop = false
 spread = 180.0
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
-scale_min = 0.01
-scale_max = 0.03
+scale_min = 0.04
+scale_max = 0.08
 
 [sub_resource type="QuadMesh" id="QuadMesh_pen38"]
 
@@ -52,8 +52,8 @@ rings = 3
 
 [node name="SparkParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_hiy1v")
-amount = 16
-lifetime = 0.4
+amount = 24
+lifetime = 0.7
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_asjx0")

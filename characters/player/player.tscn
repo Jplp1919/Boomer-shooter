@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=52 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -573,6 +573,12 @@ _data = {
 &"moving": SubResource("Animation_smgks")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5mkjs"]
+radius = 14.5662
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yybc7"]
+radius = 57.2885
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5mkjs"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
@@ -823,6 +829,22 @@ aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 libraries = {
 &"": SubResource("AnimationLibrary_n3ecu")
 }
+
+[node name="NearbyEnemiesAlertAreaSmall" type="Area3D" parent="Camera3D/WeaponManager"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/WeaponManager/NearbyEnemiesAlertAreaSmall"]
+shape = SubResource("SphereShape3D_5mkjs")
+
+[node name="NearbyEnemiesAlertAreaLarge" type="Area3D" parent="Camera3D/WeaponManager"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/WeaponManager/NearbyEnemiesAlertAreaLarge"]
+shape = SubResource("SphereShape3D_yybc7")
 
 [node name="Crosshairs" type="TextureRect" parent="Camera3D"]
 anchors_preset = 8
