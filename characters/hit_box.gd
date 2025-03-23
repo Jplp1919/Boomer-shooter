@@ -11,6 +11,8 @@ enum LimbType {
 	Head
 }
 
+@export var limbtype := LimbType.Other
+
 @export var health : int = 50
 
 #new code for dismemberment
@@ -32,6 +34,12 @@ func hurt(damage_data: DamageData):
 	health -= damage_data.amount
 	var dead = health <= 0
 	if dead:
+		if limbtype == LimbType.Right_Arm:
+			if Parent:
+				Parent.disarmed = true
+		if limbtype == LimbType.Head:
+			Parent.beheaded = true
+		
 		#if mesh:
 			#mesh.queue_free()
 			#queue_free()

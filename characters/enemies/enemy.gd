@@ -9,8 +9,12 @@ extends CharacterBody3D
 @onready var nearby_enemies_alert_area: Area3D = $NearbyEnemiesAlertArea
 
 
+
 @export var attack_range = 2.0
 @export var damage = 15
+
+var disarmed := false
+var beheaded := false
 
 @export var attack_speed_modifier = 1.0
 
@@ -58,7 +62,10 @@ func set_state(state: STATES):
 		STATES.IDLE:
 			animation_player.play("idle")
 		STATES.DEAD:
-			animation_player.play("die", 0.2)
+			if beheaded:
+				animation_player.play("dismembered_head", 0.2)
+			else:
+				animation_player.play("die", 0.2)
 			collision_layer = 0
 			collision_mask = 1
 			ai_character_mover.stop_moving()
@@ -92,7 +99,12 @@ func process_attack_state(delta: float) -> void:
 
 func start_attack():
 	#$AttackSound.play()
-	animation_player.play("attack", -1, attack_speed_modifier)
+	if disarmed:
+		damage = 2
+		attack_emitter.set_damage(damage)
+		animation_player.play("kick", -1, attack_speed_modifier)
+	else:
+		animation_player.play("attack", -1, attack_speed_modifier)
 
 func do_attack(): #called from animation
 	attack_emitter.fire()

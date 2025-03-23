@@ -1,4 +1,4 @@
-[gd_resource type="Animation" format=3 uid="uid://8iyyaaex11lh"]
+[gd_resource type="Animation" format=3 uid="uid://batcoyt43rbw1"]
 
 [resource]
 resource_name = "kick"
@@ -115,3 +115,17 @@ tracks/15/path = NodePath("Armature/Skeleton3D:foot.r")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, -0.632784, -0.0216037, 0.0638943, 0.771385, 0.0333333, 1, -0.632784, -0.0216037, 0.0638943, 0.771385, 0.0666667, 1, -0.635532, -0.021419, 0.0639729, 0.769122, 0.1, 1, -0.641366, -0.0210239, 0.0641379, 0.764261, 0.166667, 1, -0.657219, -0.0199313, 0.0645725, 0.750664, 0.2, 1, -0.660781, -0.0196818, 0.0646673, 0.747529, 0.233333, 1, -0.661669, -0.0196194, 0.0646908, 0.746742, 0.625, 1, -0.661669, -0.0196194, 0.0646908, 0.746742)
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../..")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}

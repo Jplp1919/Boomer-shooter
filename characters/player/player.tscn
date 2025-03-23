@@ -25,7 +25,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c4cx"]
-size = Vector3(1, 1, 0.652098)
+size = Vector3(1, 1, 0.642333)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_22nj0"]
 
@@ -591,7 +591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_i3tmd")
 
 [node name="WeaponShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68771, -1.10777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68771, -1.11265)
 shape = SubResource("BoxShape3D_1c4cx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -711,6 +711,7 @@ spray_arc = 2.0
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun/Muzzle")
 
 [node name="Machinegun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
+visible = false
 muzzle_flash = NodePath("Graphics/mg08/Muzzle/MachinegunMuzzleFlash")
 animation_player = NodePath("Graphics/MachinegunAnimationPlayer")
 automatic = true
@@ -743,7 +744,6 @@ libraries = {
 cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
 
 [node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
-visible = false
 muzzle_flash = NodePath("Graphics/Muzzle/SuperShotgunMuzzleFlash")
 animation_player = NodePath("Graphics/SuperShotgunAnimationPlayer")
 damage = 15
