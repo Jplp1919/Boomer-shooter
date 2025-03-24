@@ -26,7 +26,7 @@ var last_attack_time = -9999.9
 enum AmmoType {
 	NONE = -1, # For weapons that don't use ammo
 	_9X19, #Pistol
-	_8GA, #TrenchBroom, Super Shotgun
+	_12GA, #Trench Gun, Super Shotgun
 	_792X57, #Machinegun
 	ROCKET, #Rocket Launcher for debugging projectiles and explosions only
 	_45_70 #Cowboy repeater

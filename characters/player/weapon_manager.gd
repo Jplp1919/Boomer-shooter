@@ -98,7 +98,7 @@ func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
 	match weapon_type:
 		Pickup.WEAPONS.PISTOL:
 			return $Weapons/Pistol
-		Pickup.WEAPONS.TRENCH_BROOM:
+		Pickup.WEAPONS.TRENCH_GUN:
 			return $Weapons/Shotgun
 		Pickup.WEAPONS.MACHINE_GUN:
 			return $Weapons/Machinegun

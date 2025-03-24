@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://br8v3v1hqylj8" path="res://pickups/health_pickup.tscn" id="6_lwd0r"]
 [ext_resource type="PackedScene" uid="uid://b8ft78fjd6hs6" path="res://pickups/machinegun_pickup.tscn" id="7_jq3pp"]
 [ext_resource type="PackedScene" uid="uid://djuyvis16pdbl" path="res://pickups/792x_57_pickup.tscn" id="8_wa8is"]
-[ext_resource type="PackedScene" uid="uid://cv6her2hccid0" path="res://pickups/trench_broom_pickup.tscn" id="9_wa8is"]
+[ext_resource type="PackedScene" uid="uid://cv6her2hccid0" path="res://pickups/trench_gun_pickup.tscn" id="9_wa8is"]
 [ext_resource type="PackedScene" uid="uid://btjv2jx1em3q3" path="res://pickups/super_shotgun_pickup.tscn" id="10_3ihqw"]
 [ext_resource type="PackedScene" uid="uid://eb66hrpgursm" path="res://pickups/shell_pickup.tscn" id="11_8mhlp"]
 
