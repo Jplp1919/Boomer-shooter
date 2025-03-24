@@ -70,7 +70,7 @@ bones/12/rotation = Quaternion(-0.0884194, -0.000817014, -0.00681923, 0.99606)
 bones/13/rotation = Quaternion(-0.632784, -0.0216037, 0.0638943, 0.771385)
 
 [node name="Body" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="7"]
-transform = Transform3D(1, -4.13003e-14, 2.38418e-07, 1.4854e-08, 0.998057, -0.0623021, -2.37955e-07, 0.0623021, 0.998057, 8.13762e-11, 1.05737, -5.3551e-09)
+transform = Transform3D(1, -5.77316e-15, 2.38419e-07, 1.4854e-08, 0.998057, -0.0623022, -2.37955e-07, 0.0623022, 0.998057, 8.13762e-11, 1.05737, -5.3551e-09)
 bone_name = "body"
 bone_idx = 0
 
@@ -106,7 +106,7 @@ transform = Transform3D(1, 3.67653e-08, 2.71683e-10, -3.66769e-08, 0.997025, 0.0
 shape = SubResource("SphereShape3D_q2l64")
 
 [node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.907387, -0.418019, 0.0437175, 0.420299, -0.902551, 0.093548, 0.000352455, 0.103258, 0.994655, -0.191355, 1.69374, -3.48082e-07)
+transform = Transform3D(-0.907386, -0.41802, 0.0437176, 0.4203, -0.90255, 0.0935479, 0.000352463, 0.103258, 0.994655, -0.191355, 1.69374, -2.81027e-07)
 bone_name = "upperarm.l"
 bone_idx = 2
 
@@ -119,7 +119,7 @@ transform = Transform3D(1, 1.48659e-07, -6.69388e-10, -1.78134e-07, 1, 0, 3.9552
 shape = SubResource("CapsuleShape3D_beb84")
 
 [node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.907386, 0.418019, -0.0437183, -0.420299, -0.902551, 0.0935475, -0.000353318, 0.103258, 0.994654, 0.191355, 1.69374, -3.36906e-07)
+transform = Transform3D(-0.907385, 0.41802, -0.0437183, -0.4203, -0.90255, 0.0935474, -0.000353308, 0.103258, 0.994654, 0.191355, 1.69374, -2.92202e-07)
 bone_name = "upperarm.r"
 bone_idx = 8
 
@@ -132,7 +132,7 @@ transform = Transform3D(1, 1.48659e-07, -6.69388e-10, -1.78134e-07, 1, 0, 3.9552
 shape = SubResource("CapsuleShape3D_beb84")
 
 [node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="10"]
-transform = Transform3D(-0.915151, -0.40291, -0.0128059, 0.403113, -0.914635, -0.030719, 0.000664291, -0.0332747, 0.999446, -0.347387, 1.35685, 0.0385424)
+transform = Transform3D(-0.915151, -0.40291, -0.0128059, 0.403114, -0.914634, -0.030719, 0.000664299, -0.0332748, 0.999446, -0.347386, 1.35685, 0.0385424)
 bone_name = "lowerarm.l"
 bone_idx = 3
 
@@ -145,7 +145,7 @@ transform = Transform3D(1, -5.80003e-08, -3.55067e-09, 1.79716e-09, 1, 7.45058e-
 shape = SubResource("CapsuleShape3D_73t0l")
 
 [node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="11"]
-transform = Transform3D(-0.91515, 0.40291, 0.0128051, -0.403113, -0.914635, -0.0307193, -0.000665055, -0.0332746, 0.999446, 0.347387, 1.35685, 0.0385424)
+transform = Transform3D(-0.91515, 0.402911, 0.0128052, -0.403113, -0.914634, -0.0307193, -0.000665044, -0.0332747, 0.999446, 0.347387, 1.35685, 0.0385424)
 bone_name = "lowerarm.r"
 bone_idx = 9
 
@@ -158,7 +158,7 @@ transform = Transform3D(1, -5.80003e-08, -3.55067e-09, 1.79716e-09, 1, 7.45058e-
 shape = SubResource("CapsuleShape3D_73t0l")
 
 [node name="UpperLegL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="12"]
-transform = Transform3D(-0.999876, 0.0155319, -0.00248769, -0.0157298, -0.987216, 0.158611, 7.64895e-06, 0.158631, 0.987339, -0.100127, 1.04476, -1.48197e-07)
+transform = Transform3D(-0.999876, 0.0155319, -0.00248769, -0.0157299, -0.987216, 0.158612, 7.65012e-06, 0.158631, 0.987339, -0.100127, 1.04476, -1.48662e-07)
 bone_name = "upperleg.l"
 bone_idx = 5
 
@@ -169,7 +169,7 @@ transform = Transform3D(1, -3.32841e-09, 1.74896e-09, 4.38604e-10, 1, 2.98023e-0
 shape = SubResource("CapsuleShape3D_4xl0u")
 
 [node name="UpperLegR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.999876, -0.0155319, 0.00248774, 0.0157298, -0.987216, 0.158612, -7.59354e-06, 0.158631, 0.98734, 0.100127, 1.04476, -1.54891e-07)
+transform = Transform3D(-0.999876, -0.0155319, 0.00248774, 0.0157298, -0.987216, 0.158612, -7.59645e-06, 0.158631, 0.98734, 0.100127, 1.04476, -1.55356e-07)
 bone_name = "upperleg.r"
 bone_idx = 11
 
@@ -180,7 +180,7 @@ transform = Transform3D(1, -3.32841e-09, 1.74896e-09, 4.38604e-10, 1, 2.98023e-0
 shape = SubResource("CapsuleShape3D_4xl0u")
 
 [node name="LowerLegL" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="14"]
-transform = Transform3D(-0.999566, 0.0294532, -0.000134781, -0.0294462, -0.999408, -0.0177766, -0.000658286, -0.0177653, 0.999843, -0.0927105, 0.573342, 0.0757498)
+transform = Transform3D(-0.999566, 0.0294533, -0.00013478, -0.0294462, -0.999408, -0.0177765, -0.000658281, -0.0177652, 0.999843, -0.0927105, 0.573345, 0.0757499)
 bone_name = "lowerleg.l"
 bone_idx = 6
 
@@ -191,7 +191,7 @@ transform = Transform3D(1, -2.93403e-09, 0, -3.08864e-09, 1, 0, -5.82077e-11, 0,
 shape = SubResource("CapsuleShape3D_yv4cp")
 
 [node name="LowerLegR" type="BoneAttachment3D" parent="Graphics/knight lowpoly/Armature/Skeleton3D" index="15"]
-transform = Transform3D(-0.999566, -0.0294532, 0.000134488, 0.0294462, -0.999408, -0.0177765, 0.000657994, -0.0177655, 0.999844, 0.0927105, 0.573342, 0.0757498)
+transform = Transform3D(-0.999566, -0.0294532, 0.000134492, 0.0294462, -0.999408, -0.0177761, 0.000657986, -0.0177651, 0.999844, 0.0927105, 0.573345, 0.07575)
 bone_name = "lowerleg.r"
 bone_idx = 12
 

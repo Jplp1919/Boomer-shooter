@@ -13,12 +13,15 @@ extends CharacterBody3D
 @export var attack_range = 2.0
 @export var damage = 15
 
-var disarmed := false
+var disarmed_r := false
+var disarmed_l := false
 var beheaded := false
+var staggered := false
 
+@export var stagger_threshold = 50
 @export var attack_speed_modifier = 1.0
 
-enum STATES {IDLE, ATTACK, DEAD}
+enum STATES {IDLE, ATTACK, DEAD, STAGGERED}
 var cur_state = STATES.IDLE
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -35,8 +38,16 @@ func _ready():
 	attack_emitter.set_damage(damage)
 	set_state(STATES.IDLE) 
 
-func hurt(damege_data : DamageData):
-	health_manager.hurt(damege_data)
+func hurt(damage_data : DamageData):
+	health_manager.hurt(damage_data)
+
+func stagger():
+	#animation_player.stop()
+	set_state(STATES.STAGGERED)
+	ai_character_mover.stop_moving()
+	staggered = true
+	await get_tree().create_timer(0.5).timeout 
+	staggered = false
 
 func kill():
 	health_manager.kill()
@@ -61,6 +72,12 @@ func set_state(state: STATES):
 			print("attack state set")
 		STATES.IDLE:
 			animation_player.play("idle")
+		STATES.STAGGERED:
+			if disarmed_l:
+				animation_player.play("dismembered_left_arm")
+				disarmed_l = false
+			else:
+				animation_player.play("stagger")
 		STATES.DEAD:
 			if beheaded:
 				animation_player.play("dismembered_head", 0.2)
@@ -86,20 +103,20 @@ func process_attack_state(delta: float) -> void:
 	var attacking = animation_player.current_animation == "attack"
 	var vec_to_player = player.global_position -global_position
 	
-	if vec_to_player.length() <= attack_range:
+	if vec_to_player.length() <= attack_range and !staggered:
 		ai_character_mover.stop_moving()
 		if !attacking and vision_manager.is_facing_target(player):
 			start_attack()
 		elif !attacking:
 			ai_character_mover.set_facing_dir(vec_to_player)
-	elif !attacking:
+	elif !attacking and !staggered:
 		ai_character_mover.set_facing_dir(ai_character_mover.move_dir)
 		ai_character_mover.move_to_point(player.global_position)
 		animation_player.play("walk", -1, 2.0)
 
 func start_attack():
 	#$AttackSound.play()
-	if disarmed:
+	if disarmed_r:
 		damage = 2
 		attack_emitter.set_damage(damage)
 		animation_player.play("kick", -1, attack_speed_modifier)

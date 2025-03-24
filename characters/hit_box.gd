@@ -16,7 +16,7 @@ enum LimbType {
 @export var health : int = 50
 
 #new code for dismemberment
-@export var Parent : Node3D
+var Parent
 #@export var mesh : MeshInstance3D
 #@export var bone : BoneAttachment3D
 @export var kill_parent_on_death : bool = false
@@ -26,7 +26,22 @@ enum LimbType {
 #@export var bones_to_destroy: Array[BoneAttachment3D]
 signal on_hurt(damage_data: DamageData)
 
+#hope i dont have to use this to find the parent, but it beats doing it manually
+#func find_enemy_in_parents(node: Node) -> Node3D:
+	#var current = node.get_parent()
+	#while current:
+		#if current is Enemy:
+			#return current
+		#current = current.get_parent()
+	#return null
+
+func _ready() -> void:
+	Parent = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
+	#Parent = find_enemy_in_parents(self)
+
 func hurt(damage_data: DamageData):
+	#if damage_data.amount > Parent.stagger_threshold:
+		#Parent.stagger()
 	if weak_spot:
 		damage_data.amount *= critical_damage_multiplier
 	on_hurt.emit(damage_data)
@@ -36,9 +51,14 @@ func hurt(damage_data: DamageData):
 	if dead:
 		if limbtype == LimbType.Right_Arm:
 			if Parent:
-				Parent.disarmed = true
+				Parent.disarmed_r = true
 		if limbtype == LimbType.Head:
-			Parent.beheaded = true
+			if Parent:
+				Parent.beheaded = true
+		if limbtype == LimbType.Left_Arm:
+			if Parent:
+				Parent.disarmed_l = true
+				#Parent.stagger_enemy()
 		
 		#if mesh:
 			#mesh.queue_free()
