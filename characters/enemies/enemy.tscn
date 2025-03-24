@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="3_6lc82"]
 [ext_resource type="PackedScene" uid="uid://b3j7076i1o66w" path="res://characters/vision_manager.tscn" id="4_008bi"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bed0p"]
-radius = 0.232515
-height = 1.96656
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vt6o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3vt6o"]
 radius = 11.8734
@@ -24,14 +22,16 @@ script = ExtResource("1_4schq")
 verbose = true
 
 [node name="AttackEmitter" parent="." instance=ExtResource("3_6lc82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.426502)
 
 [node name="VisionManager" parent="." instance=ExtResource("4_008bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87103, 0)
 
 [node name="Graphics" type="Node3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_bed0p")
+shape = SubResource("CapsuleShape3D_3vt6o")
 
 [node name="NearbyEnemiesAlertArea" type="Area3D" parent="."]
 collision_layer = 0

@@ -78,6 +78,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)
 [node name="Knight" parent="." instance=ExtResource("4_oh1bs")]
 transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -1.58229, 0.151597, -9.62228)
 
+[node name="Knight2" parent="." instance=ExtResource("4_oh1bs")]
+transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -3.64293, 0.151597, -9.62228)
+
+[node name="Knight3" parent="." instance=ExtResource("4_oh1bs")]
+transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -6.01693, 0.151597, -9.62228)
+
+[node name="Knight4" parent="." instance=ExtResource("4_oh1bs")]
+transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -8.51647, 0.151597, -9.62228)
+
+[node name="Knight5" parent="." instance=ExtResource("4_oh1bs")]
+transform = Transform3D(0.994586, 0, -0.103921, 0, 1, 0, 0.103921, 0, 0.994586, -5.41204, 0.151597, -11.6759)
+
 [node name="HealthPickup" parent="." instance=ExtResource("6_lwd0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
 

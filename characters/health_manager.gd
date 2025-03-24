@@ -43,7 +43,7 @@ func hurt(damage_data : DamageData):
 	var dead = cur_health <= 0
 	var Parent = get_parent()
 	if Parent is Enemy:
-		if damage_taken_this_frame > Parent.stagger_threshold:
+		if damage_taken_this_frame >= Parent.stagger_threshold:
 			Parent.stagger()
 	if dead and damage_taken_this_frame >= gib_when_damage_taken:
 		gib()

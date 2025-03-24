@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b345l0hyircga"]
+[gd_scene load_steps=13 format=3 uid="uid://b345l0hyircga"]
 
 [ext_resource type="PackedScene" uid="uid://na35hdwlh1ib" path="res://characters/enemies/enemy.tscn" id="1_6vk3i"]
 [ext_resource type="PackedScene" uid="uid://2cuy0l35xsh4" path="res://characters/enemies/knight/knight lowpoly.glb" id="2_8ke5n"]
@@ -30,6 +30,9 @@ height = 0.548735
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yv4cp"]
 radius = 0.104996
 height = 0.557665
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2omia"]
+radius = 0.57635
 
 [node name="Knight" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_6vk3i")]
 animation_player = NodePath("Graphics/knight lowpoly/AnimationPlayer")
@@ -203,6 +206,7 @@ shape = SubResource("CapsuleShape3D_yv4cp")
 
 [node name="CollisionShape3D" parent="." index="5"]
 transform = Transform3D(0.976327, 0, 0, 0, 0.976327, 0, 0, 0, 0.976327, 0, 0.956679, 0.0103601)
+shape = SubResource("CapsuleShape3D_2omia")
 
 [editable path="Graphics/knight lowpoly"]
 [editable path="Graphics/knight lowpoly/Armature/Skeleton3D/Body/HitBox"]
