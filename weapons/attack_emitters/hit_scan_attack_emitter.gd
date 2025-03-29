@@ -1,14 +1,14 @@
 extends AttackEmitter
 @export var cur_weapon_muzzle : Node3D
 @export var only_hit_enviroment = false
-@export var is_sword = false
+@export var is_melee = false
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready() -> void:
-	if is_sword:
+	if is_melee:
 		bullet_hit_effect = preload("res://effects/sword_hit_effect.tscn")
 
 func set_bodies_to_exclude (bodies:Array):

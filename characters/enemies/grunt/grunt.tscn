@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1coliajwyc2y"]
+
+[ext_resource type="PackedScene" uid="uid://na35hdwlh1ib" path="res://characters/enemies/enemy.tscn" id="1_av4ch"]
+[ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="2_7a31e"]
+[ext_resource type="Script" uid="uid://bwhq47ptwmek2" path="res://characters/enemies/grunt/grunt.gd" id="2_ibvxm"]
+
+[node name="Grunt" instance=ExtResource("1_av4ch")]
+script = ExtResource("2_ibvxm")
+attack_range = 25.0
+damage = 1
+attack_speed_modifier = 0.8
+
+[node name="AICharacterMover" parent="." index="0"]
+max_speed = 5.0
+move_accel = 2.0
+
+[node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_7a31e")]
+projectile_type = 1

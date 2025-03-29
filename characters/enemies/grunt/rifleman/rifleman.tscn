@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=3 uid="uid://ljdmyu6e72uq"]
+
+[ext_resource type="PackedScene" uid="uid://b1coliajwyc2y" path="res://characters/enemies/grunt/grunt.tscn" id="1_8ujhi"]
+[ext_resource type="PackedScene" uid="uid://c8b5b8muxivie" path="res://characters/enemies/grunt/rifleman/rifleman.glb" id="2_f2gnu"]
+[ext_resource type="PackedScene" uid="uid://d435dfdhj4h6" path="res://characters/hit_box.tscn" id="3_2tdl5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f14kh"]
+radius = 0.370349
+height = 1.69816
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f14kh"]
+radius = 0.0972487
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2tdl5"]
+radius = 0.253719
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2tdl5"]
+radius = 0.125794
+height = 0.622566
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6m4as"]
+radius = 0.12469
+height = 0.767127
+
+[node name="Rifleman" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8ujhi")]
+animation_player = NodePath("Graphics/rifleman/AnimationPlayer")
+damage = 4
+attack_speed_modifier = 1.0
+
+[node name="HealthManager" parent="." index="1"]
+max_health = 1000
+gib_when_damage_taken = 200
+
+[node name="ProjectileEmitter" parent="AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
+muzzle = NodePath("../../Graphics/rifleman/Armature/Skeleton3D/Rifle/Muzzle")
+
+[node name="rifleman" parent="Graphics" index="0" instance=ExtResource("2_f2gnu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Graphics/rifleman/Armature" index="0"]
+bones/0/position = Vector3(2.95699e-26, -1.56357e-10, 0.0464859)
+bones/0/rotation = Quaternion(-0.0209905, -2.28249e-18, -2.28249e-18, 0.99978)
+bones/1/rotation = Quaternion(0.0169914, 1.19192e-07, 2.02553e-09, 0.999856)
+bones/2/rotation = Quaternion(0.0901519, 0.00623793, 0.955988, -0.279145)
+bones/3/rotation = Quaternion(0.538515, -0.148056, -0.223207, 0.798912)
+bones/4/rotation = Quaternion(0.200626, -0.266781, -0.272626, 0.902359)
+bones/5/position = Vector3(0.145774, -0.30179, -0.0592045)
+bones/5/rotation = Quaternion(4.38908e-05, -0.063752, 0.997964, -0.00207548)
+bones/6/rotation = Quaternion(0.0365153, 0.00174598, -0.0371117, 0.998642)
+bones/7/rotation = Quaternion(0.657774, -0.00176445, 0.00521938, 0.753195)
+bones/8/rotation = Quaternion(-0.0994173, 0.1777, 0.953321, 0.222974)
+bones/9/rotation = Quaternion(0.498612, -0.249996, 0.612654, 0.55995)
+bones/10/rotation = Quaternion(-0.121952, -0.00628986, 0.0673343, 0.990229)
+bones/11/position = Vector3(-0.145774, -0.30179, -0.0592045)
+bones/11/rotation = Quaternion(-4.38908e-05, -0.063752, 0.997964, 0.00207548)
+bones/12/rotation = Quaternion(0.0365153, -0.00174598, 0.0371117, 0.998642)
+bones/13/rotation = Quaternion(0.658849, 0.0136425, -0.0178151, 0.751941)
+
+[node name="Muzzle" type="Node3D" parent="Graphics/rifleman/Armature/Skeleton3D/Rifle" index="0"]
+transform = Transform3D(-1.66621, 0, 1.45665e-07, 0, 1.66621, 0, -1.45665e-07, 0, -1.66621, -0.202855, 0.471337, 1.48393)
+
+[node name="Body" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 4.65979e-18, -4.46815e-18, -4.46815e-18, 0.999119, 0.0419717, 4.65979e-18, -0.0419717, 0.999119, 2.95699e-26, -1.56357e-10, 0.0464859)
+bone_name = "body"
+bone_idx = 0
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/Body" index="0" instance=ExtResource("3_2tdl5")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/Body/HitBox" index="0"]
+transform = Transform3D(1, -6.66134e-16, 0, 6.66134e-16, 1, 0, 0, 0, 1, 0, 0.26467, 0.0111185)
+shape = SubResource("CapsuleShape3D_f14kh")
+
+[node name="HitBoxShoulderR" parent="Graphics/rifleman/Armature/Skeleton3D/Body" index="1" instance=ExtResource("3_2tdl5")]
+transform = Transform3D(1, -2.22045e-16, 0, 2.22045e-16, 1, 0, 0, 0, 1, 0.00538997, 0.0956569, -0.0172225)
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxShoulderR" index="0"]
+transform = Transform3D(1, -3.77476e-15, 0, 8.88178e-16, 1, 3.72529e-09, -7.10543e-15, -3.72529e-09, 1, -0.35569, 0.692919, 0.0341844)
+shape = SubResource("SphereShape3D_f14kh")
+
+[node name="HitBoxShoulderL" parent="Graphics/rifleman/Armature/Skeleton3D/Body" index="2" instance=ExtResource("3_2tdl5")]
+transform = Transform3D(1, -2.22045e-16, 0, 2.22045e-16, 1, 0, 0, 0, 1, 0.00538997, 0.0956569, -0.0172225)
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxShoulderL" index="0"]
+transform = Transform3D(1, -4.44089e-15, 0, 8.88178e-16, 1, 3.72529e-09, -7.10543e-15, -3.72529e-09, 1, 0.345626, 0.694202, 0.00363541)
+shape = SubResource("SphereShape3D_f14kh")
+
+[node name="HitBoxHead" parent="Graphics/rifleman/Armature/Skeleton3D/Body" index="3" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_2tdl5")]
+weak_spot = true
+limbtype = 3
+health = 60
+kill_parent_on_death = true
+meshes_to_destroy = [NodePath("../../Head")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxHead" index="0"]
+transform = Transform3D(1, -1.11022e-15, 0, 1.11022e-15, 1, 0, 0, 0, 1, -4.44089e-16, 1.27006, 0.0533535)
+shape = SubResource("SphereShape3D_2tdl5")
+
+[node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="8"]
+transform = Transform3D(-0.827903, 0.534843, 0.168885, -0.524744, -0.844947, 0.103489, 0.19805, -0.00294281, 0.980188, 0.309645, 0.856862, 3.57628e-07)
+bone_name = "upperarm.l"
+bone_idx = 2
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/UpperArmL" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_2tdl5")]
+limbtype = 2
+meshes_to_destroy = [NodePath("../../Upper Left Arm"), NodePath("../../Lower Left Arm")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/UpperArmL/HitBox" index="0"]
+transform = Transform3D(0.999521, 0.00864147, -0.0297144, -0.00999008, 0.998913, -0.045529, 0.0292887, 0.045804, 0.998521, -0.0194883, 0.245459, 0.00796703)
+shape = SubResource("CapsuleShape3D_2tdl5")
+
+[node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="9"]
+transform = Transform3D(-0.880798, -0.460465, -0.110308, 0.378174, -0.824313, 0.421299, -0.284922, 0.329364, 0.900188, -0.309645, 0.856862, 3.57628e-07)
+bone_name = "upperarm.r"
+bone_idx = 8
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/UpperArmR" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_2tdl5")]
+limbtype = 1
+meshes_to_destroy = [NodePath("../../Upper Right Arm"), NodePath("../../Lower Right Arm"), NodePath("../../Rifle")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/UpperArmR/HitBox" index="0"]
+transform = Transform3D(0.999521, 0.00864147, -0.0297144, -0.00999008, 0.998913, -0.045529, 0.0292887, 0.045804, 0.998521, -0.0194883, 0.245459, 0.00796703)
+shape = SubResource("CapsuleShape3D_2tdl5")
+
+[node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="10"]
+transform = Transform3D(-0.985795, 0.164573, 0.033555, -0.0137662, -0.278272, 0.960404, 0.167394, 0.946298, 0.276584, 0.598174, 0.401042, -0.00158722)
+bone_name = "lowerarm.l"
+bone_idx = 3
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/LowerArmL" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_2tdl5")]
+limbtype = 2
+meshes_to_destroy = [NodePath("../../Lower Left Arm")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/LowerArmL/HitBox" index="0"]
+transform = Transform3D(0.999969, 0.0013925, -0.00773703, -0.00174783, 0.998934, -0.0461219, 0.00766459, 0.046134, 0.998906, -0.00350261, 0.294072, 0.0240312)
+shape = SubResource("CapsuleShape3D_6m4as")
+
+[node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="11"]
+transform = Transform3D(-0.408908, 0.910261, 0.064971, 0.0622907, -0.0431896, 0.997123, 0.910447, 0.411779, -0.0390403, -0.55805, 0.412174, 0.177681)
+bone_name = "lowerarm.r"
+bone_idx = 9
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/LowerArmR" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_2tdl5")]
+limbtype = 1
+meshes_to_destroy = [NodePath("../../Lower Right Arm"), NodePath("../../Rifle")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/LowerArmR/HitBox" index="0"]
+transform = Transform3D(0.999969, 0.0013925, -0.00773703, -0.00174783, 0.998934, -0.0461219, 0.00766459, 0.046134, 0.998906, -0.00350261, 0.294072, 0.0240312)
+shape = SubResource("CapsuleShape3D_6m4as")
+
+[node name="CollisionShape3D" parent="." index="5"]
+visible = false
+
+[editable path="Graphics/rifleman"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/Body/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxShoulderR"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxShoulderL"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/Body/HitBoxHead"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/UpperArmL/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/UpperArmR/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/LowerArmL/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/LowerArmR/HitBox"]

@@ -12,6 +12,7 @@ extends CharacterBody3D
 
 @export var attack_range = 2.0
 @export var damage = 15
+@export var kick_damage = 5
 
 var disarmed_r := false
 var disarmed_l := false

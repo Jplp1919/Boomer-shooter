@@ -26,7 +26,8 @@ func _ready():
 func set_bodies_to_exclude(bte: Array):
 	bodies_to_exclude = bte
 	for b in bte:
-		collision_ray_cast.add_exception(b)
+		if b:
+			collision_ray_cast.add_exception(b)
 
 func _physics_process(delta: float) -> void:
 	process_movement(delta)

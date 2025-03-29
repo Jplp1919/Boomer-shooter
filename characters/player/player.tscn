@@ -631,9 +631,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_ea7ta")
 }
 
-[node name="HitScanAttackEmitter" parent="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter" index="1"]
-is_sword = true
-
 [node name="Pistol" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("5_3pw2f")]
 visible = false
 muzzle_flash = NodePath("Graphics/pixelpistol/PistolMuzzle/PistolMuzzleFlash")
