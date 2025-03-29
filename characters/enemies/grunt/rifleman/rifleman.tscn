@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ljdmyu6e72uq"]
+[gd_scene load_steps=11 format=3 uid="uid://ljdmyu6e72uq"]
 
 [ext_resource type="PackedScene" uid="uid://b1coliajwyc2y" path="res://characters/enemies/grunt/grunt.tscn" id="1_8ujhi"]
 [ext_resource type="PackedScene" uid="uid://c8b5b8muxivie" path="res://characters/enemies/grunt/rifleman/rifleman.glb" id="2_f2gnu"]
@@ -22,14 +22,22 @@ height = 0.622566
 radius = 0.12469
 height = 0.767127
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t8ipk"]
+radius = 0.167221
+height = 0.796014
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k2lj7"]
+radius = 0.123711
+height = 0.600643
+
 [node name="Rifleman" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8ujhi")]
 animation_player = NodePath("Graphics/rifleman/AnimationPlayer")
-damage = 4
-attack_speed_modifier = 1.0
+attack_range = 20.0
+damage = 15
+attack_speed_modifier = 0.5
 
 [node name="HealthManager" parent="." index="1"]
-max_health = 1000
-gib_when_damage_taken = 200
+gib_when_damage_taken = 60
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
 muzzle = NodePath("../../Graphics/rifleman/Armature/Skeleton3D/Rifle/Muzzle")
@@ -60,7 +68,7 @@ bones/13/rotation = Quaternion(0.658849, 0.0136425, -0.0178151, 0.751941)
 transform = Transform3D(-1.66621, 0, 1.45665e-07, 0, 1.66621, 0, -1.45665e-07, 0, -1.66621, -0.202855, 0.471337, 1.48393)
 
 [node name="Body" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="7"]
-transform = Transform3D(1, 4.65979e-18, -4.46815e-18, -4.46815e-18, 0.999119, 0.0419717, 4.65979e-18, -0.0419717, 0.999119, 2.95699e-26, -1.56357e-10, 0.0464859)
+transform = Transform3D(1, 4.6598e-18, -4.46816e-18, -4.46816e-18, 0.999119, 0.0419717, 4.6598e-18, -0.0419717, 0.999119, 2.95699e-26, -1.56357e-10, 0.0464859)
 bone_name = "body"
 bone_idx = 0
 
@@ -96,7 +104,7 @@ transform = Transform3D(1, -1.11022e-15, 0, 1.11022e-15, 1, 0, 0, 0, 1, -4.44089
 shape = SubResource("SphereShape3D_2tdl5")
 
 [node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.827903, 0.534843, 0.168885, -0.524744, -0.844947, 0.103489, 0.19805, -0.00294281, 0.980188, 0.309645, 0.856862, 3.57628e-07)
+transform = Transform3D(-0.827903, 0.534842, 0.168885, -0.524743, -0.844947, 0.103489, 0.19805, -0.00294279, 0.980188, 0.309645, 0.856862, 3.91155e-07)
 bone_name = "upperarm.l"
 bone_idx = 2
 
@@ -109,7 +117,7 @@ transform = Transform3D(0.999521, 0.00864147, -0.0297144, -0.00999008, 0.998913,
 shape = SubResource("CapsuleShape3D_2tdl5")
 
 [node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.880798, -0.460465, -0.110308, 0.378174, -0.824313, 0.421299, -0.284922, 0.329364, 0.900188, -0.309645, 0.856862, 3.57628e-07)
+transform = Transform3D(-0.880798, -0.460465, -0.110308, 0.378174, -0.824313, 0.421299, -0.284922, 0.329363, 0.900189, -0.309645, 0.856862, 3.91155e-07)
 bone_name = "upperarm.r"
 bone_idx = 8
 
@@ -122,7 +130,7 @@ transform = Transform3D(0.999521, 0.00864147, -0.0297144, -0.00999008, 0.998913,
 shape = SubResource("CapsuleShape3D_2tdl5")
 
 [node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="10"]
-transform = Transform3D(-0.985795, 0.164573, 0.033555, -0.0137662, -0.278272, 0.960404, 0.167394, 0.946298, 0.276584, 0.598174, 0.401042, -0.00158722)
+transform = Transform3D(-0.985795, 0.164573, 0.0335553, -0.0137657, -0.278271, 0.960404, 0.167394, 0.946299, 0.276584, 0.598174, 0.401042, -0.00158717)
 bone_name = "lowerarm.l"
 bone_idx = 3
 
@@ -135,7 +143,7 @@ transform = Transform3D(0.999969, 0.0013925, -0.00773703, -0.00174783, 0.998934,
 shape = SubResource("CapsuleShape3D_6m4as")
 
 [node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="11"]
-transform = Transform3D(-0.408908, 0.910261, 0.064971, 0.0622907, -0.0431896, 0.997123, 0.910447, 0.411779, -0.0390403, -0.55805, 0.412174, 0.177681)
+transform = Transform3D(-0.408907, 0.910261, 0.0649715, 0.0622908, -0.0431899, 0.997123, 0.910447, 0.411778, -0.0390404, -0.55805, 0.412174, 0.17768)
 bone_name = "lowerarm.r"
 bone_idx = 9
 
@@ -146,6 +154,50 @@ meshes_to_destroy = [NodePath("../../Lower Right Arm"), NodePath("../../Rifle")]
 [node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/LowerArmR/HitBox" index="0"]
 transform = Transform3D(0.999969, 0.0013925, -0.00773703, -0.00174783, 0.998934, -0.0461219, 0.00766459, 0.046134, 0.998906, -0.00350261, 0.294072, 0.0240312)
 shape = SubResource("CapsuleShape3D_6m4as")
+
+[node name="UpperLegL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="12"]
+transform = Transform3D(-0.999991, 0.00413691, 0.000352237, -0.00415188, -0.99633, -0.085502, -2.76996e-06, -0.0855022, 0.996344, 0.145774, -0.304009, 1.78814e-07)
+bone_name = "upperleg.l"
+bone_idx = 5
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/UpperLegL" index="0" instance=ExtResource("3_2tdl5")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/UpperLegL/HitBox" index="0"]
+transform = Transform3D(1, 2.50864e-10, 6.73026e-11, -6.75442e-10, 1, -1.49012e-08, -1.79625e-11, -7.45058e-09, 1, 0.00218871, 0.525232, 0.0450733)
+shape = SubResource("CapsuleShape3D_t8ipk")
+
+[node name="UpperLegR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="13"]
+transform = Transform3D(-0.999991, -0.00413691, -0.000352237, 0.00415188, -0.99633, -0.085502, 2.76996e-06, -0.0855022, 0.996344, -0.145774, -0.304009, 1.78814e-07)
+bone_name = "upperleg.r"
+bone_idx = 11
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/UpperLegR" index="0" instance=ExtResource("3_2tdl5")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/UpperLegR/HitBox" index="0"]
+transform = Transform3D(1, 2.50864e-10, 6.73026e-11, -6.75442e-10, 1, -1.49012e-08, -1.79625e-11, -7.45058e-09, 1, 0.00218871, 0.525232, 0.0450733)
+shape = SubResource("CapsuleShape3D_t8ipk")
+
+[node name="LowerLegL" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="14"]
+transform = Transform3D(-0.997539, -0.0701094, -0.00072787, 0.070113, -0.997461, -0.0124837, 0.00014913, -0.0125031, 0.999928, 0.148297, -0.911676, -0.0521481)
+bone_name = "lowerleg.l"
+bone_idx = 6
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/LowerLegL" index="0" instance=ExtResource("3_2tdl5")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/LowerLegL/HitBox" index="0"]
+transform = Transform3D(0.997553, -0.0692295, 0.00967549, 0.0697614, 0.994742, -0.0749775, -0.00443397, 0.0754691, 0.99714, -0.020761, 0.582592, 0.0186849)
+shape = SubResource("CapsuleShape3D_k2lj7")
+
+[node name="LowerLegR" type="BoneAttachment3D" parent="Graphics/rifleman/Armature/Skeleton3D" index="15"]
+transform = Transform3D(-0.997539, 0.0701094, 0.00072787, -0.070113, -0.997461, -0.0124837, -0.00014913, -0.0125031, 0.999928, -0.148297, -0.911676, -0.0521481)
+bone_name = "lowerleg.r"
+bone_idx = 12
+
+[node name="HitBox" parent="Graphics/rifleman/Armature/Skeleton3D/LowerLegR" index="0" instance=ExtResource("3_2tdl5")]
+
+[node name="CollisionShape3D" parent="Graphics/rifleman/Armature/Skeleton3D/LowerLegR/HitBox" index="0"]
+transform = Transform3D(0.999952, -0.00781484, 0.00580933, 0.00823101, 0.997115, -0.0754661, -0.00520282, 0.0755104, 0.997133, 0.00933684, 0.580476, 0.018663)
+shape = SubResource("CapsuleShape3D_k2lj7")
 
 [node name="CollisionShape3D" parent="." index="5"]
 visible = false
@@ -159,3 +211,7 @@ visible = false
 [editable path="Graphics/rifleman/Armature/Skeleton3D/UpperArmR/HitBox"]
 [editable path="Graphics/rifleman/Armature/Skeleton3D/LowerArmL/HitBox"]
 [editable path="Graphics/rifleman/Armature/Skeleton3D/LowerArmR/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/UpperLegL/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/UpperLegR/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/LowerLegL/HitBox"]
+[editable path="Graphics/rifleman/Armature/Skeleton3D/LowerLegR/HitBox"]

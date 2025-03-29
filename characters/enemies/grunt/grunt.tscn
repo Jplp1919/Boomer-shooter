@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1coliajwyc2y"]
+[gd_scene load_steps=6 format=3 uid="uid://b1coliajwyc2y"]
 
 [ext_resource type="PackedScene" uid="uid://na35hdwlh1ib" path="res://characters/enemies/enemy.tscn" id="1_av4ch"]
 [ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="2_7a31e"]
 [ext_resource type="Script" uid="uid://bwhq47ptwmek2" path="res://characters/enemies/grunt/grunt.gd" id="2_ibvxm"]
+[ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="4_ocqns"]
+[ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="5_rs28b"]
 
 [node name="Grunt" instance=ExtResource("1_av4ch")]
 script = ExtResource("2_ibvxm")
+kick_range = 2.0
+alert_stagger_time = 1.5
 attack_range = 25.0
 damage = 1
 attack_speed_modifier = 0.8
@@ -16,3 +20,8 @@ move_accel = 2.0
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_7a31e")]
 projectile_type = 1
+
+[node name="AttackEmitterKick" parent="." index="7" instance=ExtResource("4_ocqns")]
+
+[node name="AreaDamageEmitter" parent="AttackEmitterKick" index="0" instance=ExtResource("5_rs28b")]
+attack_radius = 2.0

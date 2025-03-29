@@ -1,12 +1,29 @@
 extends Enemy
 
 class_name Grunt
+@onready var attack_emitter_kick: AttackEmitter = $AttackEmitterKick
+@export var kick_range = 2.0
+@export var alert_stagger_time = 1.5
+
+func _ready():
+	var hitboxes = find_children("*", "HitBox")
+	for hitbox in hitboxes:
+		hitbox.on_hurt.connect(health_manager.hurt)
+	health_manager.died.connect(set_state.bind(STATES.DEAD))
+	health_manager.gibbed.connect(queue_free)
+	
+	hitboxes.append(self)
+	attack_emitter.set_bodies_to_exclude(hitboxes)
+	attack_emitter_kick.set_bodies_to_exclude(hitboxes)
+	attack_emitter.set_damage(damage)
+	set_state(STATES.IDLE) 
+	
 
 func alert():
 	if not cur_state in [STATES.ATTACK, STATES.DEAD]:
 		#$AlertSound.play()
 		ai_character_mover.set_facing_dir(player.global_position -global_position)
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(alert_stagger_time).timeout
 		set_state(STATES.ATTACK)
 		alert_nearby_enemies()
 
@@ -28,10 +45,21 @@ func process_attack_state(delta: float) -> void:
 		animation_player.play("walk", -1, 2.0)
 
 func start_attack():
-	super()
+	if disarmed_r:
+		damage = kick_damage
+		attack_range = kick_range
+		attack_emitter_kick.set_damage(damage)
+		animation_player.play("kick", -1, attack_speed_modifier)
+	else:
+		animation_player.play("attack", -1, attack_speed_modifier)
 	var target_pos = player.global_position + Vector3.UP * 1.5
 	var dir_to_player = attack_emitter.global_position.direction_to(target_pos)
 	if dir_to_player.is_equal_approx(Vector3.UP) or dir_to_player.is_equal_approx(Vector3.DOWN):
 		attack_emitter.look_at(target_pos, Vector3.RIGHT)
 	else:
 		attack_emitter.look_at(target_pos)
+
+
+
+func do_kick(): #called from animation
+	attack_emitter_kick.fire()

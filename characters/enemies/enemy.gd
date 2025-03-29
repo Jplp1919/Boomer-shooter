@@ -14,6 +14,7 @@ extends CharacterBody3D
 @export var damage = 15
 @export var kick_damage = 5
 
+
 var disarmed_r := false
 var disarmed_l := false
 var beheaded := false
@@ -120,7 +121,7 @@ func process_attack_state(delta: float) -> void:
 func start_attack():
 	#$AttackSound.play()
 	if disarmed_r:
-		damage = 2
+		damage = kick_damage
 		attack_emitter.set_damage(damage)
 		animation_player.play("kick", -1, attack_speed_modifier)
 	else:
