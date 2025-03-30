@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=17 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://btjv2jx1em3q3" path="res://pickups/super_shotgun_pickup.tscn" id="10_3ihqw"]
 [ext_resource type="PackedScene" uid="uid://ljdmyu6e72uq" path="res://characters/enemies/grunt/rifleman/rifleman.tscn" id="10_8mhlp"]
 [ext_resource type="PackedScene" uid="uid://eb66hrpgursm" path="res://pickups/shell_pickup.tscn" id="11_8mhlp"]
+[ext_resource type="PackedScene" uid="uid://d3fw3dr7tmdpb" path="res://characters/enemies/grunt/machine gunner/machine_gunner.tscn" id="11_catgn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3ihqw"]
 vertices = PackedVector3Array(0, 0.41778, -8.75, 2.25, 0.41778, -9, 2.25, 0.41778, -49.5, -49.5, 0.41778, -49.5, -49.5, 0.41778, -6.25, 0, 0.41778, -6.25, 5, 0.41778, -9, 5, 0.41778, -49.5, 7, 0.41778, -9, 7.25, 0.41778, -7.25, 49.5, 0.41778, -7.5, 49.5, 0.41778, -49.5, 1, 5.91778, -8, 1, 5.91778, -4.5, 6.25, 5.91778, -4.5, 6.25, 5.91778, -8, 1.25, 0.41778, -7.75, 1.25, 0.41778, -4.75, 6, 0.41778, -4.75, 6, 0.41778, -7.75, 7.25, 0.41778, -5.25, 49.5, 0.41778, -5, 0, 0.41778, -3.75, 2.25, 0.41778, -3.5, -49.5, 0.41778, 49.5, 2.25, 0.41778, 49.5, 7, 0.41778, -3.5, 5, 0.41778, 49.5, 49.5, 0.41778, 49.5, 5, 0.41778, -3.5)
@@ -79,3 +80,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4.86648)
 
 [node name="Rifleman" parent="." instance=ExtResource("10_8mhlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63966, 0, -10)
+
+[node name="Machine Gunner" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -8.04944, 0, -5.48748)
+
+[node name="Machine Gunner2" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -8.04944, 0, -3.23556)
+
+[node name="Machine Gunner3" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -9.83712, 0, -5.94648)
+
+[node name="Machine Gunner4" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -11.4855, 0, -3.23556)
+
+[node name="Machine Gunner5" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -13.2732, 0, -5.94648)
+
+[node name="Machine Gunner6" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -14.2837, 0, -3.23556)
+
+[node name="Machine Gunner7" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(0.387242, 0, 0.921978, 0, 1, 0, -0.921978, 0, 0.387242, -16.0714, 0, -5.94648)
