@@ -712,6 +712,7 @@ cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun/Muzzle")
 
 [node name="Machinegun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217652, 0.0701208, 0.159475)
+visible = false
 muzzle_flash = NodePath("Graphics/mg08/Muzzle/MachinegunMuzzleFlash")
 animation_player = NodePath("Graphics/MachinegunAnimationPlayer")
 automatic = true
@@ -744,6 +745,7 @@ libraries = {
 cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
 
 [node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115172, 0.0329907, 0.0578156)
 visible = false
 muzzle_flash = NodePath("Graphics/Muzzle/SuperShotgunMuzzleFlash")
 animation_player = NodePath("Graphics/SuperShotgunAnimationPlayer")
@@ -800,8 +802,7 @@ muzzle = NodePath("../../Graphics/RocketMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="Rifle" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("10_2yjix")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
-visible = false
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.0873076, 0.0525243, 0.182739)
 muzzle_flash = NodePath("Graphics/RifleMuzzle/RifleMuzzleFlash")
 animation_player = NodePath("Graphics/RifleAnimationPlayer")
 attack_rate = 0.5
