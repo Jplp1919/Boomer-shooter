@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bkfh1lxfxws0g" path="res://weapons/rifle.tscn" id="10_2yjix"]
 [ext_resource type="PackedScene" uid="uid://dqw61qjs7ym84" path="res://effects/muzzle_flash/muzzle_flash_3.tscn" id="11_0mfek"]
 [ext_resource type="PackedScene" uid="uid://dj1gga51jn7mk" path="res://weapons/super_shotgun.tscn" id="11_8l73k"]
-[ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://machinegun.tscn" id="11_aqrcq"]
+[ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://weapons/machinegun.tscn" id="11_aqrcq"]
 [ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
 [ext_resource type="PackedScene" uid="uid://lusqs1fg3nth" path="res://effects/casings/7.92x57.tscn" id="12_kyfeq"]
 [ext_resource type="PackedScene" uid="uid://sfoae3nnjawn" path="res://effects/muzzle_flash/muzzle_flash_5.tscn" id="14_fpo3a"]
@@ -25,7 +25,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c4cx"]
-size = Vector3(1, 1, 0.642333)
+size = Vector3(1, 0.713379, 0.840698)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_22nj0"]
 
@@ -591,17 +591,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_i3tmd")
 
 [node name="WeaponShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68771, -1.11265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45993, -1.01347)
 shape = SubResource("BoxShape3D_1c4cx")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_22nj0")
 
 [node name="CharacterMover" parent="." instance=ExtResource("3_v7rqy")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+cull_mask = 1048573
 
 [node name="FirePoint" type="Node3D" parent="Camera3D"]
 unique_name_in_owner = true
@@ -708,7 +711,7 @@ spray_arc = 2.0
 cur_weapon_muzzle = NodePath("../../../../Graphics/shotgun/Muzzle")
 
 [node name="Machinegun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217652, 0.0701208, 0.159475)
 muzzle_flash = NodePath("Graphics/mg08/Muzzle/MachinegunMuzzleFlash")
 animation_player = NodePath("Graphics/MachinegunAnimationPlayer")
 automatic = true
@@ -741,6 +744,7 @@ libraries = {
 cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
 
 [node name="SuperShotgun" parent="Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
+visible = false
 muzzle_flash = NodePath("Graphics/Muzzle/SuperShotgunMuzzleFlash")
 animation_player = NodePath("Graphics/SuperShotgunAnimationPlayer")
 damage = 15
@@ -879,9 +883,13 @@ shape = SubResource("CapsuleShape3D_5mkjs")
 [editable path="Camera3D/WeaponManager/Weapons/Sword"]
 [editable path="Camera3D/WeaponManager/Weapons/Sword/AttackEmitter/HitScanAttackEmitter"]
 [editable path="Camera3D/WeaponManager/Weapons/Pistol"]
+[editable path="Camera3D/WeaponManager/Weapons/Pistol/Graphics/pixelpistol"]
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/Shotgun/Graphics/shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/Machinegun"]
+[editable path="Camera3D/WeaponManager/Weapons/Machinegun/Graphics/mg08"]
 [editable path="Camera3D/WeaponManager/Weapons/SuperShotgun"]
+[editable path="Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics/super shotgun"]
 [editable path="Camera3D/WeaponManager/Weapons/RocketLauncher"]
 [editable path="Camera3D/WeaponManager/Weapons/Rifle"]
+[editable path="Camera3D/WeaponManager/Weapons/Rifle/Graphics/RiflePixel"]

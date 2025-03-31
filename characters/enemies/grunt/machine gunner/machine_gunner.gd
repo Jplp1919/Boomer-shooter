@@ -23,7 +23,11 @@ func set_state(state: STATES):
 		STATES.DEAD:
 			drop_pickup()
 			if beheaded:
-				animation_player.play("dismembered_head", 0.2)
+				var chance = randf()
+				if chance <= 0.5:
+					animation_player.play("dismembered_head", 0.2)
+				else:
+					animation_player.play("die", 0.2)
 			else:
 				animation_player.play("die", 0.2)
 			collision_layer = 0
