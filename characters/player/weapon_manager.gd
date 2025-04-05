@@ -17,7 +17,7 @@ func _ready():
 		if !weapon.silent_weapon:
 			weapon.fired.connect(alert_enemies_on_fired)
 		if weapon.has_method("set_bodies_to_exclude"):
-			weapon.set_bodies_to_exclude([get_parent().get_parent()])
+			weapon.set_bodies_to_exclude([get_parent().get_parent().get_parent()])
 	disable_all_weapons()
 	for _i in range(weapons.size()):
 		weapons_unlocked.append(true) #unlocks all weapons, for test purposes

@@ -27,6 +27,10 @@ project/assembly_name="project-boomer"
 
 player=""
 
+[gui]
+
+theme/custom="uid://77q7co7juoby"
+
 [input]
 
 move_foward={

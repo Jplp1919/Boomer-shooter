@@ -1,0 +1,15 @@
+Recoil System Code
+------------------
+Original Work:
+https://github.com/AceSpectre/GodotProceduralRecoil
+
+MIT License
+Copyright (c) 2024 AceSpectre
+https://opensource.org/license/mit
+
+Modified Version:
+This project contains modifications to the original recoil system code,
+adapted for Godot 4.4 by J. Petter. The modified version remains
+under MIT License terms.
+------------------
+

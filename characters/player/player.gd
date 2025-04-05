@@ -1,9 +1,10 @@
 extends CharacterBody3D
 
-@onready var camera_3d: Camera3D = $Camera3D
+@onready var camera_3d: Camera3D = $"Camera Holder/Camera3D"
 @onready var character_mover: Node3D = $CharacterMover
-@onready var weapon_manager: Node3D = $Camera3D/WeaponManager
+@onready var weapon_manager: Node3D = %WeaponManager
 @onready var health_manager: Node3D = $HealthManager
+
 
 
 @export var mouse_sensitivity_h = 0.15

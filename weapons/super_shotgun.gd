@@ -26,7 +26,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
-	
+	camera_holder.apply_recoil(recoil)
 	fired.emit()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true

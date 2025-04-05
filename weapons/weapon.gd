@@ -1,12 +1,14 @@
 class_name Weapon
 
 extends Node3D
+@onready var camera_holder: Node3D = %"Camera Holder"
 
 @export var muzzle_flash : GPUParticles3D
 @export var  animation_player : AnimationPlayer
 @onready var attack_emmiter: AttackEmitter = $AttackEmitter
 @onready var fire_point: Node3D = %FirePoint
 
+@export var recoil : Vector3
 @export var automatic = false
 @export var damage = 30
 @export var ammo = 0
@@ -67,10 +69,10 @@ func attack(input_just_pressed: bool, input_held: bool):
 	
 	if !animation_controlled_attack:
 		actually_attack()
+	camera_holder.apply_recoil(recoil)
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
-	
 	fired.emit()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
