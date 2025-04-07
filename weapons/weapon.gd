@@ -62,7 +62,6 @@ func attack(input_just_pressed: bool, input_held: bool):
 			if out_of_ammo_sound:
 				ouf_of_ammo_sound_player.stream = out_of_ammo_sound
 				ouf_of_ammo_sound_player.play()
-
 		return
 	
 	var cur_time = Time.get_ticks_msec() / 1000.0

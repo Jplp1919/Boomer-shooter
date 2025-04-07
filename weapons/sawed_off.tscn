@@ -11,6 +11,7 @@
 [node name="Sawed-Off" instance=ExtResource("1_l24ko")]
 script = ExtResource("2_hqeg1")
 alt_recoil = Vector3(0, 0, 0)
+alt_attack_rate = 0.001
 
 [node name="sawed off shotgun" parent="Graphics" index="0" instance=ExtResource("3_2ak3b")]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)

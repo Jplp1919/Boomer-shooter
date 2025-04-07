@@ -107,7 +107,7 @@ func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
 		Pickup.WEAPONS.MACHINE_GUN:
 			return $Weapons/Machinegun
 		Pickup.WEAPONS.SUPER_SHOTGUN:
-			return $Weapons/SuperShotgun
+			return $"Weapons/Sawed-Off"
 		Pickup.WEAPONS.REPEATING_RIFLE:
 			return $Weapons/Rifle
 	return null

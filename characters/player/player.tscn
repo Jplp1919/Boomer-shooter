@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=52 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bkfh1lxfxws0g" path="res://weapons/rifle.tscn" id="10_2yjix"]
 [ext_resource type="AudioStream" uid="uid://coy6b53ontfv1" path="res://sfx/weapons/shotgun/dryfire_shotgun.wav" id="10_yybc7"]
 [ext_resource type="PackedScene" uid="uid://dqw61qjs7ym84" path="res://effects/muzzle_flash/muzzle_flash_3.tscn" id="11_0mfek"]
-[ext_resource type="PackedScene" uid="uid://dj1gga51jn7mk" path="res://weapons/super_shotgun.tscn" id="11_8l73k"]
 [ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://weapons/machinegun.tscn" id="11_aqrcq"]
 [ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
 [ext_resource type="PackedScene" uid="uid://lusqs1fg3nth" path="res://effects/casings/7.92x57.tscn" id="12_kyfeq"]
@@ -358,34 +357,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_lv4bx"]
-resource_name = "attack"
-length = 0.45
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sawed off shotgun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.11241, 0.113798, 0.115186, 0.138778, 0.166667, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(-2.542e-08, 1.5708, 0.620622), Vector3(-3.6017e-08, 1.5708, 0.888848), Vector3(-7.31529e-07, 1.5708, 1.08237), Vector3(-5.04091e-07, 1.5708, 1.01779), Vector3(-7.31529e-07, 1.5708, 1.08237), Vector3(-3.6017e-08, 1.5708, 0.888848), Vector3(-1.5255e-08, 1.5708, 0.392111), Vector3(0, 1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sawed off shotgun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.11241, 0.13739, 0.166667, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0279037), Vector3(0, 0, 0.0279037), Vector3(0, 0, 0.0279037), Vector3(0, -0.0408461, -0.018286), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_7b6hw"]
 resource_name = "alt_attack"
 length = 0.35
@@ -412,6 +383,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0279037), Vector3(0, -0.0408461, -0.018286), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lv4bx"]
+resource_name = "attack"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sawed off shotgun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.11241, 0.113798, 0.115186, 0.138778, 0.166667, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(-2.542e-08, 1.5708, 0.620622), Vector3(-3.6017e-08, 1.5708, 0.888848), Vector3(-7.31529e-07, 1.5708, 1.08237), Vector3(-5.04091e-07, 1.5708, 1.01779), Vector3(-7.31529e-07, 1.5708, 1.08237), Vector3(-3.6017e-08, 1.5708, 0.888848), Vector3(-1.5255e-08, 1.5708, 0.392111), Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sawed off shotgun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.11241, 0.13739, 0.166667, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0279037), Vector3(0, 0, 0.0279037), Vector3(0, 0, 0.0279037), Vector3(0, -0.0408461, -0.018286), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_4cx7u"]
@@ -448,66 +447,6 @@ _data = {
 &"alt_attack": SubResource("Animation_7b6hw"),
 &"attack": SubResource("Animation_lv4bx"),
 &"reload": SubResource("Animation_4cx7u")
-}
-
-[sub_resource type="Animation" id="Animation_aqrcq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("super shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("super shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8l73k"]
-resource_name = "attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("super shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.272075, 0.405409, 0.466667, 0.666667, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0671897, 0.0348833), Vector3(0, 0.0671897, 0.0348833), Vector3(0, -0.161277, -0.146047), Vector3(0, 0, 0), Vector3(0, -0.0539155, 0), Vector3(0, -0.121692, 0), Vector3(0, -0.121692, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("super shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.272075, 0.405409, 0.466667, 0.666667, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.17379, 0, 0), Vector3(1.17379, 0, 0), Vector3(1.44927, 0, 0), Vector3(0, 0, 0), Vector3(-0.502602, 0, 0), Vector3(-0.691238, 0, 0), Vector3(-0.691238, 0, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqrcq"]
-_data = {
-&"RESET": SubResource("Animation_aqrcq"),
-&"attack": SubResource("Animation_8l73k")
 }
 
 [sub_resource type="Animation" id="Animation_nfdil"]
@@ -835,12 +774,15 @@ libraries = {
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun/AttackEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
 
-[node name="Sawed-Off" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("16_lv4bx")]
+[node name="Sawed-Off" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash_2", "muzzle_flash", "animation_player") instance=ExtResource("16_lv4bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107741, -0.195398, -0.191855)
+muzzle_flash_2 = NodePath("Graphics/sawed off shotgun/Muzzle Left/SawedOffMuzzleFlashLeft")
 alt_recoil = Vector3(0.7, 0.35, 0.1)
+alt_attack_rate = 0.4
+muzzle_flash = NodePath("Graphics/sawed off shotgun/Muzzle Right/SawedOffMuzzleFlashRight")
 animation_player = NodePath("Graphics/SawedOffAnimationPlayer")
+out_of_ammo_sound = ExtResource("10_yybc7")
 recoil = Vector3(1.4, 0.7, 0.3)
-attack_rate = 0.5
 ammo_type = 1
 
 [node name="sawed off shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics" index="0"]
@@ -849,8 +791,14 @@ transform = Transform3D(-7.23998e-07, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.23998e-07, 
 [node name="Muzzle Right" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08299, 0.420724, 0.122712)
 
+[node name="SawedOffMuzzleFlashRight" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun/Muzzle Right" instance=ExtResource("14_fpo3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76837e-07, 0, 0.113214)
+
 [node name="Muzzle Left" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08299, 0.420724, -0.140241)
+
+[node name="SawedOffMuzzleFlashLeft" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun/Muzzle Left" instance=ExtResource("14_fpo3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0666523)
 
 [node name="SawedOffAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics" index="1"]
 libraries = {
@@ -864,40 +812,6 @@ cur_weapon_muzzle = NodePath("../../../../Graphics/sawed off shotgun/Muzzle Righ
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/AttackEmitter2/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0224919, 0, 0)
 cur_weapon_muzzle = NodePath("../../../../Graphics/sawed off shotgun/Muzzle Right")
-
-[node name="SuperShotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("11_8l73k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115172, 0.0329907, 0.0578156)
-visible = false
-muzzle_flash = NodePath("Graphics/Muzzle/SuperShotgunMuzzleFlash")
-animation_player = NodePath("Graphics/SuperShotgunAnimationPlayer")
-recoil = Vector3(1.6, 0.9, 0.4)
-damage = 15
-ammo = 30
-max_ammo = 30
-attack_rate = 1.0
-ammo_type = 1
-
-[node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115828, -0.226264, -0.297139)
-
-[node name="Muzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0224253, 0.060809, -0.869624)
-
-[node name="SuperShotgunMuzzleFlash" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics/Muzzle" instance=ExtResource("14_fpo3a")]
-
-[node name="SuperShotgunAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics" index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_aqrcq")
-}
-
-[node name="BurstEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter" index="0"]
-burst_count = 16
-
-[node name="SprayEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter/BurstEmitter" index="0"]
-spray_arc = 7.0
-
-[node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
-cur_weapon_muzzle = NodePath("../../../../Graphics/Muzzle")
 
 [node name="Rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player") instance=ExtResource("10_2yjix")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.0873076, 0.0525243, 0.182739)
@@ -991,7 +905,5 @@ shape = SubResource("CapsuleShape3D_5mkjs")
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun/Graphics/mg08"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun"]
-[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun"]
-[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/SuperShotgun/Graphics/super shotgun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics/RiflePixel"]
