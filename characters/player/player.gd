@@ -70,6 +70,8 @@ func _process(delta):
 		character_mover.jump()
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
 	
+	weapon_manager.alt_attack(Input.is_action_just_pressed("alt_attack"), Input.is_action_pressed("alt_attack"))
+	
 	if Input.is_action_just_pressed("mouse_toggle"):
 		if mouse_captured:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c7wju7b48vy3u"]
+[gd_scene load_steps=19 format=4 uid="uid://c7wju7b48vy3u"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_jwvhi"]
 [ext_resource type="PackedScene" uid="uid://b5uqwppeqqmfx" path="res://weapons/assets/shotgun.glb" id="2_fyfo2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="5_yfd1d"]
 [ext_resource type="Texture2D" uid="uid://bkbo4gpmfg4lh" path="res://weapons/assets/shotgun_black metal pixel 2.png" id="6_s07uj"]
 [ext_resource type="Texture2D" uid="uid://dhytgfmwvnvm3" path="res://weapons/assets/shotgun_light-metal.png" id="7_i3ebt"]
+[ext_resource type="AudioStream" uid="uid://nk2bekn0wf5n" path="res://sfx/weapons/shotgun/shotgun_attack.wav" id="11_s07uj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wis8"]
 resource_name = "Rubber"
@@ -200,5 +201,17 @@ mesh = SubResource("ArrayMesh_lcymf")
 [node name="SprayEmitter" parent="AttackEmitter/BurstEmitter" index="0" instance=ExtResource("4_0r2ir")]
 
 [node name="HitScanAttackEmitter" parent="AttackEmitter/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("5_yfd1d")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("11_s07uj")
+pitch_scale = 1.2
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("11_s07uj")
+pitch_scale = 1.15
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("11_s07uj")
+pitch_scale = 1.25
 
 [editable path="Graphics/shotgun"]

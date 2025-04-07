@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu4h7rul2oxbv"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_l24ko"]
+[ext_resource type="PackedScene" uid="uid://6n3v0tooc53g" path="res://weapons/attack_emitters/burst_emitter.tscn" id="2_dxjv8"]
+[ext_resource type="Script" uid="uid://coecbuhj3k708" path="res://weapons/sawed_off.gd" id="2_hqeg1"]
+[ext_resource type="PackedScene" uid="uid://d1mp1qp32005q" path="res://weapons/assets/sawed off shotgun.glb" id="3_2ak3b"]
+[ext_resource type="PackedScene" uid="uid://b11pk28fpruau" path="res://weapons/attack_emitters/spray_emitter.tscn" id="3_aexoc"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="4_2ak3b"]
+[ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="7_hqeg1"]
+
+[node name="Sawed-Off" instance=ExtResource("1_l24ko")]
+script = ExtResource("2_hqeg1")
+alt_recoil = Vector3(0, 0, 0)
+
+[node name="sawed off shotgun" parent="Graphics" index="0" instance=ExtResource("3_2ak3b")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="BurstEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_dxjv8")]
+
+[node name="SprayEmitter" parent="AttackEmitter/BurstEmitter" index="0" instance=ExtResource("3_aexoc")]
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("4_2ak3b")]
+
+[node name="AttackEmitter2" parent="." index="2" instance=ExtResource("7_hqeg1")]
+
+[node name="BurstEmitter" parent="AttackEmitter2" index="0" instance=ExtResource("2_dxjv8")]
+
+[node name="SprayEmitter" parent="AttackEmitter2/BurstEmitter" index="0" instance=ExtResource("3_aexoc")]
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter2/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("4_2ak3b")]
+
+[node name="OufOfAmmoSound" parent="." index="4"]
+pitch_scale = 0.8
+
+[editable path="Graphics/sawed off shotgun"]

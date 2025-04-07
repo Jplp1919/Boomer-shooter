@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1ft0db2pntac"
-path="res://.godot/imported/Rocket Launcher.glb-442beaf8b87ed0def8a5f7800cadb3ae.scn"
+uid="uid://d1mp1qp32005q"
+path="res://.godot/imported/sawed off shotgun.glb-9e76472c83c76d74a8e2078a0007cf1d.scn"
 
 [deps]
 
-source_file="res://weapons/assets/Rocket Launcher.glb"
-dest_files=["res://.godot/imported/Rocket Launcher.glb-442beaf8b87ed0def8a5f7800cadb3ae.scn"]
+source_file="res://weapons/assets/sawed off shotgun.glb"
+dest_files=["res://.godot/imported/sawed off shotgun.glb-9e76472c83c76d74a8e2078a0007cf1d.scn"]
 
 [params]
 

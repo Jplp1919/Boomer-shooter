@@ -30,6 +30,10 @@ func attack(input_just_pressed:bool, input_held:bool):
 	if cur_weapon is Weapon:
 		cur_weapon.attack(input_just_pressed, input_held)
 
+func alt_attack(input_just_pressed:bool, input_held:bool):
+	if cur_weapon is Weapon:
+		cur_weapon.alt_attack(input_just_pressed, input_held)
+
 func enable_weapon(weapon: Weapon):
 	if weapon == null:
 		return
@@ -104,8 +108,6 @@ func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
 			return $Weapons/Machinegun
 		Pickup.WEAPONS.SUPER_SHOTGUN:
 			return $Weapons/SuperShotgun
-		Pickup.WEAPONS.ROCKET_LAUNCHER:
-			return $Weapons/RocketLauncher
 		Pickup.WEAPONS.REPEATING_RIFLE:
 			return $Weapons/Rifle
 	return null

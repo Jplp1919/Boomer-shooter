@@ -7,7 +7,6 @@ extends Area3D
 #@onready var ammo_sounds = {
 	#Pickup.WEAPONS.MACHINE_GUN: $PickupMGAmmo,
 	#Pickup.WEAPONS.SHOTGUN: $PickupSGAmmo,
-	#Pickup.WEAPONS.ROCKET_LAUNCHER: $PickupRLAmmo,
 	#Pickup.WEAPONS.MAGNUM: $PickupMAmmo,
 	#Pickup.WEAPONS.CROC_HEAD: $PickupCrocAmmo
 #}
