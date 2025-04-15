@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://c7wju7b48vy3u"]
+[gd_scene load_steps=20 format=4 uid="uid://c7wju7b48vy3u"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_jwvhi"]
 [ext_resource type="PackedScene" uid="uid://b5uqwppeqqmfx" path="res://weapons/assets/shotgun.glb" id="2_fyfo2"]
+[ext_resource type="Script" uid="uid://dqxu1oxsbyqsr" path="res://weapons/shotgun.gd" id="2_i3ebt"]
 [ext_resource type="Texture2D" uid="uid://dtxppx2m8sbvg" path="res://weapons/assets/shotgun_rubber pixel.png" id="3_abh1w"]
 [ext_resource type="PackedScene" uid="uid://6n3v0tooc53g" path="res://weapons/attack_emitters/burst_emitter.tscn" id="3_qs3fh"]
 [ext_resource type="Shader" uid="uid://ca5nyhw2fjo2y" path="res://weapons/shaders/weapon/shotgun.gdshader" id="3_ygfor"]
@@ -183,9 +184,9 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="Shotgun" instance=ExtResource("1_jwvhi")]
-ammo = 30
-max_ammo = 30
-attack_rate = 0.5
+script = ExtResource("2_i3ebt")
+alt_recoil = Vector3(0, 0, 0)
+alt_attack_rate = 0.2
 
 [node name="shotgun" parent="Graphics" index="0" instance=ExtResource("2_fyfo2")]
 transform = Transform3D(-2.40413e-08, 0, -0.55, 0, 0.55, 0, 0.55, 0, -2.40413e-08, 0, 0, 0)

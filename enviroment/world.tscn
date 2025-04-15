@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=14 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
-[ext_resource type="PackedScene" uid="uid://c5dbr26npmfin" path="res://traps/fire_hazard.tscn" id="3_m0t8l"]
 [ext_resource type="PackedScene" uid="uid://br8v3v1hqylj8" path="res://pickups/health_pickup.tscn" id="6_lwd0r"]
 [ext_resource type="PackedScene" uid="uid://b8ft78fjd6hs6" path="res://pickups/machinegun_pickup.tscn" id="7_jq3pp"]
 [ext_resource type="PackedScene" uid="uid://djuyvis16pdbl" path="res://pickups/792x_57_pickup.tscn" id="8_wa8is"]
@@ -54,9 +53,6 @@ environment = SubResource("Environment_4fmar")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.116723, 0.993165, 0, -0.993165, 0.116723, 0, 40.5595, 32.0793)
 shadow_enabled = true
-
-[node name="FireHazard" parent="." instance=ExtResource("3_m0t8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.72333)
 
 [node name="HealthPickup" parent="." instance=ExtResource("6_lwd0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)

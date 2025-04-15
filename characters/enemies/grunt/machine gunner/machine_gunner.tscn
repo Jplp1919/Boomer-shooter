@@ -43,7 +43,7 @@ max_speed = 4.0
 move_accel = 1.5
 
 [node name="HealthManager" parent="." index="1"]
-max_health = 80
+max_health = 60
 gib_when_damage_taken = 100
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
@@ -102,6 +102,7 @@ shape = SubResource("SphereShape3D_6amjc")
 [node name="HitBoxHead" parent="Graphics/machine gunner/Armature/Skeleton3D/Body" index="3" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_0k84x")]
 weak_spot = true
 limbtype = 3
+health = 30
 kill_parent_on_death = true
 meshes_to_destroy = [NodePath("../../Head")]
 
@@ -116,6 +117,7 @@ bone_idx = 2
 
 [node name="HitBox" parent="Graphics/machine gunner/Armature/Skeleton3D/UpperArmL" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_0k84x")]
 limbtype = 2
+health = 20
 meshes_to_destroy = [NodePath("../../Upper Left Arm"), NodePath("../../Lower Left Arm")]
 
 [node name="CollisionShape3D" parent="Graphics/machine gunner/Armature/Skeleton3D/UpperArmL/HitBox" index="0"]
@@ -129,6 +131,7 @@ bone_idx = 8
 
 [node name="HitBox" parent="Graphics/machine gunner/Armature/Skeleton3D/UpperArmR" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_0k84x")]
 limbtype = 1
+health = 20
 meshes_to_destroy = [NodePath("../../Upper Right Arm"), NodePath("../../Lower Right Arm"), NodePath("../../Machinegun")]
 
 [node name="CollisionShape3D" parent="Graphics/machine gunner/Armature/Skeleton3D/UpperArmR/HitBox" index="0"]
@@ -142,6 +145,7 @@ bone_idx = 3
 
 [node name="HitBox" parent="Graphics/machine gunner/Armature/Skeleton3D/LowerArmL" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_0k84x")]
 limbtype = 2
+health = 20
 meshes_to_destroy = [NodePath("../../Lower Left Arm")]
 
 [node name="CollisionShape3D" parent="Graphics/machine gunner/Armature/Skeleton3D/LowerArmL/HitBox" index="0"]
@@ -155,6 +159,7 @@ bone_idx = 9
 
 [node name="HitBox" parent="Graphics/machine gunner/Armature/Skeleton3D/LowerArmR" index="0" node_paths=PackedStringArray("meshes_to_destroy") instance=ExtResource("3_0k84x")]
 limbtype = 1
+health = 20
 meshes_to_destroy = [NodePath("../../Lower Right Arm"), NodePath("../../Machinegun")]
 
 [node name="CollisionShape3D" parent="Graphics/machine gunner/Armature/Skeleton3D/LowerArmR/HitBox" index="0"]

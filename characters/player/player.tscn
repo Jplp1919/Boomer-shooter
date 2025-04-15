@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=53 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -219,6 +219,60 @@ tracks/2/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_yybc7"]
+resource_name = "alt_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0525839, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0180173), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0525839, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(-4.38363e-07, -1.5708, -0.451848), Vector3(0, -1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shotgun/Armature/Skeleton3D/Pump:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eject_casing"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_gqopd"]
 resource_name = "attack"
 length = 0.7
@@ -276,6 +330,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_icpky"]
 _data = {
 &"RESET": SubResource("Animation_icpky"),
+&"alt_attack": SubResource("Animation_yybc7"),
 &"attack": SubResource("Animation_gqopd")
 }
 
@@ -415,7 +470,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_4cx7u"]
 resource_name = "reload"
-length = 0.5
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -423,7 +478,7 @@ tracks/0/path = NodePath("sawed off shotgun:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.133333, 0.266667, 0.5),
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5708, 0), Vector3(2.28044e-06, 1.5708, -0.681499), Vector3(3.08034e-06, 1.5708, -1.02231), Vector3(3.08034e-06, 1.5708, -1.02231), Vector3(0, 1.5708, 0)]
@@ -435,7 +490,7 @@ tracks/1/path = NodePath("sawed off shotgun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.133333, 0.266667, 0.5),
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.0841932, 0), Vector3(0, -0.0841932, 0), Vector3(0, 0, 0)]
@@ -699,11 +754,12 @@ libraries = {
 cur_weapon_muzzle = NodePath("../../Graphics/pixelpistol/PistolMuzzle")
 
 [node name="Shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("6_lmcyr")]
-visible = false
+alt_recoil = Vector3(1.2, 1.2, 0.4)
+alt_attack_rate = 0.4
 muzzle_flash = NodePath("Graphics/shotgun/Muzzle/MuzzleFlash2")
 animation_player = NodePath("Graphics/ShotgunAnimationPlayer")
 out_of_ammo_sound = ExtResource("10_yybc7")
-recoil = Vector3(1.2, 1, 0)
+recoil = Vector3(0.8, 0.6, 0)
 damage = 15
 ejection_port = NodePath("Graphics/shotgun/Muzzle/ShotgunEjectionPort")
 casing_scene = ExtResource("9_58jvb")
@@ -776,6 +832,7 @@ cur_weapon_muzzle = NodePath("../../Graphics/mg08/Muzzle")
 
 [node name="Sawed-Off" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash_2", "muzzle_flash", "animation_player") instance=ExtResource("16_lv4bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107741, -0.195398, -0.191855)
+visible = false
 muzzle_flash_2 = NodePath("Graphics/sawed off shotgun/Muzzle Left/SawedOffMuzzleFlashLeft")
 alt_recoil = Vector3(0.7, 0.35, 0.1)
 alt_attack_rate = 0.4
@@ -783,6 +840,7 @@ muzzle_flash = NodePath("Graphics/sawed off shotgun/Muzzle Right/SawedOffMuzzleF
 animation_player = NodePath("Graphics/SawedOffAnimationPlayer")
 out_of_ammo_sound = ExtResource("10_yybc7")
 recoil = Vector3(1.4, 0.7, 0.3)
+damage = 15
 ammo_type = 1
 
 [node name="sawed off shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics" index="0"]

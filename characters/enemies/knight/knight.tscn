@@ -43,7 +43,7 @@ max_speed = 6.0
 move_accel = 2.0
 
 [node name="HealthManager" parent="." index="1"]
-max_health = 300
+max_health = 240
 gib_when_damage_taken = 120
 min_gib_spawn_amnt = 5
 max_gib_spawn_amnt = 10
