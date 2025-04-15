@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cov546pd43rnk"
-path="res://.godot/imported/RiflePixel.glb-11422402248315055a94ca77c1807118.scn"
+uid="uid://k52fon8qas8u"
+path="res://.godot/imported/trench knife.glb-62f6037c4e9d7706fbca41b69f382093.scn"
 
 [deps]
 
-source_file="res://weapons/assets/RiflePixel.glb"
-dest_files=["res://.godot/imported/RiflePixel.glb-11422402248315055a94ca77c1807118.scn"]
+source_file="res://weapons/assets/trench knife.glb"
+dest_files=["res://.godot/imported/trench knife.glb-62f6037c4e9d7706fbca41b69f382093.scn"]
 
 [params]
 

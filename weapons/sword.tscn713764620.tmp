@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgec1exw4yug3"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_auxdm"]
+[ext_resource type="PackedScene" uid="uid://k52fon8qas8u" path="res://weapons/assets/trench knife.glb" id="2_5ogyc"]
+[ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="3_wogx0"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="4_8x7r2"]
+
+[node name="Sword" instance=ExtResource("1_auxdm")]
+ammo = -1
+silent_weapon = true
+attack_rate = 0.4
+
+[node name="trench knife" parent="Graphics" index="0" instance=ExtResource("2_5ogyc")]
+transform = Transform3D(1.14641e-15, 2.62268e-08, 0.6, 0.6, -2.62268e-08, 0, 2.62268e-08, 0.6, -2.62268e-08, 0, 0, 0)
+
+[node name="AreaDamageEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_wogx0")]
+attack_radius = 2.0
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter" index="1" instance=ExtResource("4_8x7r2")]
+
+[node name="RayCast3D" parent="AttackEmitter/HitScanAttackEmitter" index="0"]
+target_position = Vector3(0, 0, -2)
+
+[editable path="AttackEmitter/HitScanAttackEmitter"]

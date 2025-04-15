@@ -8,7 +8,7 @@ height = 2.36314
 
 [node name="TrenchGunPickup" instance=ExtResource("1_h8hb2")]
 pickup_type = 1
-weapon_type = 1
+weapon_type = 0
 pickup_amnt = 8
 
 [node name="CollisionShape3D" parent="." index="0"]

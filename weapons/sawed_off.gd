@@ -16,7 +16,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if automatic and !input_held:
 		return
 	
-	if AmmoManager.get_ammo(ammo_type) <= 1:
+	if AmmoManager.get_ammo(ammo_type) <= 1 and !fired_right:
 		if input_just_pressed:
 			out_of_ammo.emit()
 			if out_of_ammo_sound:
@@ -25,8 +25,12 @@ func attack(input_just_pressed: bool, input_held: bool):
 		return
 	
 	var cur_time = Time.get_ticks_msec() / 1000.0
-	if cur_time - last_attack_time < attack_rate:
-		return
+	if fired_right:
+		if cur_time - last_attack_time < attack_rate :
+			return
+	else:
+		if cur_time - last_attack_time < alt_attack_rate :
+			return
 	
 	if ammo_type != AmmoType.NONE:
 		AmmoManager.use_ammo(ammo_type, 2)

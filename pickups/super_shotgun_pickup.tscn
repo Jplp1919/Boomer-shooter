@@ -9,7 +9,7 @@ height = 0.902667
 
 [node name="SuperShotgunPickup" instance=ExtResource("1_e4wxp")]
 pickup_type = 1
-weapon_type = 3
+weapon_type = 2
 pickup_amnt = 2
 
 [node name="CollisionShape3D" parent="." index="0"]

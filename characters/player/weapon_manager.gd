@@ -100,14 +100,10 @@ func alert_enemies_on_fired():
 
 func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
 	match weapon_type:
-		Pickup.WEAPONS.PISTOL:
-			return $Weapons/Pistol
 		Pickup.WEAPONS.TRENCH_GUN:
 			return $Weapons/Shotgun
 		Pickup.WEAPONS.MACHINE_GUN:
 			return $Weapons/Machinegun
 		Pickup.WEAPONS.SUPER_SHOTGUN:
 			return $"Weapons/Sawed-Off"
-		Pickup.WEAPONS.REPEATING_RIFLE:
-			return $Weapons/Rifle
 	return null

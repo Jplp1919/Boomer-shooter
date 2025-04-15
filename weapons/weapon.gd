@@ -30,11 +30,9 @@ var last_attack_time = -9999.9
 #ammo pool code
 enum AmmoType {
 	NONE = -1, # For weapons that don't use ammo
-	_9X19, #Pistol
 	_12GA, #Trench Gun, Super Shotgun
 	_792X57, #Machinegun
 	ROCKET, #Rocket Launcher for debugging projectiles and explosions only
-	_45_70 #Cowboy repeater
 }
 @export var ammo_type: AmmoType = AmmoType.NONE
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3fyr7h45d6u8"
-path.s3tc="res://.godot/imported/RiflePixel_gold pixel.png-ecb8789497571698c7c92eab5e360666.s3tc.ctex"
+uid="uid://devfnb54p3ecp"
+path.s3tc="res://.godot/imported/trench knife_metal 128.png-c35995d965bb0c943198f1e4acb627c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ac2605a8c167ea660fb90f31160d8d2a"
+"md5": "9b49870dc10c0dc3b1b4e8e341650e14"
 }
 
 [deps]
 
-source_file="res://weapons/assets/RiflePixel_gold pixel.png"
-dest_files=["res://.godot/imported/RiflePixel_gold pixel.png-ecb8789497571698c7c92eab5e360666.s3tc.ctex"]
+source_file="res://weapons/assets/trench knife_metal 128.png"
+dest_files=["res://.godot/imported/trench knife_metal 128.png-c35995d965bb0c943198f1e4acb627c1.s3tc.ctex"]
 
 [params]
 

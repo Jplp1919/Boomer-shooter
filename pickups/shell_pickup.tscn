@@ -5,7 +5,7 @@
 
 [node name="ShellPickup" instance=ExtResource("1_iwufg")]
 pickup_type = 2
-weapon_type = 1
+weapon_type = 0
 pickup_amnt = 6
 
 [node name="shell2" parent="Graphics" index="0" instance=ExtResource("2_vefjd")]

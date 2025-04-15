@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6mioaug2lh0b"
-path.s3tc="res://.godot/imported/pixelpistol_black metal pixel 2.png-94625ec1a859ee21de467115332afb9c.s3tc.ctex"
+uid="uid://dxc1566cxq68g"
+path.s3tc="res://.godot/imported/trench knife_bronze 128.png-37d308b9087d1fdad668369723c2c397.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9d0711b73d6b51569bc0de63b8fdde25"
+"md5": "f6804ebab000b8f06cdd085709a1cf52"
 }
 
 [deps]
 
-source_file="res://effects/casings/assets/pixelpistol_black metal pixel 2.png"
-dest_files=["res://.godot/imported/pixelpistol_black metal pixel 2.png-94625ec1a859ee21de467115332afb9c.s3tc.ctex"]
+source_file="res://weapons/assets/trench knife_bronze 128.png"
+dest_files=["res://.godot/imported/trench knife_bronze 128.png-37d308b9087d1fdad668369723c2c397.s3tc.ctex"]
 
 [params]
 
