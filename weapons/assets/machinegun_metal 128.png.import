@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwfsp5qn1nbbl"
-path.s3tc="res://.godot/imported/shotgun_wood polished pixel.png-f4a72a2c2b600ed115d98a054b7dee88.s3tc.ctex"
+uid="uid://cilg7two1h6c4"
+path.s3tc="res://.godot/imported/machinegun_metal 128.png-1bc3a8a8875668ca48dd1e3bf4bb6410.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2edc537395a75f7327a92850eed6f1c6"
+"md5": "9b49870dc10c0dc3b1b4e8e341650e14"
 }
 
 [deps]
 
-source_file="res://weapons/assets/shotgun_wood polished pixel.png"
-dest_files=["res://.godot/imported/shotgun_wood polished pixel.png-f4a72a2c2b600ed115d98a054b7dee88.s3tc.ctex"]
+source_file="res://weapons/assets/machinegun_metal 128.png"
+dest_files=["res://.godot/imported/machinegun_metal 128.png-1bc3a8a8875668ca48dd1e3bf4bb6410.s3tc.ctex"]
 
 [params]
 

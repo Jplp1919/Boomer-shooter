@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ti321ojkjx5u"
-path="res://.godot/imported/mg08.glb-02f615c455bc13dbc4ce40f2104e1b3e.scn"
+uid="uid://be3fvvjtq3i7x"
+path="res://.godot/imported/trench gun.glb-a5d76161766ed7bea75d453167334209.scn"
 
 [deps]
 
-source_file="res://weapons/assets/mg08.glb"
-dest_files=["res://.godot/imported/mg08.glb-02f615c455bc13dbc4ce40f2104e1b3e.scn"]
+source_file="res://weapons/assets/trench gun.glb"
+dest_files=["res://.godot/imported/trench gun.glb-a5d76161766ed7bea75d453167334209.scn"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkbo4gpmfg4lh"
-path.s3tc="res://.godot/imported/shotgun_black metal pixel 2.png-7a7daf7745c3b5e3a3fb7ed5995e76f8.s3tc.ctex"
+uid="uid://cqhdp3s4ayvj"
+path.s3tc="res://.godot/imported/trench gun_rubber 128.png-ea21446e0bebfa147344f91ddbaccefa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9d0711b73d6b51569bc0de63b8fdde25"
+"md5": "483ca978878046271b9e958297522ab4"
 }
 
 [deps]
 
-source_file="res://weapons/assets/shotgun_black metal pixel 2.png"
-dest_files=["res://.godot/imported/shotgun_black metal pixel 2.png-7a7daf7745c3b5e3a3fb7ed5995e76f8.s3tc.ctex"]
+source_file="res://weapons/assets/trench gun_rubber 128.png"
+dest_files=["res://.godot/imported/trench gun_rubber 128.png-ea21446e0bebfa147344f91ddbaccefa.s3tc.ctex"]
 
 [params]
 

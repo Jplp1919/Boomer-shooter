@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv6her2hccid0"]
 
 [ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_h8hb2"]
-[ext_resource type="PackedScene" uid="uid://b5uqwppeqqmfx" path="res://weapons/assets/shotgun.glb" id="2_a4gcp"]
+[ext_resource type="PackedScene" uid="uid://be3fvvjtq3i7x" path="res://weapons/assets/trench gun.glb" id="2_putrc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dhi2"]
 height = 2.36314
@@ -15,4 +15,5 @@ pickup_amnt = 8
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.104628, 1, 0)
 shape = SubResource("CapsuleShape3D_7dhi2")
 
-[node name="shotgun" parent="Graphics" index="0" instance=ExtResource("2_a4gcp")]
+[node name="trench gun" parent="Graphics" index="0" instance=ExtResource("2_putrc")]
+transform = Transform3D(0.025, 0, 0, 0, -1.09278e-09, -0.025, 0, 0.025, -1.09278e-09, 0.0490745, 0, 0)

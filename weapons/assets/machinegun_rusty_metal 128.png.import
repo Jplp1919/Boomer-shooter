@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcbiqv3k6co5i"
-path.s3tc="res://.godot/imported/mg08_light-metal.png-ac2d52d0f3dcd7effc9941e6081b7889.s3tc.ctex"
+uid="uid://wji2hm2tpbxw"
+path.s3tc="res://.godot/imported/machinegun_rusty_metal 128.png-7c0fb4d72417ee1f4b82e4c25ad2141c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "24b40385dbbe64250dc464e422a9692e"
+"md5": "a86c39458f9061e36e7d7695b028a63e"
 }
 
 [deps]
 
-source_file="res://weapons/assets/mg08_light-metal.png"
-dest_files=["res://.godot/imported/mg08_light-metal.png-ac2d52d0f3dcd7effc9941e6081b7889.s3tc.ctex"]
+source_file="res://weapons/assets/machinegun_rusty_metal 128.png"
+dest_files=["res://.godot/imported/machinegun_rusty_metal 128.png-7c0fb4d72417ee1f4b82e4c25ad2141c.s3tc.ctex"]
 
 [params]
 

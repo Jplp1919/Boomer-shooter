@@ -13,7 +13,7 @@ var elapsed_time := 0.0
 func _ready():
 	var player_right = player.global_transform.basis.x
 	
-	velocity = (Vector3.UP * 2 + player_right).normalized() * eject_speed
+	velocity = (Vector3.UP * 1 + player_right).normalized() * eject_speed
 	await get_tree().create_timer(destroy_delay).timeout
 	queue_free()
 

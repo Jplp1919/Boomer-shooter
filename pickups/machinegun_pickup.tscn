@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8ft78fjd6hs6"]
 
 [ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_bo0g1"]
-[ext_resource type="PackedScene" uid="uid://ti321ojkjx5u" path="res://weapons/assets/mg08.glb" id="2_rn3h2"]
+[ext_resource type="PackedScene" uid="uid://bpf4kr0luqt0p" path="res://weapons/assets/machinegun.glb" id="2_bo0g1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epwlr"]
 radius = 0.278246
@@ -15,5 +15,5 @@ pickup_amnt = 40
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1.24851, 0)
 shape = SubResource("CapsuleShape3D_epwlr")
 
-[node name="mg08" parent="Graphics" index="0" instance=ExtResource("2_rn3h2")]
-transform = Transform3D(0.64524, 0, 0, 0, 0.64524, 0, 0, 0, 0.64524, 0, 0, 0)
+[node name="machinegun" parent="Graphics" index="0" instance=ExtResource("2_bo0g1")]
+transform = Transform3D(-0.07, 0, -6.11959e-09, 0, 0.07, 0, 6.11959e-09, 0, -0.07, 0, 0.26759, 0)

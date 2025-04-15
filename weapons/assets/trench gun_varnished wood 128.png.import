@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ke46blnhmbl"
-path.s3tc="res://.godot/imported/mg08_blackmetal 3.png-7628f556edf10559578c7170b068dd2c.s3tc.ctex"
+uid="uid://c7xlqdirwkk7y"
+path.s3tc="res://.godot/imported/trench gun_varnished wood 128.png-b1d0153f99723020c23f459d945d7296.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "bb5ab5b174532394df466eb9ee2ad976"
+"md5": "fb32ab7e18adcf5724de94299a0b3b37"
 }
 
 [deps]
 
-source_file="res://weapons/assets/mg08_blackmetal 3.png"
-dest_files=["res://.godot/imported/mg08_blackmetal 3.png-7628f556edf10559578c7170b068dd2c.s3tc.ctex"]
+source_file="res://weapons/assets/trench gun_varnished wood 128.png"
+dest_files=["res://.godot/imported/trench gun_varnished wood 128.png-b1d0153f99723020c23f459d945d7296.s3tc.ctex"]
 
 [params]
 
