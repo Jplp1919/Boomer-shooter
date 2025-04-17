@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=51 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ut4hgh31ipc7" path="res://weapons/rifle.tscn" id="15_d2agh"]
 [ext_resource type="PackedScene" uid="uid://cnuoitoswwkx2" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="16_fpo3a"]
 [ext_resource type="PackedScene" uid="uid://cu4h7rul2oxbv" path="res://weapons/sawed_off.tscn" id="16_lv4bx"]
+[ext_resource type="PackedScene" uid="uid://dsc16xtjjqlnu" path="res://weapons/plasma_pistol.tscn" id="17_kyfeq"]
 [ext_resource type="Script" uid="uid://dtnvbhx3qi3tj" path="res://characters/player/pickup_manager.gd" id="21_5mkjs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
@@ -511,6 +512,67 @@ _data = {
 &"attack": SubResource("Animation_kyfeq")
 }
 
+[sub_resource type="Animation" id="Animation_e0pgg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ray gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ray gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w53g3"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ray gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ray gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(-1.54303e-08, -1.5708, -0.359433), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbttr"]
+_data = {
+&"RESET": SubResource("Animation_e0pgg"),
+&"attack": SubResource("Animation_w53g3")
+}
+
 [sub_resource type="Animation" id="Animation_1r3u6"]
 length = 0.001
 tracks/0/type = "value"
@@ -596,7 +658,6 @@ disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_22nj0")
 
@@ -765,6 +826,7 @@ transform = Transform3D(0.999999, 0, -4.26326e-14, 0, 0.999999, 0, 4.26326e-14, 
 cur_weapon_muzzle = NodePath("../../Graphics/Muzzle")
 
 [node name="Rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("15_d2agh")]
+visible = false
 muzzle_flash = NodePath("Graphics/RifleMuzzleFlash")
 animation_player = NodePath("Graphics/RifleAnimationPlayer")
 recoil = Vector3(0.6, 0.4, 0)
@@ -798,6 +860,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0.244372, 0.181259
 
 [node name="ProjectileEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
 muzzle = NodePath("../../Graphics/RifleMuzzle")
+aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
+
+[node name="Plasma Pistol" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("17_kyfeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072307, 0, 0.0664262)
+animation_player = NodePath("Graphics/PlasmaPistolAnimationPlayer")
+automatic = true
+attack_rate = 0.1
+
+[node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151304, -0.524348, -0.512219)
+
+[node name="ray gun" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/Graphics" index="0"]
+transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0, 0, 0)
+
+[node name="PlasmaPistolMuzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/Graphics" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000723116, 0.260095, -0.393627)
+
+[node name="PlasmaPistolAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/Graphics" index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sbttr")
+}
+
+[node name="ProjectileEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
+projectile_type = 2
+muzzle = NodePath("../../Graphics/PlasmaPistolMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager"]
@@ -864,3 +951,4 @@ shape = SubResource("CapsuleShape3D_5mkjs")
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun/Graphics/machinegun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle"]
+[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol"]

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="project-boomer"
+config/name="Eldwich"
 run/main_scene="res://enviroment/world.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
