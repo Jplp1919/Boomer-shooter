@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://c2owrrth03e3f"]
+
+[ext_resource type="PackedScene" uid="uid://chexwkenuwyev" path="res://weapons/projectiles/projectile.tscn" id="1_earki"]
+[ext_resource type="Shader" uid="uid://co1mvfcxhadyq" path="res://weapons/projectiles/shaders/plasma.tres" id="3_32bs2"]
+[ext_resource type="Shader" uid="uid://d2eg33elih6yd" path="res://weapons/projectiles/shaders/plasma_inner.tres" id="4_7mya2"]
+[ext_resource type="PackedScene" uid="uid://dqyrpdv8ladmb" path="res://weapons/projectiles/assets/plasma ball.glb" id="4_qyfi6"]
+[ext_resource type="Shader" uid="uid://ceadnedqc685y" path="res://weapons/projectiles/shaders/plasma_trail.tres" id="5_7mya2"]
+[ext_resource type="Texture2D" uid="uid://b2f3lru1wjd5w" path="res://weapons/projectiles/assets/textures/circle_05.png" id="6_s47xm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mya2"]
+render_priority = 1
+shader = ExtResource("3_32bs2")
+shader_parameter/ColorParameter = Color(0.05, 0.6, 5, 1)
+shader_parameter/Speed = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s47xm"]
+render_priority = 0
+shader = ExtResource("4_7mya2")
+shader_parameter/ball_color = Color(0.100688, 0.249281, 0.485919, 1)
+shader_parameter/Fresnel_Power = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_32bs2"]
+
+[sub_resource type="Gradient" id="Gradient_7mya2"]
+offsets = PackedFloat32Array(0.152047, 0.309942, 0.555556, 0.988304)
+colors = PackedColorArray(0.343, 0.63, 0.772, 0, 0.343, 0.63, 0.772, 0, 0.342956, 0.63043, 0.77175, 1, 0.0954424, 0.180272, 0.493876, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s47xm"]
+gradient = SubResource("Gradient_7mya2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4msnr"]
+render_priority = 0
+shader = ExtResource("5_7mya2")
+shader_parameter/Color_Texture = SubResource("GradientTexture1D_s47xm")
+shader_parameter/Speed = Vector2(2, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qyfi6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4msnr"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("6_s47xm")
+
+[sub_resource type="Curve" id="Curve_0jcjm"]
+_data = [Vector2(0.0251397, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.143969), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yyl62"]
+curve = SubResource("Curve_0jcjm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6pgw8"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_yyl62")
+color = Color(0.374068, 0.564555, 0.987598, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_35jb2"]
+size = Vector2(0.1, 0.5)
+
+[node name="Plasma" instance=ExtResource("1_earki")]
+speed = 50
+
+[node name="plasma ball" parent="Graphics" index="0" instance=ExtResource("4_qyfi6")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Sphere" parent="Graphics/plasma ball" index="0"]
+transform = Transform3D(0.576, 0, 0, 0, -2.51778e-08, 0.576, 0, -0.576, -2.51778e-08, 5.00289e-09, -0.0443341, 0.59527)
+material_override = SubResource("ShaderMaterial_7mya2")
+cast_shadow = 0
+
+[node name="Inner Sphere" type="MeshInstance3D" parent="Graphics/plasma ball" index="1"]
+transform = Transform3D(0.864, 0, 0, 0, 0.864, 0, 0, 0, 0.864, 5.00289e-09, -0.0443341, 0.509813)
+material_override = SubResource("ShaderMaterial_s47xm")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_32bs2")
+
+[node name="Trail" type="MeshInstance3D" parent="Graphics/plasma ball" index="2"]
+transform = Transform3D(-1.28469e-07, 0, 0.870849, 0, 2.90396, 0, -2.93902, 0, -3.8066e-08, 5.00289e-09, -0.197674, 1.64127)
+material_override = SubResource("ShaderMaterial_4msnr")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_qyfi6")
+
+[node name="Trail2" type="MeshInstance3D" parent="Graphics/plasma ball" index="3"]
+transform = Transform3D(5.61555e-15, -2.90396, -3.8066e-08, -1.28469e-07, -1.26936e-07, 0.870849, -2.93902, 0, -3.8066e-08, 5.00289e-09, -0.197674, 2.39272)
+material_override = SubResource("ShaderMaterial_4msnr")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_qyfi6")
+
+[node name="CollisionRayCast" parent="." index="1"]
+transform = Transform3D(0.576, 0, 0, 0, 0.576, 0, 0, 0, 0.576, 1.50087e-09, -0.0133002, 0.178581)
+
+[node name="Sparks" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(7.55333e-08, 0, 0.576, 0, 0.576, 0, -0.576, 0, 7.55333e-08, 1.37343e-08, -0.0297059, 0.252686)
+material_override = SubResource("StandardMaterial3D_4msnr")
+amount = 15
+lifetime = 0.2
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_6pgw8")
+draw_pass_1 = SubResource("QuadMesh_35jb2")
+
+[editable path="Graphics/plasma ball"]

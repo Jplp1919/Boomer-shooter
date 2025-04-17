@@ -13,3 +13,10 @@ adapted for Godot 4.4 by J. Petter. The modified version remains
 under MIT License terms.
 ------------------
 
+FireBall Shaders, Particles and Textures
+------------------
+Original Work:
+https://www.youtube.com/watch?v=74XywaLGO5Q&ab_channel=LeLu
+
+Copyright (c) 2024 Le lu
+Creative Commons Attribution license

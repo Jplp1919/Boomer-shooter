@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b55l2m8ydv6p6"]
+[gd_scene load_steps=3 format=3 uid="uid://b55l2m8ydv6p6"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_d8anq"]
-[ext_resource type="PackedScene" uid="uid://1ft0db2pntac" path="res://weapons/assets/Rocket Launcher.glb" id="2_35628"]
 [ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="3_2vlp2"]
 
 [node name="RocketLauncher" instance=ExtResource("1_d8anq")]
-
-[node name="Root Scene" parent="Graphics" index="0" instance=ExtResource("2_35628")]
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_2vlp2")]

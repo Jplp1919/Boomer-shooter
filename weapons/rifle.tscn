@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ut4hgh31ipc7"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_80f5w"]
+[ext_resource type="PackedScene" uid="uid://h46rimbqg4ub" path="res://weapons/assets/semi auto rifle.glb" id="2_0p17f"]
+[ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="3_r1bic"]
+
+[node name="Rifle" instance=ExtResource("1_80f5w")]
+
+[node name="semi auto rifle" parent="Graphics" index="0" instance=ExtResource("2_0p17f")]
+transform = Transform3D(-2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 0, 0, 0)
+
+[node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_r1bic")]
+projectile_type = 1
