@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=55 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cnuoitoswwkx2" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="16_fpo3a"]
 [ext_resource type="PackedScene" uid="uid://cu4h7rul2oxbv" path="res://weapons/sawed_off.tscn" id="16_lv4bx"]
 [ext_resource type="PackedScene" uid="uid://dsc16xtjjqlnu" path="res://weapons/plasma_pistol.tscn" id="17_kyfeq"]
+[ext_resource type="PackedScene" uid="uid://b1g7gvkcf4rl3" path="res://weapons/lightning_gun.tscn" id="18_5mkjs"]
 [ext_resource type="Script" uid="uid://dtnvbhx3qi3tj" path="res://characters/player/pickup_manager.gd" id="21_5mkjs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3tmd"]
@@ -573,6 +574,67 @@ _data = {
 &"attack": SubResource("Animation_w53g3")
 }
 
+[sub_resource type="Animation" id="Animation_6pj1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lightning gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lightning gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, -0.174533), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sbttr"]
+resource_name = "attack"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lightning gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.015, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lightning gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, -0.0872665), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pj1p"]
+_data = {
+&"RESET": SubResource("Animation_6pj1p"),
+&"attack": SubResource("Animation_sbttr")
+}
+
 [sub_resource type="Animation" id="Animation_1r3u6"]
 length = 0.001
 tracks/0/type = "value"
@@ -691,6 +753,7 @@ script = ExtResource("2_toaof")
 [node name="Sword" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_jwqcs")]
 visible = false
 animation_player = NodePath("Graphics/SwordAnimationPlayer")
+automatic = true
 animation_controlled_attack = true
 
 [node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sword" index="0"]
@@ -853,7 +916,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232116, -0.646831)
 
 [node name="RifleMuzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000119254, 0.227871, -0.728124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000119254, 0.252619, -0.728124)
 
 [node name="RifleEjectPort" type="Marker3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0.244372, 0.181259)
@@ -864,6 +927,7 @@ aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="Plasma Pistol" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("17_kyfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072307, 0, 0.0664262)
+visible = false
 animation_player = NodePath("Graphics/PlasmaPistolAnimationPlayer")
 automatic = true
 attack_rate = 0.1
@@ -875,7 +939,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151304, -0.524348, -0.51221
 transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0, 0, 0)
 
 [node name="PlasmaPistolMuzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/Graphics" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000723116, 0.260095, -0.393627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000723116, 0.280904, -0.574696)
 
 [node name="PlasmaPistolAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol/Graphics" index="2"]
 libraries = {
@@ -886,6 +950,28 @@ libraries = {
 projectile_type = 2
 muzzle = NodePath("../../Graphics/PlasmaPistolMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
+
+[node name="Lightning Gun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("18_5mkjs")]
+animation_player = NodePath("Graphics/LightningGunAnimationPlayer")
+automatic = true
+attack_rate = 0.01
+
+[node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0759569, -0.151194, -0.187534)
+
+[node name="lightning gun" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/Graphics" index="0"]
+transform = Transform3D(-1.29142e-09, -2.27712e-10, -0.03, -0.00520945, 0.0295442, 0, 0.0295442, 0.00520945, -1.31134e-09, 0, 0, 0)
+
+[node name="LightningGunAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/Graphics" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_6pj1p")
+}
+
+[node name="AreaDamageEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter" index="0"]
+attack_radius = 6.0
+
+[node name="RayCast3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter/HitScanAttackEmitter" index="0"]
+target_position = Vector3(0, 0, -25)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager"]
 libraries = {
@@ -952,3 +1038,5 @@ shape = SubResource("CapsuleShape3D_5mkjs")
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun/Graphics/machinegun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol"]
+[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun"]
+[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter/HitScanAttackEmitter"]

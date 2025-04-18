@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c8xmxrstwj0em"
+path.s3tc="res://.godot/imported/lightning gun_copper 128.png-584777421096dcfd21e8294f2ce7a64e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "dec4a8bf36e25a89c5d0f1bf9b96ded6"
+}
+
+[deps]
+
+source_file="res://weapons/assets/lightning gun_copper 128.png"
+dest_files=["res://.godot/imported/lightning gun_copper 128.png-584777421096dcfd21e8294f2ce7a64e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

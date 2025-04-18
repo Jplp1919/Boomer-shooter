@@ -1,0 +1,125 @@
+[gd_scene load_steps=22 format=3 uid="uid://b1g7gvkcf4rl3"]
+
+[ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_i7gim"]
+[ext_resource type="PackedScene" uid="uid://cpamjthin5faw" path="res://weapons/assets/lightning gun.glb" id="2_bub0k"]
+[ext_resource type="Script" uid="uid://1n0h7w6ykgme" path="res://weapons/lightning_gun.gd" id="2_ulbos"]
+[ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="2_wjj0d"]
+[ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="3_bub0k"]
+[ext_resource type="Shader" uid="uid://ceadnedqc685y" path="res://weapons/projectiles/shaders/plasma_trail.tres" id="3_yfmbh"]
+[ext_resource type="Shader" uid="uid://c8fdxbsns2wgv" path="res://weapons/projectiles/shaders/plasma_trail 2.tres" id="4_okrqh"]
+[ext_resource type="Texture2D" uid="uid://bsp2u576opoxi" path="res://weapons/projectiles/assets/textures/spark_05_rotated.png" id="5_lode4"]
+
+[sub_resource type="Gradient" id="Gradient_okrqh"]
+offsets = PackedFloat32Array(0.152047, 0.309942, 0.555556, 0.865497, 1)
+colors = PackedColorArray(0.343, 0.63, 0.772, 0, 0.343, 0.63, 0.772, 0, 0.342956, 0.63043, 0.77175, 1, 0.0954424, 0.180272, 0.493876, 1, 0.343, 0.63, 0.772, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s47xm"]
+gradient = SubResource("Gradient_okrqh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okrqh"]
+render_priority = 0
+shader = ExtResource("3_yfmbh")
+shader_parameter/Color_Texture = SubResource("GradientTexture1D_s47xm")
+shader_parameter/Speed = Vector2(2, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_okrqh"]
+
+[sub_resource type="Gradient" id="Gradient_lode4"]
+offsets = PackedFloat32Array(0.152047, 0.309942, 0.555556, 0.912281, 1)
+colors = PackedColorArray(0.343, 0.63, 0.772, 0, 0.343, 0.63, 0.772, 0, 0.342956, 0.63043, 0.77175, 1, 0.111584, 0.205323, 0.550915, 1, 0.112, 0.205, 0.551, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ulbos"]
+gradient = SubResource("Gradient_lode4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qpad"]
+render_priority = 0
+shader = ExtResource("4_okrqh")
+shader_parameter/Color_Texture = SubResource("GradientTexture1D_ulbos")
+shader_parameter/Speed = Vector2(1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_yfmbh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lode4"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_lode4")
+
+[sub_resource type="Curve" id="Curve_5qpad"]
+_data = [Vector2(0.0251397, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.143969), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yyl62"]
+curve = SubResource("Curve_5qpad")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lode4"]
+particle_flag_align_y = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_yyl62")
+color = Color(0.374068, 0.564555, 0.987598, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4b5d"]
+size = Vector2(0.1, 0.5)
+
+[node name="Lightning Gun" instance=ExtResource("1_i7gim")]
+script = ExtResource("2_ulbos")
+
+[node name="lightning gun" parent="Graphics" index="0" instance=ExtResource("2_bub0k")]
+transform = Transform3D(5.84122e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, 5.84122e-09, 0, 0, 0)
+
+[node name="Lightning" type="Node3D" parent="Graphics" index="1"]
+visible = false
+
+[node name="Trail3" type="MeshInstance3D" parent="Graphics/Lightning" index="0"]
+transform = Transform3D(1.75364e-14, -0.491601, 4.37114e-08, -4.01186e-07, -2.14886e-08, -1, 9.17807, 0, -4.37114e-08, 0.0856223, 0, -4.83099)
+material_override = SubResource("ShaderMaterial_okrqh")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_okrqh")
+skeleton = NodePath("../..")
+
+[node name="Trail2" type="MeshInstance3D" parent="Graphics/Lightning" index="1"]
+transform = Transform3D(1.42861e-14, 1.77982, 4.37114e-08, 3.26827e-07, -7.77985e-08, 1, 7.47693, 0, -4.37114e-08, 0.0330342, 0.0152753, -3.98763)
+material_override = SubResource("ShaderMaterial_5qpad")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_yfmbh")
+skeleton = NodePath("../..")
+
+[node name="Trail4" type="MeshInstance3D" parent="Graphics/Lightning" index="2"]
+transform = Transform3D(1.74539e-07, -0.442639, 0.435058, -3.61229e-07, -0.213875, -0.900402, 9.17807, -1.15019e-16, -4.37114e-08, 0.0560129, 0, -4.83099)
+material_override = SubResource("ShaderMaterial_okrqh")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_okrqh")
+skeleton = NodePath("../..")
+
+[node name="Trail5" type="MeshInstance3D" parent="Graphics/Lightning" index="3"]
+transform = Transform3D(-3.1395e-07, 0.494675, -0.9606, 9.08366e-08, 1.7097, 0.277935, 7.47693, -1.37175e-15, -4.37114e-08, 0.0454716, 0.0152753, -3.98763)
+material_override = SubResource("ShaderMaterial_5qpad")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_yfmbh")
+skeleton = NodePath("../..")
+
+[node name="Sparks" type="GPUParticles3D" parent="Graphics" index="2"]
+transform = Transform3D(0.681832, 0, -0.731508, 0, 1, 0, 0.731508, 0, 0.681832, 0, 0.0559216, -0.254248)
+material_override = SubResource("StandardMaterial3D_lode4")
+emitting = false
+amount = 30
+lifetime = 0.01
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_lode4")
+draw_pass_1 = SubResource("QuadMesh_i4b5d")
+
+[node name="AreaDamageEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_wjj0d")]
+
+[node name="HitScanAttackEmitter" parent="AttackEmitter" index="1" instance=ExtResource("3_bub0k")]
+
+[editable path="AttackEmitter/HitScanAttackEmitter"]

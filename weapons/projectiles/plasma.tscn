@@ -26,13 +26,13 @@ shader_parameter/Fresnel_Power = 5.0
 offsets = PackedFloat32Array(0.152047, 0.309942, 0.555556, 0.988304)
 colors = PackedColorArray(0.343, 0.63, 0.772, 0, 0.343, 0.63, 0.772, 0, 0.342956, 0.63043, 0.77175, 1, 0.0954424, 0.180272, 0.493876, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s47xm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4msnr"]
 gradient = SubResource("Gradient_7mya2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4msnr"]
 render_priority = 0
 shader = ExtResource("5_7mya2")
-shader_parameter/Color_Texture = SubResource("GradientTexture1D_s47xm")
+shader_parameter/Color_Texture = SubResource("GradientTexture1D_4msnr")
 shader_parameter/Speed = Vector2(2, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_qyfi6"]
@@ -51,7 +51,7 @@ albedo_texture = ExtResource("6_s47xm")
 _data = [Vector2(0.0251397, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.143969), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yyl62"]
+[sub_resource type="CurveTexture" id="CurveTexture_4msnr"]
 curve = SubResource("Curve_0jcjm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6pgw8"]
@@ -66,7 +66,7 @@ radial_velocity_min = 0.999978
 radial_velocity_max = 1.99998
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-scale_curve = SubResource("CurveTexture_yyl62")
+scale_curve = SubResource("CurveTexture_4msnr")
 color = Color(0.374068, 0.564555, 0.987598, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_35jb2"]
@@ -76,7 +76,7 @@ size = Vector2(0.1, 0.5)
 script = ExtResource("2_4msnr")
 gravity = 0.5
 speed = 80
-show_after_time = 0.03
+show_after_time = 0.015
 
 [node name="Graphics" parent="." index="0"]
 transform = Transform3D(0.999363, 0, 0.0356849, 0, 1, 0, -0.0356849, 0, 0.999363, 0, 0, 0)
@@ -85,45 +85,45 @@ transform = Transform3D(0.999363, 0, 0.0356849, 0, 1, 0, -0.0356849, 0, 0.999363
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Sphere" parent="Graphics/plasma ball" index="0"]
-transform = Transform3D(0.290158, -3.72529e-09, 0, 0, -1.26832e-08, 0.290158, -3.72529e-09, -0.290158, -1.26832e-08, 0.20531, 0.00449886, 0.339294)
+transform = Transform3D(0.171772, -2.79397e-09, -2.77556e-17, 0, -7.50837e-09, 0.171772, -2.79397e-09, -0.171772, -7.50837e-09, 0.00828246, 0.13509, -0.280837)
 material_override = SubResource("ShaderMaterial_7mya2")
 cast_shadow = 0
 
 [node name="Inner Sphere" type="MeshInstance3D" parent="Graphics/plasma ball" index="1"]
-transform = Transform3D(0.435237, 0, 7.45058e-09, 0, 0.435237, 0, -7.45058e-09, 0, 0.435237, 0.20531, 0.00449886, 0.296246)
+transform = Transform3D(0.257657, 0, -1.86265e-09, 0, 0.257657, 0, 1.86265e-09, 0, 0.257657, 0.00828246, 0.13509, -0.306321)
 material_override = SubResource("ShaderMaterial_s47xm")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_32bs2")
 
 [node name="Trail" type="MeshInstance3D" parent="Graphics/plasma ball" index="2"]
-transform = Transform3D(-2.38419e-07, 0, 0.701175, 0, 2.33817, 0, -3.95031, 0, -3.72529e-08, 0.205311, -0.0727456, 2.30968)
+transform = Transform3D(-1.3411e-07, 0, 0.415091, 0, 1.38418, 0, -2.33856, 0, -2.23517e-08, 0.137278, -0.033546, 0.744445)
 material_override = SubResource("ShaderMaterial_4msnr")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_qyfi6")
 
 [node name="Trail3" type="MeshInstance3D" parent="Graphics/plasma ball" index="3"]
-transform = Transform3D(0.0372611, -2.33804, -0.00249402, 0.528773, -0.00528994, 0.694863, -3.91458, -0.0229693, 0.0938369, 0.20531, -0.0727456, 2.30967)
+transform = Transform3D(0.0220584, -1.3841, -0.00147644, 0.31303, -0.00313161, 0.411354, -2.3174, -0.0135977, 0.0555508, 0.137277, -0.033546, 0.744439)
 material_override = SubResource("ShaderMaterial_4msnr")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_qyfi6")
 
 [node name="Trail2" type="MeshInstance3D" parent="Graphics/plasma ball" index="4"]
-transform = Transform3D(-1.19209e-07, -2.33817, -3.06494e-08, -1.72674e-07, -1.02205e-07, 0.701175, -3.95031, 1.78814e-07, -3.06494e-08, 0.20531, -0.0727456, 2.30967)
+transform = Transform3D(-5.96046e-08, -1.38418, -1.81442e-08, -1.02222e-07, -6.05047e-08, 0.415091, -2.33856, 1.08033e-07, -1.81442e-08, 0.137277, -0.033546, 0.744439)
 material_override = SubResource("ShaderMaterial_4msnr")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_qyfi6")
 
 [node name="Trail4" type="MeshInstance3D" parent="Graphics/plasma ball" index="5"]
-transform = Transform3D(-1.19209e-07, -2.33817, -2.79397e-08, 0.562201, -1.01164e-07, 0.694037, -3.9101, 1.49012e-07, 0.0997902, 0.191579, -0.416041, 2.30967)
+transform = Transform3D(-8.19564e-08, -1.38418, -1.62981e-08, 0.332819, -5.98884e-08, 0.410865, -2.31475, 8.9407e-08, 0.0590751, 0.129149, -0.236775, 0.744439)
 material_override = SubResource("ShaderMaterial_4msnr")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_qyfi6")
 
 [node name="CollisionRayCast" parent="." index="1"]
-transform = Transform3D(0.290158, 0, 0, 0, 0.290158, 0, 0, 0, 0.290158, 0.0627147, 0.00134968, 0.0906646)
+transform = Transform3D(0.171772, 0, 0, 0, 0.171772, 0, 0, 0, 0.171772, -0.00198636, 0.0405271, -0.0895316)
 
 [node name="Sparks" type="GPUParticles3D" parent="." index="2"]
-transform = Transform3D(3.80496e-08, 0, 0.290158, 0, 0.290158, 0, -0.290158, 0, 3.80496e-08, 0.0627147, -0.00691464, 0.127995)
+transform = Transform3D(2.25251e-08, 0, 0.171772, 0, 0.171772, 0, -0.171772, 0, 2.25251e-08, -0.00198636, 0.0356347, -0.123768)
 material_override = SubResource("StandardMaterial3D_4msnr")
 amount = 20
 lifetime = 0.15
