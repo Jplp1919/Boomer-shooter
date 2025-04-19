@@ -3,7 +3,9 @@ extends AttackEmitter
 @export var only_hit_enviroment = false
 @export var is_melee = false
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
-var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
+#var bullet_hit_effect = preload("res://effects/bullet_hit_effect.tscn")
+
+@export var bullet_hit_effect: PackedScene
 
 @onready var player = get_tree().get_first_node_in_group("player")
 

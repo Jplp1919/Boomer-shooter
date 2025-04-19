@@ -2,7 +2,7 @@ extends Projectile
 
 @export var gravity = 2.0
 var velocity : Vector3 = Vector3.ZERO
-var hit_effect = preload("res://effects/bullet_hit_effect.tscn") #switch to plasma hit effect
+var hit_effect = preload("res://effects/burn_hit_effect.tscn") #switch to plasma hit effect
 #var target_position : Vector3
 #var muzzle : Node3D
 #var start_pos : Vector3
