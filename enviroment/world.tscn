@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4op4ge3fht3t"]
+[gd_scene load_steps=20 format=3 uid="uid://c4op4ge3fht3t"]
 
 [ext_resource type="Texture2D" uid="uid://d204pscauecc7" path="res://enviroment/assets/texture_07.png" id="1_l6ir3"]
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="2_uorke"]
@@ -9,7 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cv6her2hccid0" path="res://pickups/trench_gun_pickup.tscn" id="9_wa8is"]
 [ext_resource type="PackedScene" uid="uid://btjv2jx1em3q3" path="res://pickups/super_shotgun_pickup.tscn" id="10_3ihqw"]
 [ext_resource type="PackedScene" uid="uid://ljdmyu6e72uq" path="res://characters/enemies/grunt/rifleman/rifleman.tscn" id="10_8mhlp"]
+[ext_resource type="PackedScene" uid="uid://cqwl7d1uflq3q" path="res://pickups/lightning_gun_pickup.tscn" id="10_ubswt"]
 [ext_resource type="PackedScene" uid="uid://eb66hrpgursm" path="res://pickups/shell_pickup.tscn" id="11_8mhlp"]
+[ext_resource type="PackedScene" uid="uid://dxquqm7ed415e" path="res://pickups/battery.tscn" id="11_catgn"]
+[ext_resource type="PackedScene" uid="uid://c733d1iwqr2hi" path="res://pickups/plasma_pistol_pickup.tscn" id="13_mqy0p"]
+[ext_resource type="PackedScene" uid="uid://bfexrdwwuvka6" path="res://pickups/rifle_pickup.tscn" id="14_mqy0p"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3ihqw"]
 vertices = PackedVector3Array(0, 0.41778, -8.75, 2.25, 0.41778, -9, 2.25, 0.41778, -49.5, -49.5, 0.41778, -49.5, -49.5, 0.41778, -6.25, 0, 0.41778, -6.25, 5, 0.41778, -9, 5, 0.41778, -49.5, 7, 0.41778, -9, 7.25, 0.41778, -7.25, 49.5, 0.41778, -7.5, 49.5, 0.41778, -49.5, 1, 5.91778, -8, 1, 5.91778, -4.5, 6.25, 5.91778, -4.5, 6.25, 5.91778, -8, 1.25, 0.41778, -7.75, 1.25, 0.41778, -4.75, 6, 0.41778, -4.75, 6, 0.41778, -7.75, 7.25, 0.41778, -5.25, 49.5, 0.41778, -5, 0, 0.41778, -3.75, 2.25, 0.41778, -3.5, -49.5, 0.41778, 49.5, 2.25, 0.41778, 49.5, 7, 0.41778, -3.5, 5, 0.41778, 49.5, 49.5, 0.41778, 49.5, 5, 0.41778, -3.5)
@@ -74,6 +78,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5)
 [node name="ShellPickup" parent="." instance=ExtResource("11_8mhlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4.86648)
 
+[node name="Battery" parent="." instance=ExtResource("11_catgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.32212, 0, 0)
+
+[node name="Lightning Gun Pickup" parent="." instance=ExtResource("10_ubswt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4496, 0, 0)
+
 [node name="Machine Gunner" parent="." instance=ExtResource("9_3ihqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.033427, -12)
 
@@ -88,3 +98,9 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.41859, 
 
 [node name="Rifleman3" parent="." instance=ExtResource("10_8mhlp")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -7.65318, 0.0948181, -4)
+
+[node name="Plasma Pistol Pickup" parent="." instance=ExtResource("13_mqy0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
+
+[node name="Rifle Pickup" parent="." instance=ExtResource("14_mqy0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4)

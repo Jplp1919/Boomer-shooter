@@ -25,7 +25,7 @@ uniform float fov = 77;
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
-	
+
 	float onetanfov = 1.0f / tan(0.5f * (fov * PI / 180.0f));
     float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
     PROJECTION_MATRIX[1][1] = -onetanfov;

@@ -31,7 +31,8 @@ var last_attack_time = -9999.9
 enum AmmoType {
 	NONE = -1, # For weapons that don't use ammo
 	_12GA, #Trench Gun, Super Shotgun
-	_792X57, #Machinegun
+	_792X57, #Machinegun Rifle,
+	ENERGY, #Plasma Pistol, Lightning Gun
 	ROCKET, #Rocket Launcher for debugging projectiles and explosions only
 }
 @export var ammo_type: AmmoType = AmmoType.NONE

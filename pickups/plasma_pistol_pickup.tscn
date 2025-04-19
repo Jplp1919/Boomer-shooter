@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c733d1iwqr2hi"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_fcpmc"]
+[ext_resource type="PackedScene" uid="uid://56qnhwt7dhxj" path="res://weapons/assets/ray gun.glb" id="2_ekpsu"]
+
+[node name="Plasma Pistol Pickup" instance=ExtResource("1_fcpmc")]
+pickup_type = 1
+weapon_type = 4
+pickup_amnt = 250
+
+[node name="ray gun" parent="Graphics" index="0" instance=ExtResource("2_ekpsu")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.23782, 0)

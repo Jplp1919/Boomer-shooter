@@ -4,7 +4,6 @@ extends Weapon
 @onready var trails: Node3D = $Graphics/Trails
 
 
-
 func attack(input_just_pressed: bool, input_held: bool):
 	if !automatic and !input_just_pressed:
 		return
@@ -24,7 +23,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 		return
 	
 	if ammo_type != AmmoType.NONE:
-		AmmoManager.use_ammo(ammo_type, 1)
+		AmmoManager.use_ammo(ammo_type, 5)
 	
 	if !animation_controlled_attack:
 		actually_attack()

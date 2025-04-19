@@ -20,9 +20,9 @@ func _ready():
 			weapon.set_bodies_to_exclude([get_parent().get_parent().get_parent()])
 	disable_all_weapons()
 	for _i in range(weapons.size()):
-		weapons_unlocked.append(true) #unlocks all weapons, for test purposes
-		#weapons_unlocked.append(false) #locks all weapons by default
-		#weapons_unlocked[0] = true #sword unlocks by default
+		#weapons_unlocked.append(true) #unlocks all weapons, for test purposes
+		weapons_unlocked.append(false) #locks all weapons by default
+		weapons_unlocked[0] = true #sword unlocks by default
 	switch_to_weapon_slot(0)
 
 
@@ -106,4 +106,11 @@ func get_weapon_from_pickup_type(weapon_type : Pickup.WEAPONS) -> Weapon:
 			return $Weapons/Machinegun
 		Pickup.WEAPONS.SUPER_SHOTGUN:
 			return $"Weapons/Sawed-Off"
+		Pickup.WEAPONS.RIFLE:
+			return $Weapons/Rifle
+		Pickup.WEAPONS.PLASMA_PISTOL:
+			return $"Weapons/Plasma Pistol"
+		Pickup.WEAPONS.LIGHTNING_GUN:
+			return $"Weapons/Lightning Gun"
+
 	return null

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfexrdwwuvka6"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_6sxfx"]
+[ext_resource type="PackedScene" uid="uid://h46rimbqg4ub" path="res://weapons/assets/semi auto rifle.glb" id="2_umb57"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bdivy"]
+radius = 0.290299
+height = 1.22634
+
+[node name="Rifle Pickup" instance=ExtResource("1_6sxfx")]
+pickup_type = 1
+weapon_type = 3
+pickup_amnt = 25
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_bdivy")
+
+[node name="semi auto rifle" parent="Graphics" index="0" instance=ExtResource("2_umb57")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.225153, 0)

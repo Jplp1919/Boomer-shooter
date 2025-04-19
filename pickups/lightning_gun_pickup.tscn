@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqwl7d1uflq3q"]
+
+[ext_resource type="PackedScene" uid="uid://bx6bpkf8y5vol" path="res://pickups/pickup.tscn" id="1_m4sxp"]
+[ext_resource type="PackedScene" uid="uid://cpamjthin5faw" path="res://weapons/assets/lightning gun.glb" id="2_yekyg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yekyg"]
+radius = 0.238868
+height = 1.55501
+
+[node name="Lightning Gun Pickup" instance=ExtResource("1_m4sxp")]
+pickup_type = 1
+weapon_type = 5
+pickup_amnt = 350
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0669355, 1, 0)
+shape = SubResource("CapsuleShape3D_yekyg")
+
+[node name="lightning gun" parent="Graphics" index="0" instance=ExtResource("2_yekyg")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.110847, -0.0491996, 0)
