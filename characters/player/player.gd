@@ -87,3 +87,7 @@ func kill():
 
 func hurt(damege_data : DamageData):
 	health_manager.hurt(damege_data)
+
+
+func get_player_velocity():
+	return character_mover.character_body.velocity

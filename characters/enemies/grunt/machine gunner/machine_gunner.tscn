@@ -35,7 +35,7 @@ height = 0.600643
 script = ExtResource("2_gk877")
 meshes_to_destroy = [NodePath("Graphics/machine gunner/Armature/Skeleton3D/Machinegun")]
 animation_player = NodePath("Graphics/machine gunner/AnimationPlayer")
-attack_range = 35.0
+attack_range = 60.0
 attack_speed_modifier = 1.0
 
 [node name="AICharacterMover" parent="." index="0"]
@@ -45,9 +45,6 @@ move_accel = 1.5
 [node name="HealthManager" parent="." index="1"]
 max_health = 60
 gib_when_damage_taken = 100
-
-[node name="ProjectileEmitter" parent="AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
-muzzle = NodePath("../../Graphics/Muzzle")
 
 [node name="Muzzle" type="Node3D" parent="Graphics" index="0"]
 transform = Transform3D(0.600163, 0, 0, 0, 0.600163, 0, 0, 0, 0.600163, 0.177588, 1.49229, -1.10799)

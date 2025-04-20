@@ -34,16 +34,16 @@ height = 0.600643
 [node name="Rifleman" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8ujhi")]
 script = ExtResource("2_f14kh")
 animation_player = NodePath("Graphics/rifleman/AnimationPlayer")
-attack_range = 20.0
-damage = 10
-attack_speed_modifier = 0.5
+attack_range = 60.0
+damage = 15
+attack_speed_modifier = 1.0
+
+[node name="AICharacterMover" parent="." index="0"]
+max_speed = 10.0
 
 [node name="HealthManager" parent="." index="1"]
 max_health = 50
 gib_when_damage_taken = 60
-
-[node name="ProjectileEmitter" parent="AttackEmitter" index="0" node_paths=PackedStringArray("muzzle")]
-muzzle = NodePath("../../Graphics/rifleman/Armature/Skeleton3D/Rifle/Muzzle")
 
 [node name="rifleman" parent="Graphics" index="0" instance=ExtResource("2_f2gnu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

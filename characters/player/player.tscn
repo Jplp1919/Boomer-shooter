@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dkukwdl83728d"]
+[gd_scene load_steps=59 format=3 uid="uid://dkukwdl83728d"]
 
 [ext_resource type="Script" uid="uid://7rllcw8qwf7q" path="res://characters/player/player.gd" id="1_nse8j"]
 [ext_resource type="Script" uid="uid://d2886cie2hqbx" path="res://characters/player/weapon_manager.gd" id="2_toaof"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6eixagqndwk" path="res://effects/muzzle_flash/muzzle_flash_2.tscn" id="9_icpky"]
 [ext_resource type="PackedScene" uid="uid://54evpbkyjyi5" path="res://effects/bullet_hit_effect.tscn" id="10_lv4bx"]
 [ext_resource type="AudioStream" uid="uid://coy6b53ontfv1" path="res://sfx/weapons/shotgun/dryfire_shotgun.wav" id="10_yybc7"]
+[ext_resource type="PackedScene" uid="uid://cbh31b8cfuayo" path="res://effects/pellet_hit_effect.tscn" id="11_7b6hw"]
 [ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://weapons/machinegun.tscn" id="11_aqrcq"]
 [ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
 [ext_resource type="PackedScene" uid="uid://lusqs1fg3nth" path="res://effects/casings/7.92x57.tscn" id="12_kyfeq"]
@@ -741,6 +742,8 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_22nj0")
 
 [node name="CharacterMover" parent="." instance=ExtResource("3_v7rqy")]
+max_speed = 12.0
+move_accel = 3.0
 
 [node name="Camera Holder" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -831,7 +834,7 @@ spray_arc = 3.5
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0175302, 0, 0)
 cur_weapon_muzzle = NodePath("../../../../Graphics/sawed off shotgun/Muzzle Right")
-bullet_hit_effect = ExtResource("10_lv4bx")
+bullet_hit_effect = ExtResource("11_7b6hw")
 
 [node name="SprayEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/AttackEmitter2/BurstEmitter" index="0"]
 spray_arc = 3.5
@@ -839,7 +842,7 @@ spray_arc = 3.5
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/AttackEmitter2/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0224919, 0, 0)
 cur_weapon_muzzle = NodePath("../../../../Graphics/sawed off shotgun/Muzzle Right")
-bullet_hit_effect = ExtResource("10_lv4bx")
+bullet_hit_effect = ExtResource("11_7b6hw")
 
 [node name="Shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("6_lmcyr")]
 visible = false
@@ -883,7 +886,7 @@ spray_arc = 2.0
 
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/Muzzle")
-bullet_hit_effect = ExtResource("10_lv4bx")
+bullet_hit_effect = ExtResource("11_7b6hw")
 
 [node name="Machinegun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
 visible = false
@@ -962,6 +965,7 @@ aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072307, 0, 0.0664262)
 visible = false
 animation_player = NodePath("Graphics/PlasmaPistolAnimationPlayer")
+recoil = Vector3(0.3, 0.2, 0)
 automatic = true
 damage = 20
 attack_rate = 0.1
@@ -988,6 +992,7 @@ aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
 [node name="Lightning Gun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("18_5mkjs")]
 animation_player = NodePath("Graphics/LightningGunAnimationPlayer")
+recoil = Vector3(0.1, 0.1, 0.1)
 automatic = true
 damage = 10
 max_ammo = 750
@@ -1006,7 +1011,7 @@ libraries = {
 }
 
 [node name="AreaDamageEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter" index="0"]
-attack_radius = 6.0
+attack_radius = 2.0
 
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter" index="1"]
 bullet_hit_effect = ExtResource("21_jgd8i")

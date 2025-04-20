@@ -80,7 +80,7 @@ visible = false
 mesh = SubResource("QuadMesh_0qi0k")
 
 [node name="Decal" type="Decal" parent="."]
-transform = Transform3D(0.511777, 0.000118281, 0.000682957, 0.000683008, -0.000207409, -0.511777, -0.000118001, 0.511777, -0.000207568, 0, 0, 0)
+transform = Transform3D(0.511512, 0.00011822, 0.000682603, 0.000682654, -0.000207301, -0.511512, -0.00011794, 0.511512, -0.00020746, 0, 0, 0)
 size = Vector3(0.1, 0.1, 0.1)
 texture_albedo = ExtResource("1_ksyl2")
 modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
