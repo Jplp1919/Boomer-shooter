@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c7wju7b48vy3u"]
+[gd_scene load_steps=26 format=4 uid="uid://c7wju7b48vy3u"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_jwvhi"]
 [ext_resource type="Script" uid="uid://dqxu1oxsbyqsr" path="res://weapons/shotgun.gd" id="2_i3ebt"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bcp7rsoshtyaq" path="res://weapons/assets/trench gun_rusty_metal 128.png" id="7_i3ebt"]
 [ext_resource type="Texture2D" uid="uid://cqhdp3s4ayvj" path="res://weapons/assets/trench gun_rubber 128.png" id="8_1gr47"]
 [ext_resource type="AudioStream" uid="uid://nk2bekn0wf5n" path="res://sfx/weapons/shotgun/shotgun_attack.wav" id="11_s07uj"]
+[ext_resource type="AudioStream" uid="uid://cleuqk3qfa3eq" path="res://sfx/weapons/shotgun/shotgun cocking-cropped.wav" id="13_1gr47"]
+[ext_resource type="Script" uid="uid://b62qqdmb5vh8r" path="res://weapons/play_sounds.gd" id="13_pbbep"]
+[ext_resource type="AudioStream" uid="uid://djv135x1bnbaa" path="res://sfx/weapons/shotgun/shotgun cocking-cropped sped up.wav" id="15_p2ow8"]
+[ext_resource type="AudioStream" uid="uid://coy6b53ontfv1" path="res://sfx/weapons/shotgun/dryfire_shotgun.wav" id="16_pbbep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_17ttb"]
 resource_name = "DarkMetal"
@@ -254,5 +258,49 @@ pitch_scale = 1.15
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
 stream = ExtResource("11_s07uj")
 pitch_scale = 1.25
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("13_1gr47")
+pitch_scale = 1.3
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="EquipSounds" index="1"]
+stream = ExtResource("13_1gr47")
+pitch_scale = 1.2
+
+[node name="CockingSounds" type="Node3D" parent="." index="4"]
+script = ExtResource("13_pbbep")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CockingSounds" index="0"]
+stream = ExtResource("13_1gr47")
+pitch_scale = 1.2
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CockingSounds" index="1"]
+stream = ExtResource("13_1gr47")
+pitch_scale = 1.3
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="CockingSounds" index="2"]
+stream = ExtResource("13_1gr47")
+pitch_scale = 1.4
+
+[node name="AltCockingSounds" type="Node3D" parent="." index="5"]
+script = ExtResource("13_pbbep")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AltCockingSounds" index="0"]
+stream = ExtResource("15_p2ow8")
+
+[node name="DryfireShotgun" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
+stream = ExtResource("16_pbbep")
+volume_db = -15.0
+pitch_scale = 1.4
+
+[node name="DryfireShotgun2" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="1"]
+stream = ExtResource("16_pbbep")
+volume_db = -15.0
+pitch_scale = 1.45
+
+[node name="DryfireShotgun3" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="2"]
+stream = ExtResource("16_pbbep")
+volume_db = -15.0
+pitch_scale = 1.35
 
 [editable path="Graphics/trench gun"]

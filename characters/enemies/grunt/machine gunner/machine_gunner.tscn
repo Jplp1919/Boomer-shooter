@@ -36,6 +36,7 @@ script = ExtResource("2_gk877")
 meshes_to_destroy = [NodePath("Graphics/machine gunner/Armature/Skeleton3D/Machinegun")]
 animation_player = NodePath("Graphics/machine gunner/AnimationPlayer")
 attack_range = 60.0
+damage = 10
 attack_speed_modifier = 1.0
 
 [node name="AICharacterMover" parent="." index="0"]

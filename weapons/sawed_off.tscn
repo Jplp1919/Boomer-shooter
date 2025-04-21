@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cu4h7rul2oxbv"]
+[gd_scene load_steps=25 format=4 uid="uid://cu4h7rul2oxbv"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_l24ko"]
 [ext_resource type="PackedScene" uid="uid://6n3v0tooc53g" path="res://weapons/attack_emitters/burst_emitter.tscn" id="2_dxjv8"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="7_hqeg1"]
 [ext_resource type="Texture2D" uid="uid://bh2rhuioye4r6" path="res://weapons/assets/sawed off shotgun_Wood028_1K-PNG_Roughness.png" id="8_276xa"]
 [ext_resource type="Texture2D" uid="uid://dny40o8d6pcqr" path="res://weapons/assets/sawed off shotgun_rusty_metal 128.png" id="9_mfu1d"]
+[ext_resource type="Script" uid="uid://b62qqdmb5vh8r" path="res://weapons/play_sounds.gd" id="15_ba7av"]
+[ext_resource type="AudioStream" uid="uid://nk2bekn0wf5n" path="res://sfx/weapons/shotgun/shotgun_attack.wav" id="15_ckero"]
+[ext_resource type="AudioStream" uid="uid://coy6b53ontfv1" path="res://sfx/weapons/shotgun/dryfire_shotgun.wav" id="16_276xa"]
+[ext_resource type="AudioStream" uid="uid://dt5ryfhyyebxb" path="res://sfx/weapons/sawed off/equip sawed off.wav" id="16_mfu1d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ayq5x"]
 resource_name = "DarkMetal"
@@ -214,7 +218,45 @@ mesh = SubResource("ArrayMesh_vejxw")
 
 [node name="HitScanAttackEmitter" parent="AttackEmitter2/BurstEmitter/SprayEmitter" index="0" instance=ExtResource("4_2ak3b")]
 
-[node name="OufOfAmmoSound" parent="." index="4"]
+[node name="ShotgunAttack" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("15_ckero")
 pitch_scale = 0.8
+
+[node name="ShotgunAttack2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("15_ckero")
+pitch_scale = 0.9
+
+[node name="ShotgunAttack3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("15_ckero")
+pitch_scale = 0.85
+
+[node name="EquipSawedOff" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("16_mfu1d")
+pitch_scale = 1.5
+
+[node name="DryfireShotgun" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
+stream = ExtResource("16_276xa")
+volume_db = -12.0
+pitch_scale = 1.2
+
+[node name="DryfireShotgun2" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="1"]
+stream = ExtResource("16_276xa")
+volume_db = -12.0
+pitch_scale = 1.15
+
+[node name="AltAttackSounds" type="Node3D" parent="." index="6"]
+script = ExtResource("15_ba7av")
+
+[node name="ShotgunAttack" type="AudioStreamPlayer" parent="AltAttackSounds" index="0"]
+stream = ExtResource("15_ckero")
+pitch_scale = 1.25
+
+[node name="ShotgunAttack2" type="AudioStreamPlayer" parent="AltAttackSounds" index="1"]
+stream = ExtResource("15_ckero")
+pitch_scale = 1.3
+
+[node name="ShotgunAttack3" type="AudioStreamPlayer" parent="AltAttackSounds" index="2"]
+stream = ExtResource("15_ckero")
+pitch_scale = 1.35
 
 [editable path="Graphics/sawed off shotgun"]

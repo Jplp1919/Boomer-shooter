@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dt5ryfhyyebxb"
+path="res://.godot/imported/equip sawed off.wav-5b113e520afdc05d9f029b14a4504fe0.sample"
+
+[deps]
+
+source_file="res://sfx/weapons/sawed off/equip sawed off.wav"
+dest_files=["res://.godot/imported/equip sawed off.wav-5b113e520afdc05d9f029b14a4504fe0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

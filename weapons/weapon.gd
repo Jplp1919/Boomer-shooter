@@ -7,10 +7,8 @@ extends Node3D
 @export var  animation_player : AnimationPlayer
 @onready var attack_emmiter: AttackEmitter = $AttackEmitter
 @onready var fire_point: Node3D = %FirePoint
-@onready var ouf_of_ammo_sound_player: AudioStreamPlayer = $OufOfAmmoSound
 
 
-@export var out_of_ammo_sound: AudioStreamWAV
 @export var recoil : Vector3
 @export var automatic = false
 @export var damage = 30
@@ -58,9 +56,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if AmmoManager.get_ammo(ammo_type) == 0:
 		if input_just_pressed:
 			out_of_ammo.emit()
-			if out_of_ammo_sound:
-				ouf_of_ammo_sound_player.stream = out_of_ammo_sound
-				ouf_of_ammo_sound_player.play()
+			$OutOfAmmoSounds.play()
 		return
 	
 	var cur_time = Time.get_ticks_msec() / 1000.0
@@ -77,7 +73,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.stop()
 	animation_player.play("attack")
 	fired.emit()
-	#$"AttackSounds".play()
+	$"AttackSounds".play()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
 
@@ -107,6 +103,7 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 	if automatic and !input_held:
 		return
 		
-	if out_of_ammo_sound:
-		ouf_of_ammo_sound_player.stream = out_of_ammo_sound
-		ouf_of_ammo_sound_player.play()
+		$OutOfAmmoSounds.play()
+
+func play_equip_sound():
+	$EquipSounds.play()

@@ -8,7 +8,8 @@ func set_state(state: STATES):
 	cur_state = state
 	match cur_state:
 		STATES.ATTACK:
-			print("attack state set")
+			#print("attack state set")
+			pass
 		STATES.IDLE:
 			animation_player.play("idle")
 		STATES.STAGGERED:

@@ -72,6 +72,7 @@ func switch_to_weapon_slot(slot_ind: int)->bool:
 	cur_weapon = weapons[cur_slot]
 	if cur_weapon.has_method("set_active"):
 		cur_weapon.set_active(true)
+		cur_weapon.play_equip_sound()
 	else:
 		cur_weapon.show()
 	

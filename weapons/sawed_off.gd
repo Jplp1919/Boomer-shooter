@@ -19,9 +19,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if AmmoManager.get_ammo(ammo_type) <= 1 and !fired_right:
 		if input_just_pressed:
 			out_of_ammo.emit()
-			if out_of_ammo_sound:
-				ouf_of_ammo_sound_player.stream = out_of_ammo_sound
-				ouf_of_ammo_sound_player.play()
+			$OutOfAmmoSounds.play()
 		return
 	
 	var cur_time = Time.get_ticks_msec() / 1000.0
@@ -41,6 +39,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.stop()
 	if !fired_right:
 		animation_player.play("attack")
+		$AttackSounds.play()
 		camera_holder.apply_recoil(recoil)
 		if muzzle_flash != null:
 			muzzle_flash.emitting = true
@@ -48,6 +47,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 			muzzle_flash_2.emitting = true
 	else:
 		animation_player.play("alt_attack")
+		$AltAttackSounds.play()
 		camera_holder.apply_recoil(alt_recoil)
 		if muzzle_flash_2 != null:
 			muzzle_flash_2.emitting = true
@@ -74,9 +74,7 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 	if AmmoManager.get_ammo(ammo_type) == 0:
 		if input_just_pressed:
 			out_of_ammo.emit()
-			if out_of_ammo_sound:
-				ouf_of_ammo_sound_player.stream = out_of_ammo_sound
-				ouf_of_ammo_sound_player.play()
+			$OutOfAmmoSounds.play()
 
 		return
 	
@@ -95,7 +93,7 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 	animation_player.stop()
 	animation_player.play("alt_attack")
 	fired.emit()
-	#$"AttackSounds".play()
+	$AltAttackSounds.play()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
 	if fired_right and fired_left:

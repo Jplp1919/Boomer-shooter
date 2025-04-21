@@ -26,9 +26,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if AmmoManager.get_ammo(ammo_type) == 0:
 		if input_just_pressed:
 			out_of_ammo.emit()
-			if out_of_ammo_sound:
-				ouf_of_ammo_sound_player.stream = out_of_ammo_sound
-				ouf_of_ammo_sound_player.play()
+			$OutOfAmmoSounds.play()
 		lightning.hide()
 		is_attacking = false
 		return

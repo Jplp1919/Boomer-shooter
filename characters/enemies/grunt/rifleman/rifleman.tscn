@@ -34,7 +34,7 @@ height = 0.600643
 [node name="Rifleman" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8ujhi")]
 script = ExtResource("2_f14kh")
 animation_player = NodePath("Graphics/rifleman/AnimationPlayer")
-attack_range = 60.0
+attack_range = 70.0
 damage = 15
 attack_speed_modifier = 1.0
 

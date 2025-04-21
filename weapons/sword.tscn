@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cgec1exw4yug3"]
+[gd_scene load_steps=14 format=4 uid="uid://cgec1exw4yug3"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_auxdm"]
 [ext_resource type="PackedScene" uid="uid://k52fon8qas8u" path="res://weapons/assets/trench knife.glb" id="2_5ogyc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cdyi4dlpuuoiw" path="res://weapons/attack_emitters/area_damage_emitter.tscn" id="3_wogx0"]
 [ext_resource type="Texture2D" uid="uid://devfnb54p3ecp" path="res://weapons/assets/trench knife_metal 128.png" id="4_8ssqk"]
 [ext_resource type="PackedScene" uid="uid://f68rvi160c4p" path="res://weapons/attack_emitters/hit_scan_attack_emitter.tscn" id="4_8x7r2"]
+[ext_resource type="AudioStream" uid="uid://b33whi6pr0oh5" path="res://sfx/weapons/knife/knife equip.wav" id="8_ieqn5"]
+[ext_resource type="AudioStream" uid="uid://cuemr7lodn343" path="res://sfx/weapons/knife/knife attack.wav" id="8_nx8aw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nx8aw"]
 resource_name = "Bronze"
@@ -120,6 +122,27 @@ attack_radius = 2.0
 
 [node name="RayCast3D" parent="AttackEmitter/HitScanAttackEmitter" index="0"]
 target_position = Vector3(0, 0, -2)
+
+[node name="KnifeAttack" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("8_nx8aw")
+
+[node name="KnifeAttack2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("8_nx8aw")
+pitch_scale = 1.3
+
+[node name="KnifeAttack3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("8_nx8aw")
+pitch_scale = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("8_ieqn5")
+volume_db = -8.0
+pitch_scale = 1.1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="EquipSounds" index="1"]
+stream = ExtResource("8_ieqn5")
+volume_db = -8.0
+pitch_scale = 1.3
 
 [editable path="Graphics/trench knife"]
 [editable path="AttackEmitter/HitScanAttackEmitter"]

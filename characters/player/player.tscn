@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dsy8r0dkge4bb" path="res://effects/casings/shell.tscn" id="9_58jvb"]
 [ext_resource type="PackedScene" uid="uid://ci6eixagqndwk" path="res://effects/muzzle_flash/muzzle_flash_2.tscn" id="9_icpky"]
 [ext_resource type="PackedScene" uid="uid://54evpbkyjyi5" path="res://effects/bullet_hit_effect.tscn" id="10_lv4bx"]
-[ext_resource type="AudioStream" uid="uid://coy6b53ontfv1" path="res://sfx/weapons/shotgun/dryfire_shotgun.wav" id="10_yybc7"]
 [ext_resource type="PackedScene" uid="uid://cbh31b8cfuayo" path="res://effects/pellet_hit_effect.tscn" id="11_7b6hw"]
 [ext_resource type="PackedScene" uid="uid://db4rv27vtgh4" path="res://weapons/machinegun.tscn" id="11_aqrcq"]
 [ext_resource type="PackedScene" uid="uid://cbpdhj7oqa832" path="res://effects/muzzle_flash/muzzle_flash_4.tscn" id="12_d2agh"]
@@ -107,6 +106,16 @@ _data = {
 &"RESET": SubResource("Animation_vk2ks"),
 &"attack": SubResource("Animation_rq7td")
 }
+
+[sub_resource type="GDScript" id="GDScript_7b6hw"]
+script/source = "extends Node3D
+
+func play():
+	if get_children():
+		for child in get_children():
+			child.stop()
+		get_child(randi_range(0, get_child_count() -1)).play()
+"
 
 [sub_resource type="Animation" id="Animation_jgd8i"]
 length = 0.001
@@ -312,9 +321,12 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.166667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"alt_cock"
+}, {
 "args": [],
 "method": &"eject_casing"
 }]
@@ -366,9 +378,12 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.466667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"cock"
+}, {
 "args": [],
 "method": &"eject_casing"
 }]
@@ -742,7 +757,8 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_22nj0")
 
 [node name="CharacterMover" parent="." instance=ExtResource("3_v7rqy")]
-max_speed = 12.0
+jump_force = 12.0
+max_speed = 10.0
 move_accel = 3.0
 
 [node name="Camera Holder" type="Node3D" parent="."]
@@ -795,6 +811,9 @@ attack_radius = 1.0
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sword/AttackEmitter" index="1"]
 bullet_hit_effect = ExtResource("6_yybc7")
 
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sword" index="2"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Sawed-Off" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash_2", "muzzle_flash", "animation_player") instance=ExtResource("16_lv4bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107741, -0.195398, -0.191855)
 visible = false
@@ -803,7 +822,6 @@ alt_recoil = Vector3(0.7, 0.35, 0.1)
 alt_attack_rate = 0.4
 muzzle_flash = NodePath("Graphics/sawed off shotgun/Muzzle Right/SawedOffMuzzleFlashRight")
 animation_player = NodePath("Graphics/SawedOffAnimationPlayer")
-out_of_ammo_sound = ExtResource("10_yybc7")
 recoil = Vector3(1.4, 0.7, 0.3)
 damage = 15
 ammo_type = 0
@@ -844,13 +862,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0224919, 0, 0)
 cur_weapon_muzzle = NodePath("../../../../Graphics/sawed off shotgun/Muzzle Right")
 bullet_hit_effect = ExtResource("11_7b6hw")
 
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off" index="3"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("6_lmcyr")]
-visible = false
 alt_recoil = Vector3(1.3, 1.2, 0.5)
 alt_attack_rate = 0.4
 muzzle_flash = NodePath("Graphics/MuzzleFlash2")
 animation_player = NodePath("Graphics/ShotgunAnimationPlayer")
-out_of_ammo_sound = ExtResource("10_yybc7")
 recoil = Vector3(1, 0.7, 0)
 damage = 15
 ejection_port = NodePath("Graphics/ShotgunEjectionPort")
@@ -887,6 +906,9 @@ spray_arc = 2.0
 [node name="HitScanAttackEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Shotgun/AttackEmitter/BurstEmitter/SprayEmitter" index="0" node_paths=PackedStringArray("cur_weapon_muzzle")]
 cur_weapon_muzzle = NodePath("../../../../Graphics/Muzzle")
 bullet_hit_effect = ExtResource("11_7b6hw")
+
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Shotgun" index="2"]
+script = SubResource("GDScript_7b6hw")
 
 [node name="Machinegun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("11_aqrcq")]
 visible = false
@@ -925,6 +947,9 @@ transform = Transform3D(0.999999, 0, -4.26326e-14, 0, 0.999999, 0, 4.26326e-14, 
 cur_weapon_muzzle = NodePath("../../Graphics/Muzzle")
 bullet_hit_effect = ExtResource("10_lv4bx")
 
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun" index="2"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("15_d2agh")]
 visible = false
 muzzle_flash = NodePath("Graphics/RifleMuzzleFlash")
@@ -961,6 +986,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0.244372, 0.181259
 muzzle = NodePath("../../Graphics/RifleMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle" index="2"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Plasma Pistol" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("17_kyfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072307, 0, 0.0664262)
 visible = false
@@ -990,7 +1018,11 @@ projectile_type = 2
 muzzle = NodePath("../../Graphics/PlasmaPistolMuzzle")
 aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
 
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol" index="2"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Lightning Gun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("18_5mkjs")]
+visible = false
 animation_player = NodePath("Graphics/LightningGunAnimationPlayer")
 recoil = Vector3(0.1, 0.1, 0.1)
 automatic = true
@@ -1018,6 +1050,9 @@ bullet_hit_effect = ExtResource("21_jgd8i")
 
 [node name="RayCast3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter/HitScanAttackEmitter" index="0"]
 target_position = Vector3(0, 0, -25)
+
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun" index="2"]
+script = SubResource("GDScript_7b6hw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager"]
 libraries = {

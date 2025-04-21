@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://baca3jheb4ohl" path="res://weapons/weapon.gd" id="1_2c7fc"]
 [ext_resource type="PackedScene" uid="uid://ym5kp5yqwm3i" path="res://weapons/attack_emitters/attack_emitter.tscn" id="2_cf0mh"]
-[ext_resource type="Script" uid="uid://dkby50w4sqie8" path="res://weapons/attack_sounds.gd" id="3_jfcw2"]
+[ext_resource type="Script" uid="uid://b62qqdmb5vh8r" path="res://weapons/play_sounds.gd" id="3_jfcw2"]
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource("1_2c7fc")
@@ -14,4 +14,8 @@ script = ExtResource("1_2c7fc")
 [node name="AttackSounds" type="Node3D" parent="."]
 script = ExtResource("3_jfcw2")
 
-[node name="OufOfAmmoSound" type="AudioStreamPlayer" parent="."]
+[node name="EquipSounds" type="Node3D" parent="."]
+script = ExtResource("3_jfcw2")
+
+[node name="OutOfAmmoSounds" type="Node3D" parent="."]
+script = ExtResource("3_jfcw2")
