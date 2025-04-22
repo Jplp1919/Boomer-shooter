@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ut4hgh31ipc7"]
+[gd_scene load_steps=7 format=3 uid="uid://ut4hgh31ipc7"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_80f5w"]
 [ext_resource type="PackedScene" uid="uid://h46rimbqg4ub" path="res://weapons/assets/semi auto rifle.glb" id="2_0p17f"]
 [ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="3_r1bic"]
+[ext_resource type="AudioStream" uid="uid://b4lnoom0eqe4x" path="res://sfx/weapons/rifle/rifle attack.wav" id="4_d0db0"]
+[ext_resource type="AudioStream" uid="uid://dfxvgvnupf4jm" path="res://sfx/weapons/rifle/rifle equip.wav" id="5_0di3f"]
+[ext_resource type="AudioStream" uid="uid://4wtf5xn4qsdk" path="res://sfx/weapons/rifle/rifle out of ammo.wav" id="6_ntrth"]
 
 [node name="Rifle" instance=ExtResource("1_80f5w")]
 
@@ -11,3 +14,36 @@ transform = Transform3D(-2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-0
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_r1bic")]
 projectile_type = 1
+
+[node name="RifleAttack" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("4_d0db0")
+volume_db = -5.0
+pitch_scale = 1.15
+
+[node name="RifleAttack2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("4_d0db0")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="RifleAttack3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("4_d0db0")
+volume_db = -5.0
+pitch_scale = 1.25
+
+[node name="RifleEquip" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("5_0di3f")
+volume_db = -5.0
+pitch_scale = 1.4
+
+[node name="RifleEquip2" type="AudioStreamPlayer" parent="EquipSounds" index="1"]
+stream = ExtResource("5_0di3f")
+volume_db = -5.0
+pitch_scale = 1.35
+
+[node name="RifleEquip3" type="AudioStreamPlayer" parent="EquipSounds" index="2"]
+stream = ExtResource("5_0di3f")
+volume_db = -5.0
+pitch_scale = 1.45
+
+[node name="RifleOutOfAmmo" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
+stream = ExtResource("6_ntrth")

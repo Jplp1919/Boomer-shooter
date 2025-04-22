@@ -236,6 +236,81 @@ _data = {
 &"reload": SubResource("Animation_4cx7u")
 }
 
+[sub_resource type="Animation" id="Animation_5mkjs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("semi auto rifle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("semi auto rifle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kyfeq"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("semi auto rifle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(-1.53645e-08, -1.5708, -0.359171), Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("semi auto rifle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0861771, 0.0430887), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eject_casing"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yybc7"]
+_data = {
+&"RESET": SubResource("Animation_5mkjs"),
+&"attack": SubResource("Animation_kyfeq")
+}
+
 [sub_resource type="Animation" id="Animation_icpky"]
 length = 0.001
 tracks/0/type = "value"
@@ -469,81 +544,6 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_fpo3a"),
 &"attack": SubResource("Animation_d2agh")
-}
-
-[sub_resource type="Animation" id="Animation_5mkjs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("semi auto rifle:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("semi auto rifle:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kyfeq"]
-resource_name = "attack"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("semi auto rifle:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(-1.53645e-08, -1.5708, -0.359171), Vector3(0, -1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("semi auto rifle:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0861771, 0.0430887), Vector3(0, 0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"eject_casing"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yybc7"]
-_data = {
-&"RESET": SubResource("Animation_5mkjs"),
-&"attack": SubResource("Animation_kyfeq")
 }
 
 [sub_resource type="Animation" id="Animation_e0pgg"]
@@ -865,6 +865,45 @@ bullet_hit_effect = ExtResource("11_7b6hw")
 [node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off" index="3"]
 script = SubResource("GDScript_7b6hw")
 
+[node name="Rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("15_d2agh")]
+visible = false
+muzzle_flash = NodePath("Graphics/RifleMuzzleFlash")
+animation_player = NodePath("Graphics/RifleAnimationPlayer")
+recoil = Vector3(0.6, 0.4, 0)
+damage = 40
+ammo = 150
+ejection_port = NodePath("Graphics/RifleEjectPort")
+casing_scene = ExtResource("12_kyfeq")
+attack_rate = 0.3
+ammo_type = 1
+
+[node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118985, -0.321299, -0.323375)
+
+[node name="semi auto rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="0"]
+transform = Transform3D(-1.81e-07, 0, -0.05, 0, 0.05, 0, 0.05, 0, -1.81e-07, 0, 0, 0)
+
+[node name="RifleAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_yybc7")
+}
+
+[node name="RifleMuzzleFlash" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="2" instance=ExtResource("16_fpo3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232116, -0.646831)
+
+[node name="RifleMuzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000119254, 0.252619, -0.728124)
+
+[node name="RifleEjectPort" type="Marker3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0.244372, 0.181259)
+
+[node name="ProjectileEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
+muzzle = NodePath("../../Graphics/RifleMuzzle")
+aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
+
+[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle" index="2"]
+script = SubResource("GDScript_7b6hw")
+
 [node name="Shotgun" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("6_lmcyr")]
 alt_recoil = Vector3(1.3, 1.2, 0.5)
 alt_attack_rate = 0.4
@@ -948,45 +987,6 @@ cur_weapon_muzzle = NodePath("../../Graphics/Muzzle")
 bullet_hit_effect = ExtResource("10_lv4bx")
 
 [node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun" index="2"]
-script = SubResource("GDScript_7b6hw")
-
-[node name="Rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("muzzle_flash", "animation_player", "ejection_port") instance=ExtResource("15_d2agh")]
-visible = false
-muzzle_flash = NodePath("Graphics/RifleMuzzleFlash")
-animation_player = NodePath("Graphics/RifleAnimationPlayer")
-recoil = Vector3(0.6, 0.4, 0)
-damage = 40
-ammo = 150
-ejection_port = NodePath("Graphics/RifleEjectPort")
-casing_scene = ExtResource("12_kyfeq")
-attack_rate = 0.3
-ammo_type = 1
-
-[node name="Graphics" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118985, -0.321299, -0.323375)
-
-[node name="semi auto rifle" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="0"]
-transform = Transform3D(-1.81e-07, 0, -0.05, 0, 0.05, 0, 0.05, 0, -1.81e-07, 0, 0, 0)
-
-[node name="RifleAnimationPlayer" type="AnimationPlayer" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_yybc7")
-}
-
-[node name="RifleMuzzleFlash" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="2" instance=ExtResource("16_fpo3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232116, -0.646831)
-
-[node name="RifleMuzzle" type="Node3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000119254, 0.252619, -0.728124)
-
-[node name="RifleEjectPort" type="Marker3D" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/Graphics" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0.244372, 0.181259)
-
-[node name="ProjectileEmitter" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle/AttackEmitter" index="0" node_paths=PackedStringArray("muzzle", "aim_cast")]
-muzzle = NodePath("../../Graphics/RifleMuzzle")
-aim_cast = NodePath("../../../../../FirePoint/AimRayCast")
-
-[node name="AttackSounds" parent="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle" index="2"]
 script = SubResource("GDScript_7b6hw")
 
 [node name="Plasma Pistol" parent="Camera Holder/Camera3D/WeaponManager/Weapons" node_paths=PackedStringArray("animation_player") instance=ExtResource("17_kyfeq")]
@@ -1113,11 +1113,11 @@ shape = SubResource("CapsuleShape3D_5mkjs")
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sword/AttackEmitter/HitScanAttackEmitter"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sawed-Off/Graphics/sawed off shotgun"]
+[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Shotgun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Shotgun/Graphics/trench gun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Machinegun/Graphics/machinegun"]
-[editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Rifle"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Plasma Pistol"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun"]
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Lightning Gun/AttackEmitter/HitScanAttackEmitter"]

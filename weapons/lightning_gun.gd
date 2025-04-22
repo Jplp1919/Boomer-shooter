@@ -48,6 +48,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 		last_attack_time = Time.get_ticks_msec() / 1000.0
 		animation_player.play("attack")
 		fired.emit()
+		$"AttackSounds".play()
 		sparks.emitting = true
 		
 		await get_tree().create_timer(attack_rate).timeout

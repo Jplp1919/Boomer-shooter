@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://db4rv27vtgh4"]
+[gd_scene load_steps=18 format=4 uid="uid://db4rv27vtgh4"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_2kqah"]
 [ext_resource type="PackedScene" uid="uid://bpf4kr0luqt0p" path="res://weapons/assets/machinegun.glb" id="2_2kqah"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://oo3ilw4xmup0" path="res://weapons/assets/machinegun_very rusty metal 128.jpg" id="5_n1r8b"]
 [ext_resource type="Texture2D" uid="uid://dp3ao0c5y63gg" path="res://weapons/assets/machinegun_wood 128.png" id="6_tpbbt"]
 [ext_resource type="Texture2D" uid="uid://cilg7two1h6c4" path="res://weapons/assets/machinegun_metal 128.png" id="7_pixp2"]
+[ext_resource type="AudioStream" uid="uid://cien857c7yafk" path="res://sfx/weapons/mg/mg attack.wav" id="9_k16ng"]
+[ext_resource type="AudioStream" uid="uid://dfxvgvnupf4jm" path="res://sfx/weapons/rifle/rifle equip.wav" id="10_n1r8b"]
+[ext_resource type="AudioStream" uid="uid://4wtf5xn4qsdk" path="res://sfx/weapons/rifle/rifle out of ammo.wav" id="11_tpbbt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hctm3"]
 resource_name = "Steel"
@@ -196,5 +199,47 @@ transform = Transform3D(-2.62268e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.62268e-0
 mesh = SubResource("ArrayMesh_unyws")
 
 [node name="HitScanAttackEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_m2v0d")]
+
+[node name="MgAttack" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("9_k16ng")
+volume_db = -5.0
+pitch_scale = 1.1
+
+[node name="MgAttack2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("9_k16ng")
+volume_db = -5.0
+pitch_scale = 1.15
+
+[node name="MgAttack3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("9_k16ng")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="RifleEquip" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("10_n1r8b")
+volume_db = -4.0
+pitch_scale = 1.2
+
+[node name="RifleEquip2" type="AudioStreamPlayer" parent="EquipSounds" index="1"]
+stream = ExtResource("10_n1r8b")
+volume_db = -4.0
+pitch_scale = 1.25
+
+[node name="RifleEquip3" type="AudioStreamPlayer" parent="EquipSounds" index="2"]
+stream = ExtResource("10_n1r8b")
+volume_db = -4.0
+pitch_scale = 1.15
+
+[node name="RifleOutOfAmmo" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
+stream = ExtResource("11_tpbbt")
+pitch_scale = 1.35
+
+[node name="RifleOutOfAmmo2" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="1"]
+stream = ExtResource("11_tpbbt")
+pitch_scale = 1.3
+
+[node name="RifleOutOfAmmo3" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="2"]
+stream = ExtResource("11_tpbbt")
+pitch_scale = 1.4
 
 [editable path="Graphics/machinegun"]

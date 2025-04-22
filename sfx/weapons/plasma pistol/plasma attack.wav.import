@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ms6n2458hq6d"
+path="res://.godot/imported/plasma attack.wav-d1be35a6f5da15b467b67a6fa7f681ab.sample"
+
+[deps]
+
+source_file="res://sfx/weapons/plasma pistol/plasma attack.wav"
+dest_files=["res://.godot/imported/plasma attack.wav-d1be35a6f5da15b467b67a6fa7f681ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://54evpbkyjyi5"]
+[gd_scene load_steps=17 format=3 uid="uid://54evpbkyjyi5"]
 
 [ext_resource type="Texture2D" uid="uid://dooy01408mhxg" path="res://effects/assets/bullethole - pixalated.png" id="1_uqo5e"]
+[ext_resource type="Texture2D" uid="uid://b7twxo5cx8vlh" path="res://effects/assets/smoke_04.png" id="2_jejym"]
+[ext_resource type="PackedScene" uid="uid://oexxaqepcovl" path="res://effects/smoke.tscn" id="3_e76uy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiy1v"]
 transparency = 2
@@ -54,6 +56,40 @@ rings = 3
 
 [sub_resource type="QuadMesh" id="QuadMesh_0qi0k"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e76uy"]
+transparency = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_jejym")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_by6y2"]
+offsets = PackedFloat32Array(0.0802469, 0.216049, 0.592593, 0.808642, 0.95679)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.442911, 0.442911, 0.442911, 1, 0.2484, 0.2484, 0.2484, 1, 0.248, 0.248, 0.248, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e76uy"]
+gradient = SubResource("Gradient_by6y2")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_or0g3"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+angular_velocity_min = 0.999984
+angular_velocity_max = 4.99998
+gravity = Vector3(0, 1, 0)
+scale_min = 0.6
+scale_max = 0.8
+color = Color(1.2, 1.2, 1.2, 1)
+color_ramp = SubResource("GradientTexture1D_e76uy")
+
 [node name="BulletHitEffect" type="Node3D"]
 
 [node name="SparkParticles" type="GPUParticles3D" parent="."]
@@ -65,6 +101,7 @@ process_material = SubResource("ParticleProcessMaterial_asjx0")
 draw_pass_1 = SubResource("QuadMesh_pen38")
 
 [node name="SmokeParticles" type="GPUParticles3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_8g5p1")
 amount = 16
 lifetime = 1.2
@@ -85,5 +122,13 @@ modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
 distance_fade_enabled = true
 distance_fade_begin = 10.0
 
+[node name="Smoke" parent="." instance=ExtResource("3_e76uy")]
+material_override = SubResource("StandardMaterial3D_e76uy")
+emitting = true
+amount = 3
+lifetime = 0.35
+process_material = SubResource("ParticleProcessMaterial_or0g3")
+
 [connection signal="tree_entered" from="." to="SparkParticles" method="restart"]
 [connection signal="tree_entered" from="." to="SmokeParticles" method="restart"]
+[connection signal="tree_entered" from="." to="Smoke" method="restart"]

@@ -47,6 +47,9 @@ move_accel = 1.5
 max_health = 60
 gib_when_damage_taken = 100
 
+[node name="AttackEmitter" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178949, 1.48707, -1.11174)
+
 [node name="Muzzle" type="Node3D" parent="Graphics" index="0"]
 transform = Transform3D(0.600163, 0, 0, 0, 0.600163, 0, 0, 0, 0.600163, 0.177588, 1.49229, -1.10799)
 

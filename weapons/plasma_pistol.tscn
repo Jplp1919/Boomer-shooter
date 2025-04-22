@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsc16xtjjqlnu"]
+[gd_scene load_steps=19 format=3 uid="uid://dsc16xtjjqlnu"]
 
 [ext_resource type="PackedScene" uid="uid://c8tjjk15s80k5" path="res://weapons/weapon.tscn" id="1_3uau8"]
 [ext_resource type="Script" uid="uid://cmoqj2a53kt4y" path="res://weapons/plasma_pistol.gd" id="2_hfvx0"]
@@ -6,6 +6,9 @@
 [ext_resource type="Shader" uid="uid://ceadnedqc685y" path="res://weapons/projectiles/shaders/plasma_trail.tres" id="3_ahu2p"]
 [ext_resource type="PackedScene" uid="uid://dxmtrpsucg5nl" path="res://weapons/attack_emitters/projectile_emitter.tscn" id="3_ecq07"]
 [ext_resource type="Texture2D" uid="uid://b2f3lru1wjd5w" path="res://weapons/projectiles/assets/textures/circle_05.png" id="4_e468y"]
+[ext_resource type="AudioStream" uid="uid://ms6n2458hq6d" path="res://sfx/weapons/plasma pistol/plasma attack.wav" id="7_ltnj0"]
+[ext_resource type="AudioStream" uid="uid://c0g847rdn2uyy" path="res://sfx/weapons/plasma pistol/plasma equip.wav" id="8_ltnj0"]
+[ext_resource type="AudioStream" uid="uid://bus2xx03stt1y" path="res://sfx/weapons/plasma pistol/out of ammo plasma.wav" id="9_o7ltt"]
 
 [sub_resource type="Gradient" id="Gradient_e468y"]
 offsets = PackedFloat32Array(0.152047, 0.309942, 0.555556, 0.988304)
@@ -93,3 +96,36 @@ process_material = SubResource("ParticleProcessMaterial_s6ue1")
 draw_pass_1 = SubResource("QuadMesh_ltnj0")
 
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_ecq07")]
+
+[node name="PlasmaAttack" type="AudioStreamPlayer" parent="AttackSounds" index="0"]
+stream = ExtResource("7_ltnj0")
+
+[node name="PlasmaAttack2" type="AudioStreamPlayer" parent="AttackSounds" index="1"]
+stream = ExtResource("7_ltnj0")
+pitch_scale = 1.05
+
+[node name="PlasmaAttack3" type="AudioStreamPlayer" parent="AttackSounds" index="2"]
+stream = ExtResource("7_ltnj0")
+pitch_scale = 1.1
+
+[node name="PlasmaEquip" type="AudioStreamPlayer" parent="EquipSounds" index="0"]
+stream = ExtResource("8_ltnj0")
+pitch_scale = 0.9
+
+[node name="PlasmaEquip2" type="AudioStreamPlayer" parent="EquipSounds" index="1"]
+stream = ExtResource("8_ltnj0")
+pitch_scale = 0.95
+
+[node name="PlasmaEquip3" type="AudioStreamPlayer" parent="EquipSounds" index="2"]
+stream = ExtResource("8_ltnj0")
+
+[node name="OutOfAmmoPlasma" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
+stream = ExtResource("9_o7ltt")
+
+[node name="OutOfAmmoPlasma2" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="1"]
+stream = ExtResource("9_o7ltt")
+pitch_scale = 1.15
+
+[node name="OutOfAmmoPlasma3" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="2"]
+stream = ExtResource("9_o7ltt")
+pitch_scale = 1.2
