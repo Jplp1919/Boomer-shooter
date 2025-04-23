@@ -1106,6 +1106,14 @@ script = ExtResource("21_5mkjs")
 transform = Transform3D(1.17545, 0, 0, 0, 1.17545, 0, 0, 0, 1.17545, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5mkjs")
 
+[node name="PlayerUi" type="CanvasLayer" parent="."]
+
+[node name="Death Screen" type="Control" parent="PlayerUi"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="moved" from="CharacterMover" to="Camera Holder/Camera3D/WeaponManager" method="update_animation"]
 
 [editable path="Camera Holder/Camera3D/WeaponManager/Weapons/Sword"]

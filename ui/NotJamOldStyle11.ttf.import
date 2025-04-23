@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ccbko1rgn7mho"
-path="res://.godot/imported/OperationNapalm-nRBWO.ttf-bcc199dc5f8431dabefa949426504652.fontdata"
+uid="uid://brfg085untoqc"
+path="res://.godot/imported/NotJamOldStyle11.ttf-870ac33cbe8a5c38e6db0e2d340d1c0b.fontdata"
 
 [deps]
 
-source_file="res://ui/OperationNapalm-nRBWO.ttf"
-dest_files=["res://.godot/imported/OperationNapalm-nRBWO.ttf-bcc199dc5f8431dabefa949426504652.fontdata"]
+source_file="res://ui/NotJamOldStyle11.ttf"
+dest_files=["res://.godot/imported/NotJamOldStyle11.ttf-870ac33cbe8a5c38e6db0e2d340d1c0b.fontdata"]
 
 [params]
 

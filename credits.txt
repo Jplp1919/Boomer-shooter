@@ -1,3 +1,7 @@
+This project uses some code and logic adapted from Narayana Walters's Udemy course "How to Make a Retro Style 3D FPS in the Godot Game Engine" 
+
+------------------
+
 Recoil System Code
 ------------------
 Original Work:
@@ -20,3 +24,26 @@ https://www.youtube.com/watch?v=74XywaLGO5Q&ab_channel=LeLu
 
 Copyright (c) 2024 Le lu
 Creative Commons Attribution license
+
+------------------
+
+Some Smoke Effects
+------------------
+
+Original Work:
+https://www.youtube.com/watch?v=e_6ZA-xa_DQ&t=852s&ab_channel=LeLu
+
+Copyright (c) 2024 Le lu
+Creative Commons Attribution license
+
+------------------
+
+Shader to Prevent Weapon Clipping
+------------------
+
+Original Work:
+https://www.youtube.com/watch?v=OmodsHOxGQU&t=271s&ab_channel=ChaffGames
+
+MIT License
+Copyright (c) 2023 Chaff Games
+https://opensource.org/license/mit
