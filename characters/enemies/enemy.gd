@@ -28,6 +28,9 @@ var cur_state = STATES.IDLE
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
+@export var max_vertical_distance = 2.5  # Max height difference before considering it "too far"
+@export var retreat_distance = 15.0 
+@export var min_height_difference = 5
 func _ready():
 	var hitboxes = find_children("*", "HitBox")
 	for hitbox in hitboxes:
@@ -104,20 +107,60 @@ func process_idle_state(delta: float) -> void:
 	if vision_manager.can_see_target(player):
 		alert()
 
+#old code before heigth was factored in
+#func process_attack_state(delta: float) -> void:
+	#var attacking = animation_player.current_animation == "attack"
+	#var vec_to_player = player.global_position -global_position
+	#
+	#if vec_to_player.length() <= attack_range and !staggered:
+		#ai_character_mover.stop_moving()
+		#if !attacking and vision_manager.is_facing_target(player):
+			#start_attack()
+		#elif !attacking:
+			#ai_character_mover.set_facing_dir(vec_to_player)
+	#elif !attacking and !staggered:
+		#ai_character_mover.set_facing_dir(ai_character_mover.move_dir)
+		#ai_character_mover.move_to_point(player.global_position)
+		#animation_player.play("walk", -1, 2.0)
+
+
 func process_attack_state(delta: float) -> void:
 	var attacking = animation_player.current_animation == "attack"
-	var vec_to_player = player.global_position -global_position
+	var vec_to_player = player.global_position - global_position
+	var vertical_distance = vec_to_player.y  # Player height - enemy height
+	var horizontal_distance = Vector2(vec_to_player.x, vec_to_player.z).length()
 	
-	if vec_to_player.length() <= attack_range and !staggered:
+	if vertical_distance > min_height_difference:
+		if horizontal_distance < attack_range * 0.6:
+			var retreat_amount = min(retreat_distance, attack_range * 0.3)
+			var retreat_dir = -Vector3(vec_to_player.x, 0, vec_to_player.z).normalized()
+			var retreat_pos = global_position + retreat_dir * retreat_amount
+			
+			if global_position.distance_to(retreat_pos) > 0.5:
+				ai_character_mover.move_to_point(retreat_pos)
+				animation_player.play("walk", -1, 1.3)
+			else:
+				ai_character_mover.stop_moving()
+			return
+				
+		elif horizontal_distance > attack_range * 1.05:
+			ai_character_mover.stop_moving()
+			set_state(STATES.IDLE)
+			return
+	
+	# Attack
+	if horizontal_distance <= attack_range && !staggered:
 		ai_character_mover.stop_moving()
-		if !attacking and vision_manager.is_facing_target(player):
+		if !attacking && vision_manager.is_facing_target(player):
 			start_attack()
 		elif !attacking:
 			ai_character_mover.set_facing_dir(vec_to_player)
-	elif !attacking and !staggered:
+	elif !attacking && !staggered:
 		ai_character_mover.set_facing_dir(ai_character_mover.move_dir)
 		ai_character_mover.move_to_point(player.global_position)
-		animation_player.play("walk", -1, 2.0)
+		animation_player.play("walk", -1, 1.4)
+
+
 
 func start_attack():
 	#$AttackSound.play()

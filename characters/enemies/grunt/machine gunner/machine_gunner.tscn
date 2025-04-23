@@ -32,12 +32,14 @@ radius = 0.123711
 height = 0.600643
 
 [node name="Machine Gunner" node_paths=PackedStringArray("meshes_to_destroy", "animation_player") instance=ExtResource("1_rthfm")]
+wall_min_slide_angle = 0.261799
+safe_margin = 0.001
 script = ExtResource("2_gk877")
 meshes_to_destroy = [NodePath("Graphics/machine gunner/Armature/Skeleton3D/Machinegun")]
 animation_player = NodePath("Graphics/machine gunner/AnimationPlayer")
-attack_range = 60.0
-damage = 10
+attack_range = 20.0
 attack_speed_modifier = 1.0
+retreat_distance = 15.0
 
 [node name="AICharacterMover" parent="." index="0"]
 max_speed = 4.0
