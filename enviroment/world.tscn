@@ -102,33 +102,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4496, 0, 0)
 
 [node name="Machine Gunner" parent="." instance=ExtResource("9_3ihqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.033427, -12)
-wall_min_slide_angle = 0.261799
-safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Rifleman" parent="." instance=ExtResource("10_8mhlp")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -9, 0.0948181, -4)
-wall_min_slide_angle = 0.261799
-safe_margin = 0.001
-retreat_distance = 15.0
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.68142, 0.0948181, -1.10667)
 
 [node name="Rifleman2" parent="." instance=ExtResource("10_8mhlp")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.41859, 0.0948181, -4.51962)
-wall_min_slide_angle = 0.261799
-safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Rifleman4" parent="." instance=ExtResource("10_8mhlp")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.41859, 0.0948181, -3.30252)
-wall_min_slide_angle = 0.261799
-safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Rifleman3" parent="." instance=ExtResource("10_8mhlp")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -7.21306, 0.0948181, -4)
-wall_min_slide_angle = 0.261799
-safe_margin = 0.001
-retreat_distance = 15.0
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.09886, 0.0948181, -6.79571)
 
 [node name="Plasma Pistol Pickup" parent="." instance=ExtResource("13_mqy0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
@@ -140,22 +125,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4)
 transform = Transform3D(-0.554104, 0, 0.832448, 0, 1, 0, -0.832448, 0, -0.554104, -15.6485, 0, 15.3486)
 wall_min_slide_angle = 0.261799
 safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Knight2" parent="." instance=ExtResource("15_if72f")]
 transform = Transform3D(-0.554104, 0, 0.832448, 0, 1, 0, -0.832448, 0, -0.554104, -13.9245, 0, 17.048)
 wall_min_slide_angle = 0.261799
 safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Knight3" parent="." instance=ExtResource("15_if72f")]
 transform = Transform3D(-0.554104, 0, 0.832448, 0, 1, 0, -0.832448, 0, -0.554104, -12.5423, 0, 18.4104)
 wall_min_slide_angle = 0.261799
 safe_margin = 0.001
-retreat_distance = 15.0
 
 [node name="Knight4" parent="." instance=ExtResource("15_if72f")]
 transform = Transform3D(-0.554104, 0, 0.832448, 0, 1, 0, -0.832448, 0, -0.554104, -16.0768, 0, 19.4033)
 wall_min_slide_angle = 0.261799
 safe_margin = 0.001
-retreat_distance = 15.0

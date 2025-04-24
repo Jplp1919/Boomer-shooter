@@ -32,15 +32,10 @@ radius = 0.123711
 height = 0.600643
 
 [node name="Rifleman" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8ujhi")]
-wall_min_slide_angle = 0.261799
+wall_min_slide_angle = 0.0872665
 safe_margin = 0.001
 script = ExtResource("2_f14kh")
 animation_player = NodePath("Graphics/rifleman/AnimationPlayer")
-attack_speed_modifier = 1.0
-retreat_distance = 15.0
-
-[node name="AICharacterMover" parent="." index="0"]
-max_speed = 10.0
 
 [node name="HealthManager" parent="." index="1"]
 max_health = 50

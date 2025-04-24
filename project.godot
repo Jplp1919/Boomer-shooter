@@ -26,6 +26,7 @@ project/assembly_name="project-boomer"
 [global_group]
 
 player=""
+enemies=""
 
 [gui]
 

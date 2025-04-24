@@ -17,7 +17,6 @@ collision_mask = 3
 wall_min_slide_angle = 0.610865
 safe_margin = 1.0
 script = ExtResource("1_4schq")
-retreat_distance = 0.001
 
 [node name="AICharacterMover" parent="." instance=ExtResource("2_3vt6o")]
 

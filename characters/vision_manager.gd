@@ -22,6 +22,7 @@ func can_see_target(target: Node3D):
 	if fwd.angle_to(dir_to_target) > deg_to_rad(sight_arc/2.0):
 		return false
 	
+	
 	los_ray_cast_3d.enabled = true
 	los_ray_cast_3d.target_position = los_ray_cast_3d.to_local(target_pos)
 	los_ray_cast_3d.force_raycast_update()
@@ -29,6 +30,8 @@ func can_see_target(target: Node3D):
 	los_ray_cast_3d.enabled = false
 	
 	return has_los
+
+
 
 func is_facing_target(target: Node3D):
 	var pos = to_local(target.global_position)
