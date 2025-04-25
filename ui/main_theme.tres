@@ -1,3 +1,38 @@
-[gd_resource type="Theme" format=3 uid="uid://77q7co7juoby"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://77q7co7juoby"]
+
+[ext_resource type="FontFile" uid="uid://brfg085untoqc" path="res://ui/NotJamOldStyle11.ttf" id="1_g1fjd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xb56"]
+bg_color = Color(0.287295, 0.287295, 0.287295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1fjd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tukj"]
+bg_color = Color(0.083392, 0.083392, 0.083392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joxlk"]
+bg_color = Color(0.123473, 0.123473, 0.123473, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 3
 
 [resource]
+default_font = ExtResource("1_g1fjd")
+Button/styles/hover = SubResource("StyleBoxFlat_3xb56")
+Button/styles/normal = SubResource("StyleBoxFlat_g1fjd")
+Button/styles/pressed = SubResource("StyleBoxFlat_6tukj")
+Panel/styles/panel = SubResource("StyleBoxFlat_joxlk")

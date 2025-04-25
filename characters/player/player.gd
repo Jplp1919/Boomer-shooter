@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var character_mover: Node3D = $CharacterMover
 @onready var weapon_manager: Node3D = %WeaponManager
 @onready var health_manager: Node3D = $HealthManager
+@onready var death_screen: Control = $"PlayerUi/Death Screen"
 
 
 
@@ -83,7 +84,7 @@ func _process(delta):
 func kill():
 	dead = true
 	character_mover.set_move_dir(Vector3.ZERO)
-	#death_screen.show_death_screen()
+	death_screen.show_death_screen()
 
 func hurt(damege_data : DamageData):
 	health_manager.hurt(damege_data)
