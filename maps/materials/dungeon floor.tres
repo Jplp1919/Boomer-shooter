@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bsf3rssrnx1e1"]
+
+[ext_resource type="Texture2D" uid="uid://bv0u4qo4areut" path="res://enviroment/assets/dungeon/cobble 32 gimp.png" id="1_6cxdd"]
+[ext_resource type="Texture2D" uid="uid://b2d2r8hdsg1yd" path="res://enviroment/assets/dungeon/cobble 32 krita_n.png" id="2_yoc6o"]
+
+[resource]
+albedo_texture = ExtResource("1_6cxdd")
+normal_enabled = true
+normal_scale = 3.42
+normal_texture = ExtResource("2_yoc6o")
+uv1_triplanar = true
+texture_filter = 0

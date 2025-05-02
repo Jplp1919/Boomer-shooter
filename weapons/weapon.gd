@@ -74,6 +74,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.play("attack")
 	fired.emit()
 	$"AttackSounds".play()
+	update_ammo()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
 
@@ -86,7 +87,7 @@ func set_active (a:bool):
 	if !a:
 		animation_player.play("RESET")
 	else:
-		ammo_updated.emit(AmmoManager.get_ammo(ammo_type), AmmoManager.get_max_ammo(ammo_type))
+		update_ammo()
 
 func is_idle ()->bool:
 	return !animation_player.is_playing()
@@ -107,3 +108,6 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 
 func play_equip_sound():
 	$EquipSounds.play()
+
+func update_ammo():
+	ammo_updated.emit(AmmoManager.get_ammo(ammo_type), AmmoManager.get_max_ammo(ammo_type))

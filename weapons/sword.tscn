@@ -113,6 +113,7 @@ attack_rate = 0.4
 transform = Transform3D(1.14641e-15, 2.62268e-08, 0.6, 0.6, -2.62268e-08, 0, 2.62268e-08, 0.6, -2.62268e-08, 0, 0, 0)
 
 [node name="Knife" parent="Graphics/trench knife" index="0"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_41ror")
 
 [node name="AreaDamageEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_wogx0")]

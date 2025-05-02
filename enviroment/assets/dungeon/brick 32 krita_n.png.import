@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp3ao0c5y63gg"
-path.s3tc="res://.godot/imported/machinegun_wood 128.png-0c7445e267d4f4410d1df04295d925b0.s3tc.ctex"
+uid="uid://qdd0b0u1l1sp"
+path.s3tc="res://.godot/imported/brick 32 krita_n.png-4edccc255ba4c956540cd2453bd8afa6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "e4f345e535982309ac8772481727a7a8"
-}
 
 [deps]
 
-source_file="res://weapons/assets/machinegun_wood 128.png"
-dest_files=["res://.godot/imported/machinegun_wood 128.png-0c7445e267d4f4410d1df04295d925b0.s3tc.ctex"]
+source_file="res://enviroment/assets/dungeon/brick 32 krita_n.png"
+dest_files=["res://.godot/imported/brick 32 krita_n.png-4edccc255ba4c956540cd2453bd8afa6.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://weapons/assets/machinegun_wood 128.png"
+roughness/src_normal="res://enviroment/assets/dungeon/brick 32 krita_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

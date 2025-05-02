@@ -40,6 +40,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if !fired_right:
 		animation_player.play("attack")
 		$AttackSounds.play()
+		update_ammo()
 		camera_holder.apply_recoil(recoil)
 		if muzzle_flash != null:
 			muzzle_flash.emitting = true
@@ -48,6 +49,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	else:
 		animation_player.play("alt_attack")
 		$AltAttackSounds.play()
+		update_ammo()
 		camera_holder.apply_recoil(alt_recoil)
 		if muzzle_flash_2 != null:
 			muzzle_flash_2.emitting = true
@@ -94,6 +96,7 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 	animation_player.play("alt_attack")
 	fired.emit()
 	$AltAttackSounds.play()
+	update_ammo()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
 	if fired_right and fired_left:

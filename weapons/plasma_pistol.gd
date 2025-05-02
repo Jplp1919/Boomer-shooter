@@ -32,6 +32,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.play("attack")
 	fired.emit()
 	$"AttackSounds".play()
+	update_ammo()
 	sparks.emitting = true
 	trails.show()
 	await get_tree().create_timer(0.1).timeout

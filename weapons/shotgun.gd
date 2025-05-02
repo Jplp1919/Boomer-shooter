@@ -31,6 +31,7 @@ func alt_attack(input_just_pressed: bool, input_held: bool):
 	animation_player.play("alt_attack")
 	fired.emit()
 	$"AttackSounds".play()
+	update_ammo()
 	if muzzle_flash != null:
 		muzzle_flash.emitting = true
 

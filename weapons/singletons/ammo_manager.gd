@@ -34,6 +34,7 @@ func use_ammo(ammo_type: Weapon.AmmoType, amount: int):
 func add_ammo(ammo_type: Weapon.AmmoType, amount: int):
 	if ammo_type in ammo_pools:
 		ammo_pools[ammo_type] = min(ammo_pools[ammo_type] + amount, max_ammo[ammo_type])
+		
 
 func reset_ammo():
 	ammo_pools[Weapon.AmmoType._12GA] = 0

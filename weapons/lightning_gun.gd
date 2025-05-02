@@ -49,6 +49,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 		animation_player.play("attack")
 		fired.emit()
 		$"AttackSounds".play()
+		update_ammo()
 		sparks.emitting = true
 		
 		await get_tree().create_timer(attack_rate).timeout

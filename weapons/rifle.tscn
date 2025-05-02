@@ -12,6 +12,9 @@
 [node name="semi auto rifle" parent="Graphics" index="0" instance=ExtResource("2_0p17f")]
 transform = Transform3D(-2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 0, 0, 0)
 
+[node name="Rifle" parent="Graphics/semi auto rifle" index="0"]
+cast_shadow = 0
+
 [node name="ProjectileEmitter" parent="AttackEmitter" index="0" instance=ExtResource("3_r1bic")]
 projectile_type = 1
 
@@ -47,3 +50,5 @@ pitch_scale = 1.45
 
 [node name="RifleOutOfAmmo" type="AudioStreamPlayer" parent="OutOfAmmoSounds" index="0"]
 stream = ExtResource("6_ntrth")
+
+[editable path="Graphics/semi auto rifle"]

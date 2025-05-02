@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5pvjg0mcmj7g"]
+
+[ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="1_432d5"]
+[ext_resource type="PackedScene" uid="uid://bfexrdwwuvka6" path="res://pickups/rifle_pickup.tscn" id="3_i4l5t"]
+[ext_resource type="Material" uid="uid://bsf3rssrnx1e1" path="res://maps/materials/dungeon floor.tres" id="5_6yhb6"]
+[ext_resource type="PackedScene" uid="uid://ljdmyu6e72uq" path="res://characters/enemies/grunt/rifleman/rifleman.tscn" id="5_ejn8q"]
+[ext_resource type="PackedScene" uid="uid://b8ft78fjd6hs6" path="res://pickups/machinegun_pickup.tscn" id="5_ybfvm"]
+[ext_resource type="Material" uid="uid://bf4icb70ydhnh" path="res://maps/materials/dungeon wall.tres" id="6_ybfvm"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_i4l5t"]
+vertices = PackedVector3Array(-10.3547, 7.70145, -2.68377, -10.3547, 7.70145, 8.31623, -9.85472, 7.70145, 8.31623, -9.85472, 7.70145, -2.93377, 18.1453, 7.70145, -2.68377, 18.1453, 7.70145, -3.18377, -15.8547, 7.70145, -3.18377, 2.89528, 0.45145, 7.31623, 3.14528, 0.45145, -1.93377, -9.10472, 0.45145, -1.93377, -9.10472, 0.45145, 7.31623, 4.39528, 0.45145, 7.31623, 4.64528, 0.45145, 8.56623, 17.1453, 0.45145, 8.56623, 17.1453, 0.45145, -1.93377, 4.39528, 0.45145, 9.56623, 2.39528, 0.45145, 26.0662, 17.1453, 0.45145, 26.0662, 2.39528, 0.45145, 9.56623, -10.3547, 0.45145, 9.31623, -10.3547, 0.45145, 26.0662)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(3, 0, 6), PackedInt32Array(10, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 7, 8), PackedInt32Array(11, 8, 12), PackedInt32Array(12, 8, 13), PackedInt32Array(13, 8, 14), PackedInt32Array(12, 13, 15), PackedInt32Array(15, 13, 17), PackedInt32Array(15, 17, 16), PackedInt32Array(16, 18, 15), PackedInt32Array(16, 20, 18), PackedInt32Array(18, 20, 19)]
+geometry_source_geometry_mode = 1
+
+[sub_resource type="Environment" id="Environment_ejn8q"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.436477, 0.460452, 0.446943, 1)
+ambient_light_energy = 0.1
+fog_enabled = true
+fog_light_color = Color(0.693057, 0.719314, 0.560011, 1)
+
+[node name="ETM1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_432d5")]
+transform = Transform3D(-0.998922, 0, -0.0464264, 0, 1, 0, 0.0464264, 0, -0.998922, 0, 0, 2.27261)
+
+[node name="Rifle Pickup" parent="." instance=ExtResource("3_i4l5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58825, 0, 6.05635)
+
+[node name="Enemy Group 1" type="Node" parent="."]
+
+[node name="Rifleman" parent="Enemy Group 1" instance=ExtResource("5_ejn8q")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2, 0, 13)
+
+[node name="Rifleman2" parent="Enemy Group 1" instance=ExtResource("5_ejn8q")]
+transform = Transform3D(-0.316411, 0, -0.948622, 0, 1, 0, 0.948622, 0, -0.316411, -2.81912, 0, 15.5528)
+
+[node name="Rifleman3" parent="Enemy Group 1" instance=ExtResource("5_ejn8q")]
+transform = Transform3D(-0.470904, 0, -0.882184, 0, 1, 0, 0.882184, 0, -0.470904, -2.81912, 0, 20.9821)
+
+[node name="Rifleman4" parent="Enemy Group 1" instance=ExtResource("5_ejn8q")]
+transform = Transform3D(-0.19146, 0, -0.9815, 0, 1, 0, 0.9815, 0, -0.19146, -2.81912, 0, 23.8745)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_i4l5t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.989619, 0, -0.143717, -0.00868359, 0.998173, 0.0597941, 0.143455, 0.0604214, -0.987811, 4.64736, 1.25754, 0)
+light_energy = 20.0
+spot_range = 25.0
+
+[node name="MachinegunPickup" parent="." instance=ExtResource("5_ybfvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8124, 0, 15.8947)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ejn8q")
+
+[node name="Enviroment" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="Floor" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88955, -0.5, 11.4112)
+material_override = ExtResource("5_6yhb6")
+use_collision = true
+size = Vector3(29.4198, 1, 30.0851)
+
+[node name="Wall" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97084, 3.13791, 8.449)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(13.7613, 8.37292, 1)
+
+[node name="Wall2" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.3025, 3.13791, 2.56203)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(12.1045, 8.37292, 1)
+
+[node name="Wall3" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 1.15577, 3.13791, -3.13649)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(35.021, 8.37292, 1)
+
+[node name="Wall4" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 18.2243, 3.13791, 11.3806)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(30.1288, 8.37292, 1)
+
+[node name="Wall5" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 3.59012, 3.13791, 26.0552)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(28.4255, 8.37292, 1)
+
+[node name="Wall6" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.4798, 3.13791, 14.238)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(24.6511, 8.37292, 1)
+
+[node name="Ceiling" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(-1.3027e-15, 1, -4.37114e-08, -2.98023e-08, -4.37114e-08, -1, -1, 0, 2.98023e-08, 4.24425, 6.74958, 11.1936)
+material_override = ExtResource("6_ybfvm")
+use_collision = true
+size = Vector3(30.7399, 29.5335, 1)

@@ -30,12 +30,16 @@ func on_area_enter(pickup: Area3D):
 				weapon_manager.enable_weapon(weapon)
 				if AmmoManager.get_ammo(weapon.ammo_type) <  AmmoManager.get_max_ammo(weapon.ammo_type):
 					AmmoManager.add_ammo(weapon.ammo_type, pickup.pickup_amnt)
+					if weapon_manager.cur_weapon.ammo_type == weapon.ammo_type:
+						weapon.update_ammo()
 					#weapon.add_ammo(pickup.pickup_amnt)
 				#ammo_sounds[pickup.weapon_type].play()
 			Pickup.PICKUP_TYPES.AMMO:
 				var weapon : Weapon = weapon_manager.get_weapon_from_pickup_type(pickup.weapon_type)
 				if AmmoManager.get_ammo(weapon.ammo_type) < AmmoManager.get_max_ammo(weapon.ammo_type):
 					AmmoManager.add_ammo(weapon.ammo_type, pickup.pickup_amnt)
+					if weapon_manager.cur_weapon.ammo_type == weapon.ammo_type:
+						weapon.update_ammo()
 				#ammo_sounds[pickup.weapon_type].play()
 	if delete_on_pickup:
 		#pickup_info.on_pickup(pickup)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctidkrf770s4d"]
+
+[ext_resource type="Material" uid="uid://bf4icb70ydhnh" path="res://maps/materials/dungeon wall.tres" id="1_h3yua"]
+[ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="1_v0ust"]
+
+[node name="ETM2" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+flip_faces = true
+size = Vector3(15, 5, 15)
+material = ExtResource("1_h3yua")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235703, 1.45587, -15.9112)
+flip_faces = true
+size = Vector3(4.45377, 3.8114, 17.867)
+material = ExtResource("1_h3yua")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.63978, 1.45587, -24.8689)
+flip_faces = true
+size = Vector3(4.45377, 3.8114, 17.867)
+material = ExtResource("1_h3yua")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.406, 13.6028, -26.4231)
+flip_faces = true
+size = Vector3(30.8881, 28.2056, 24.3401)
+material = ExtResource("1_h3yua")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.986421, -0.164238, 0, 0.164238, 0.986421, 0, 0, 0, 1, 60.446, 25.8498, -26.5241)
+flip_faces = true
+size = Vector3(35.2959, 11.094, 7.94873)
+material = ExtResource("1_h3yua")
+
+[node name="Player" parent="." instance=ExtResource("1_v0ust")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6492, -0.0252826, -28.449)
