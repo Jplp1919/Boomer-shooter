@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5pvjg0mcmj7g"]
+[gd_scene load_steps=10 format=3 uid="uid://b5pvjg0mcmj7g"]
 
 [ext_resource type="PackedScene" uid="uid://dkukwdl83728d" path="res://characters/player/player.tscn" id="1_432d5"]
 [ext_resource type="PackedScene" uid="uid://bfexrdwwuvka6" path="res://pickups/rifle_pickup.tscn" id="3_i4l5t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ljdmyu6e72uq" path="res://characters/enemies/grunt/rifleman/rifleman.tscn" id="5_ejn8q"]
 [ext_resource type="PackedScene" uid="uid://b8ft78fjd6hs6" path="res://pickups/machinegun_pickup.tscn" id="5_ybfvm"]
 [ext_resource type="Material" uid="uid://bf4icb70ydhnh" path="res://maps/materials/dungeon wall.tres" id="6_ybfvm"]
+[ext_resource type="PackedScene" uid="uid://cv6her2hccid0" path="res://pickups/trench_gun_pickup.tscn" id="7_6yhb6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_i4l5t"]
 vertices = PackedVector3Array(-10.3547, 7.70145, -2.68377, -10.3547, 7.70145, 8.31623, -9.85472, 7.70145, 8.31623, -9.85472, 7.70145, -2.93377, 18.1453, 7.70145, -2.68377, 18.1453, 7.70145, -3.18377, -15.8547, 7.70145, -3.18377, 2.89528, 0.45145, 7.31623, 3.14528, 0.45145, -1.93377, -9.10472, 0.45145, -1.93377, -9.10472, 0.45145, 7.31623, 4.39528, 0.45145, 7.31623, 4.64528, 0.45145, 8.56623, 17.1453, 0.45145, 8.56623, 17.1453, 0.45145, -1.93377, 4.39528, 0.45145, 9.56623, 2.39528, 0.45145, 26.0662, 17.1453, 0.45145, 26.0662, 2.39528, 0.45145, 9.56623, -10.3547, 0.45145, 9.31623, -10.3547, 0.45145, 26.0662)
@@ -26,7 +27,7 @@ fog_light_color = Color(0.693057, 0.719314, 0.560011, 1)
 transform = Transform3D(-0.998922, 0, -0.0464264, 0, 1, 0, 0.0464264, 0, -0.998922, 0, 0, 2.27261)
 
 [node name="Rifle Pickup" parent="." instance=ExtResource("3_i4l5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58825, 0, 6.05635)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.37448, 0, 6.05635)
 
 [node name="Enemy Group 1" type="Node" parent="."]
 
@@ -47,11 +48,11 @@ navigation_mesh = SubResource("NavigationMesh_i4l5t")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.989619, 0, -0.143717, -0.00868359, 0.998173, 0.0597941, 0.143455, 0.0604214, -0.987811, 4.64736, 1.25754, 0)
-light_energy = 20.0
+light_energy = 10.0
 spot_range = 25.0
 
 [node name="MachinegunPickup" parent="." instance=ExtResource("5_ybfvm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8124, 0, 15.8947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.32726, 0, 7.32017)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ejn8q")
@@ -105,3 +106,6 @@ transform = Transform3D(-1.3027e-15, 1, -4.37114e-08, -2.98023e-08, -4.37114e-08
 material_override = ExtResource("6_ybfvm")
 use_collision = true
 size = Vector3(30.7399, 29.5335, 1)
+
+[node name="TrenchGunPickup" parent="." instance=ExtResource("7_6yhb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6)
